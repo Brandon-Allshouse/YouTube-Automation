@@ -15,7 +15,7 @@ and nothing is uploaded except by the owner (`--live`, private by default). Both
 
 ## Demo
 `output/demo/mercator-short.mp4` (generated, gitignored): "Greenland looks as big as Africa, but it
-isn't even close." It runs 57 s at 1080x1920 with a synthetic voice, word captions, a cinematic bed, map
+isn't even close." It runs 55 s at 1080x1920 with a synthetic voice, word captions, a cinematic bed, map
 animations, -14 LUFS, and passes every automated quality check. Its 16:9 twin is `mercator-16x9.mp4`;
 thumbnails are in `output/demo/thumbnails/`; the review log is [output/demo/REVIEW.md](output/demo/REVIEW.md).
 

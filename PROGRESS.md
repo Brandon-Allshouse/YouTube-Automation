@@ -2,6 +2,14 @@
 
 > Handoff document. On (re)start: read `CLAUDE.md` → this file → `DECISIONS.md`, then continue from "Current step".
 
+## Session 2 (2026-10-15, owner awake): operational push
+Owner feedback after the build: the voice sounded too synthetic. Key rotation is deferred (the owner's call), and the owner committed everything (`40cc330`). Goal: get the pipeline operational and producing videos that beat the competition, with as few dependencies as possible.
+- **Voice: DONE (ADR-031).** The owner picked `am_fenrir` from an A/B (`output/dev/voice_ab/`). Each segment is now voiced in one continuous pass with word timings from the model, plus a lighter chain and room tone. The demo, its 16:9 twin and the exports were re-rendered; all checks pass. Neon now uses `af_heart` (not yet heard by the owner).
+- **If the voice is still too synthetic,** the next option is a heavier expressive open model (e.g. Chatterbox, MIT) in its own container. It needs PyTorch and is slower on CPU, so it needs the owner's OK.
+- **Bug hunt: DONE.** Ran the real operational flow end to end on a backed-up DB and fixed what it exposed: script/video channel binding, quality gate reading the approved files from the DB, thumbnails rendered from scripts and uploaded (long-form), the agents' missing `set-script` step (+ headless permission), visual-director timing vs approval, stale publish slots, rescheduling, repo-relative output paths, test-artifact cleanup, velocity snapshot cache. See CHANGELOG "Fixed".
+- Leftover test folders the agent could not delete (`rm -rf` is denied): `output/videos/{test-publish,test-swap,v-41e0c9238e,v-c1406bcd46,v-e191cef29b,v-e2etest01,v-e2etest02}`. Safe to delete.
+- **Next:** second live `velocity_radar` run after 15:54 EDT (first snapshot 07:52-07:54 UTC); pick channels and niches with the owner; first real `/write-batch` into the review queue.
+
 ## Morning summary (2026-10-15): all 16 steps done
 
 ### What works
@@ -28,9 +36,9 @@ Runbook: `docs/OPERATIONS.md`. Everything runs in Docker; the host only needs Do
 - Open low-severity review items are listed in ADR-030.
 
 ### Owner checklist (in order)
-1. **Rotate the YouTube Data API key** (the build agent used it), restrict it to YouTube Data API v3, and update `.env`.
+1. Rotate the YouTube Data API key (the build agent used it) and restrict it to YouTube Data API v3. *Deferred by the owner for now.*
 2. Skim `output/demo/mercator-short.mp4`, the thumbnails and `output/demo/REVIEW.md`.
-3. **Commit** using the 10 groups in `COMMITS.md` (in order; each leaves the repo passing; `.env` is in no group). Optionally run `pre-commit install`.
+3. ~~Commit~~ *Done by the owner (`40cc330`).* Commit using the 10 groups in `COMMITS.md` (in order; each leaves the repo passing; `.env` is in no group). Optionally run `pre-commit install`.
 4. Push. Then **Settings → Code security**: enable Dependabot alerts, Dependabot security updates, grouped security updates, and **Code scanning → CodeQL → Advanced** (not default setup). **CodeQL is free on public repos; a private repo needs GitHub Code Security (paid), otherwise the CodeQL workflow fails.**
 5. Go-live steps (YouTube Analytics API, Desktop OAuth client outside the repo, channel accounts, `oauth authorize`, live research, cron) are in `docs/OPERATIONS.md`.
 6. Decide on channel names (working titles: "Atlas Unfolded", "Neon Lab") and confirm niches using the live research notes below.

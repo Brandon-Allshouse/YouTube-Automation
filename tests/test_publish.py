@@ -119,7 +119,7 @@ def test_metadata_defaults_private_with_publish_at() -> None:
 
 def test_dry_run_and_public_confirmation(db: sqlite3.Connection, monkeypatch: pytest.MonkeyPatch) -> None:
     vid = _video(db)
-    _schedule(db, vid, NOW + timedelta(days=1))
+    _schedule(db, vid, datetime.now(UTC) + timedelta(days=2))  # publishAt must be in the future
     dbm.set_path(db, vid, "script_path", "config/demo/mercator_short.yaml")
     mp4 = REPO_ROOT / "output" / "videos" / "test-publish" / "x.mp4"
     mp4.parent.mkdir(parents=True, exist_ok=True)
@@ -196,3 +196,77 @@ def test_publish_requires_fingerprints(db: sqlite3.Connection) -> None:
     dbm.set_path(db, vid, "output_path", str(REPO_ROOT / "output" / "videos" / "x.mp4"))
     with pytest.raises(youtube.PublishGateError, match="fingerprint"):
         youtube.check_gate(dbm.get_video(db, vid))
+
+
+# --- operational fixes (end-to-end run, 2026-10-15) --------------------------------------------
+
+
+def test_publish_refuses_past_slot_with_guidance() -> None:
+    video = {"id": "v-1", "scheduled_for": "2026-10-15T08:00:00+00:00"}
+    with pytest.raises(youtube.PublishGateError, match="timing --video-id v-1 --schedule"):
+        youtube.check_slot(video, "private", now=datetime(2026, 10, 15, 7, 50, tzinfo=UTC))
+    youtube.check_slot(video, "private", now=datetime(2026, 10, 15, 7, 0, tzinfo=UTC))
+    youtube.check_slot(video, "unlisted", now=datetime(2026, 10, 16, tzinfo=UTC))  # no publishAt involved
+
+
+def test_pick_thumbnail_takes_first_legible_variant(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(youtube, "OUTPUT_DIR", tmp_path)
+    vdir = tmp_path / "videos" / "v-1"
+    tdir = vdir / "thumbnails"
+    tdir.mkdir(parents=True)
+    assert youtube.pick_thumbnail(vdir) is None  # nothing rendered
+    for name in ("thumb-a", "thumb-b"):
+        (tdir / f"{name}.png").write_bytes(b"png")
+    (tdir / "thumbnails.json").write_text(
+        json.dumps({"thumb-a": {"passed": False}, "thumb-b": {"passed": True}}), encoding="utf-8"
+    )
+    picked = youtube.pick_thumbnail(vdir)
+    assert picked is not None and picked.name == "thumb-b.png"
+
+
+def test_publish_refuses_script_for_another_channel(db: sqlite3.Connection) -> None:
+    vid = _video(db, ch="neon")  # the demo script belongs to atlas
+    _schedule(db, vid, datetime.now(UTC) + timedelta(days=2))
+    dbm.set_path(db, vid, "script_path", "config/demo/mercator_short.yaml")
+    mp4 = REPO_ROOT / "output" / "videos" / "test-channel" / "x.mp4"
+    mp4.parent.mkdir(parents=True, exist_ok=True)
+    mp4.write_bytes(b"render")
+    dbm.set_path(db, vid, "output_path", mp4.relative_to(REPO_ROOT).as_posix())
+    db.execute("UPDATE videos SET script_sha256 = ?, output_sha256 = ? WHERE id = ?",
+               (dbm.file_sha256(REPO_ROOT / "config/demo/mercator_short.yaml"), dbm.file_sha256(mp4), vid))  # fmt: skip
+    db.commit()
+    with pytest.raises(youtube.PublishGateError, match="channel"):
+        youtube.publish(db, vid, live=False)
+
+
+def test_rescheduling_ignores_the_videos_own_old_slot(db: sqlite3.Connection) -> None:
+    vid = _video(db)
+    _schedule(db, vid, NOW + timedelta(hours=5))
+    assert [t for _, _, t in timing._scheduled(db)] == [NOW + timedelta(hours=5)]
+    assert timing._scheduled(db, exclude=vid) == []
+    # with its own slot ignored, the proposal is what an empty schedule would give
+    empty = dbm.connect(":memory:")  # type: ignore[arg-type]
+    try:
+        assert timing.propose_slot(db, "atlas", "short", vid, now=NOW) == timing.propose_slot(
+            empty, "atlas", "short", vid, now=NOW
+        )
+    finally:
+        empty.close()
+
+
+def test_pick_thumbnail_ignores_untrusted_names(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(youtube, "OUTPUT_DIR", tmp_path)
+    vdir = tmp_path / "videos" / "v-1"
+    (vdir / "thumbnails").mkdir(parents=True)
+    (tmp_path / "videos" / "evil.png").write_bytes(b"png")
+    report = {"../evil": {"passed": True}, "thumb-a": "not a dict", "thumb-b": {"passed": "yes"}}
+    (vdir / "thumbnails" / "thumbnails.json").write_text(json.dumps(report), encoding="utf-8")
+    assert youtube.pick_thumbnail(vdir) is None
+    (vdir / "thumbnails" / "thumbnails.json").write_text("[1, 2]", encoding="utf-8")
+    assert youtube.pick_thumbnail(vdir) is None
+
+
+def test_youtube_id_format() -> None:
+    assert youtube._YT_ID.fullmatch("dQw4w9WgXcQ")
+    assert not youtube._YT_ID.fullmatch("../../etc/x")
+    assert not youtube._YT_ID.fullmatch("dQw4w9WgXcQ&x=1")

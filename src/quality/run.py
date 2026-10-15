@@ -101,15 +101,29 @@ def to_markdown(rep: dict[str, Any]) -> str:
 def main(argv: list[str] | None = None) -> int:
     """CLI entry point."""
     p = argparse.ArgumentParser(description="Automated quality checks")
-    p.add_argument("--video", type=Path, required=True)
-    p.add_argument("--spec", type=Path, required=True)
-    p.add_argument("--script", type=Path, required=True)
+    p.add_argument("--video", type=Path)
+    p.add_argument("--spec", type=Path)
+    p.add_argument("--script", type=Path)
     p.add_argument("--audio", type=Path)
-    p.add_argument("--video-id", help="on PASS, mark this rendered video 'checked' and record the render's sha256")
+    p.add_argument(
+        "--video-id",
+        help="check this video's recorded render, spec, audio and approved script (no other paths allowed); "
+        "on PASS mark it 'checked' and record the render's sha256",
+    )
     a = p.parse_args(argv)
-    video = ensure_within(a.video, OUTPUT_DIR)
-    wav = ensure_within(a.audio, OUTPUT_DIR) if a.audio else None
-    rep = run(video, a.spec, a.script, wav)
+    if a.video_id:
+        if a.video or a.spec or a.script or a.audio:
+            p.error("--video-id takes its files from the database; don't pass --video/--spec/--script/--audio")
+        video, spec, script, wav = recorded_inputs(a.video_id)
+    else:
+        if not (a.video and a.spec and a.script):
+            p.error("--video, --spec and --script are required without --video-id")
+        video, spec, script = ensure_within(a.video, OUTPUT_DIR), a.spec, a.script
+        wav = ensure_within(a.audio, OUTPUT_DIR) if a.audio else None
+    from src.db import file_sha256
+
+    digest = file_sha256(video)  # the exact bytes being judged
+    rep = run(video, spec, script, wav)
     rdir = ensure_dir(video.parent / f"{video.stem}_review")
     (rdir / "quality.json").write_text(json.dumps(rep, indent=2, default=str), encoding="utf-8")
     (rdir / "quality.md").write_text(to_markdown(rep), encoding="utf-8")
@@ -126,22 +140,54 @@ def main(argv: list[str] | None = None) -> int:
         )
     )
     if a.video_id and rep["passed"]:
-        mark_checked(a.video_id, video)
+        mark_checked(a.video_id, video, digest)
     return 0 if rep["passed"] else 1
 
 
-def mark_checked(video_id: str, video: Path) -> None:
-    """Only a passing quality run can move rendered → checked; it pins the exact file that passed."""
+def recorded_inputs(video_id: str) -> tuple[Path, Path, Path, Path | None]:
+    """(video, spec, approved script, audio) for a rendered video, straight from the database.
+
+    The gate must judge exactly what will be uploaded and the script the human approved, so none
+    of these can come from the caller.
+
+    Raises:
+        SystemExit: Unknown/unrendered video, or the approved script changed since approval.
+    """
     from src import db as dbm
 
     conn = dbm.connect()
     try:
         v = dbm.get_video(conn, video_id)
-        if v is None or v["state"] != "rendered" or Path(str(v["output_path"])).resolve() != video.resolve():
+    finally:
+        conn.close()
+    if v is None or v["state"] != "rendered" or not v["output_path"] or not v["script_path"]:
+        raise SystemExit("refused: video must be 'rendered' with a recorded output and approved script")
+    video = ensure_within(REPO_ROOT / str(v["output_path"]), OUTPUT_DIR / "videos")
+    script = ensure_within(REPO_ROOT / str(v["script_path"]), REPO_ROOT / "data" / "scripts")
+    if not v["script_sha256"] or dbm.file_sha256(script) != v["script_sha256"]:
+        raise SystemExit("refused: the approved script changed since approval")
+    wav = video.with_suffix(".wav")
+    return video, video.with_suffix(".spec.json"), script, wav if wav.is_file() else None
+
+
+def mark_checked(video_id: str, video: Path, digest: str | None = None) -> None:
+    """Only a passing quality run can move rendered → checked; it pins the exact file that passed.
+
+    ``digest`` is the render's sha256 taken before the checks ran; a file changed meanwhile is refused.
+    """
+    from src import db as dbm
+
+    conn = dbm.connect()
+    try:
+        v = dbm.get_video(conn, video_id)
+        if v is None or v["state"] != "rendered" or (REPO_ROOT / str(v["output_path"])).resolve() != video.resolve():
             raise SystemExit("refused: video must be 'rendered' and the checked file must be its recorded output")
+        now = dbm.file_sha256(video)
+        if digest is not None and now != digest:
+            raise SystemExit("refused: the render changed while it was being checked")
         dbm.transition(conn, video_id, "checked", actor="pipeline", note="automated quality checks passed")
         with dbm.transaction(conn):
-            conn.execute("UPDATE videos SET output_sha256 = ? WHERE id = ?", (dbm.file_sha256(video), video_id))
+            conn.execute("UPDATE videos SET output_sha256 = ? WHERE id = ?", (now, video_id))
     finally:
         conn.close()
 

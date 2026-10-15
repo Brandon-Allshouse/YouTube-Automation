@@ -18,7 +18,7 @@ import argparse
 import json
 import math
 from pathlib import Path
-from typing import Annotated, Literal
+from typing import Annotated
 
 import numpy as np
 import numpy.typing as npt
@@ -33,6 +33,7 @@ from engine.core.scene import Rect, RenderContext
 from engine.core.text import fit_text
 from engine.core.theme import load_theme
 from src.common.paths import OUTPUT_DIR, REPO_ROOT, ensure_dir, ensure_within, safe_join, validate_id
+from src.production.script import Focal, Script, load_script
 from src.quality.legibility import LegibilityReport, TextBox, check_legibility, phone_preview
 
 W, H = 1280, 720
@@ -40,18 +41,6 @@ W, H = 1280, 720
 
 class _M(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True, str_strip_whitespace=True)
-
-
-class Focal(_M):
-    """The single focal visual."""
-
-    kind: Literal["silhouettes", "map_ghost", "stat", "icon"]
-    countries: list[Annotated[str, Field(pattern=r"^[A-Z]{3}$")]] = Field(default_factory=list, max_length=3)
-    labels: list[Annotated[str, Field(max_length=16)]] = Field(default_factory=list, max_length=3)
-    continent: str | None = None  # draw a whole continent as one silhouette (first slot)
-    value: Annotated[str, Field(max_length=8)] = ""
-    icon: str = "globe"
-    strike: bool = False
 
 
 class ThumbSpec(_M):
@@ -353,34 +342,31 @@ def build_variant(spec: ThumbSpec, out_dir: Path) -> LegibilityReport:
     return report
 
 
-DEMO_VARIANTS = [
-    ThumbSpec(
-        id="thumb-a-africa14",
-        theme="atlas",
-        text="Africa ×14",
-        highlight="×14",
-        focal=Focal(
-            kind="silhouettes",
-            continent="Africa",
-            countries=["GRL"],
-            labels=["Africa", "Greenland"],
-        ),
-    ),
-    ThumbSpec(
-        id="thumb-b-your-map-lies",
-        theme="atlas",
-        text="Your map lies",
-        highlight="lies",
-        focal=Focal(kind="map_ghost", countries=["GRL"]),
-    ),
-    ThumbSpec(
-        id="thumb-c-not-this-big",
-        theme="atlas",
-        text="Not this big",
-        highlight="Not",
-        focal=Focal(kind="map_ghost", countries=["GRL"], strike=True),
-    ),
-]
+def script_variants(script: Script, theme: str) -> list[ThumbSpec]:
+    """Thumbnail specs for every renderable concept in a script (``thumb-a``, ``thumb-b``, ...)."""
+    return [
+        ThumbSpec(
+            id=f"thumb-{chr(97 + i)}", theme=theme, text=c.text, highlight=c.highlight, focal=c.focal, seed=script.seed
+        )
+        for i, c in enumerate(script.thumbnails)
+        if c.focal is not None
+    ]
+
+
+def build_for_script(script: Script, theme: str, out_dir: Path) -> dict[str, dict[str, object]]:
+    """Render a script's thumbnails into ``out_dir`` and write ``thumbnails.json`` (legibility per variant).
+
+    Returns:
+        ``{variant id: legibility report}`` in concept order (empty if no concept has a ``focal``).
+    """
+    out = ensure_dir(out_dir)
+    results = {s.id: build_variant(s, out).as_dict() for s in script_variants(script, theme)}
+    safe_join(out, "thumbnails.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
+    return results
+
+
+DEMO_SCRIPT = REPO_ROOT / "config" / "demo" / "mercator_short.yaml"
+DEMO_VARIANTS = script_variants(load_script(DEMO_SCRIPT), "atlas")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -388,9 +374,18 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Render thumbnails with legibility checks")
     p.add_argument("--demo", action="store_true")
     p.add_argument("--specs", type=Path, help="JSON list of thumbnail specs")
+    p.add_argument("--script", type=Path, help="render a script's thumbnail concepts (needs --theme)")
+    p.add_argument("--theme", help="theme for --script (the channel's theme)")
     p.add_argument("--out", type=Path, default=OUTPUT_DIR / "demo" / "thumbnails")
     a = p.parse_args(argv)
     out = ensure_dir(ensure_within(a.out, OUTPUT_DIR))
+    if a.script:
+        if not a.theme:
+            p.error("--script needs --theme")
+        script = load_script(ensure_within(a.script, REPO_ROOT))
+        res = build_for_script(script, a.theme, out)
+        print(json.dumps(res, indent=2))
+        return 0 if res and all(r["passed"] for r in res.values()) else 1
     specs = (
         DEMO_VARIANTS
         if a.demo or not a.specs

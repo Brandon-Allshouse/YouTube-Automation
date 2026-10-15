@@ -152,13 +152,16 @@ class YouTubeClient:
         blob = json.dumps({"e": endpoint, "p": params}, sort_keys=True)
         return hashlib.sha256(blob.encode()).hexdigest()
 
-    def _get(self, endpoint: str, params: dict[str, Any]) -> dict[str, Any]:
+    def _get(self, endpoint: str, params: dict[str, Any], max_age_hours: float | None = None) -> dict[str, Any]:
         if endpoint not in COST:
             raise ApiError("endpoint not allowed")
         if not self.live:
             return self._fixture(endpoint, params)
         key = self._cache_key(endpoint, params)
-        cached = dbm.cache_get(self.conn, key)
+        fetched_after = ""
+        if max_age_hours is not None:
+            fetched_after = (datetime.now(UTC) - timedelta(hours=max_age_hours)).isoformat(timespec="seconds")
+        cached = dbm.cache_get(self.conn, key, fetched_after=fetched_after)
         if isinstance(cached, dict):
             return cached
         cost = COST[endpoint]
@@ -252,8 +255,14 @@ class YouTubeClient:
                 continue  # skip malformed items rather than trusting them
         return out, int(data.get("pageInfo", {}).get("totalResults", 0) or 0)
 
-    def videos(self, ids: list[str]) -> list[Video]:
-        """Video stats in batches of 50 (1 unit per batch)."""
+    def videos(self, ids: list[str], max_age_hours: float | None = None) -> list[Video]:
+        """Video stats in batches of 50 (1 unit per batch).
+
+        Args:
+            ids: Video ids.
+            max_age_hours: Ignore cached responses older than this (view counts for velocity
+                snapshots must be fresh). None uses the normal cache lifetime.
+        """
         out: list[Video] = []
         for i in range(0, len(ids), 50):
             data = self._get(
@@ -263,6 +272,7 @@ class YouTubeClient:
                     "id": ",".join(ids[i : i + 50]),
                     "maxResults": 50,
                 },
+                max_age_hours,
             )
             for it in data.get("items", []):
                 try:

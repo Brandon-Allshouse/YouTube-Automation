@@ -28,7 +28,20 @@ Gotchas, failures and why, performance findings, platform quirks. Append as disc
 - Word anchors with repeated words need `word#n` ("meant" appears twice in one sentence).
 - The first demo render had 3 s of blank frames because an element waited for a word; components should appear on scene entry and use word anchors only for their *beats*.
 
+## Voice / TTS
+- What made Kokoro sound synthetic: blending two low-data voices (`bm_george` + `bm_fable`, graded C), speed 1.1, sentence-by-sentence synthesis (intonation resets at every full stop) and digital silence between sentences. Single voices picked by A/B at speed 1.0, one pass per segment and a room-tone floor fix most of it with no new dependency.
+- kokoro-onnx 0.6.1 enables phoneme timings only if the model has an output named `duration`; the onnx-community timestamped export names it `durations`, so set `has_timings` yourself.
+- espeak phonemizes differently in context: "from the" becomes one group (`fɹʌmðɪ`), so counting words against phoneme groups fails. Align by pronunciation (edit-distance DP) instead.
+- Hugging Face LFS downloads redirect to regional CDN hosts (`us.aws.cdn.hf.co`). The fetcher allows `*.hf.co` because those files are checksum-pinned from the LFS record.
+- Pitch statistics (F0 range and SD) did not separate natural-sounding from synthetic-sounding samples; the owner's ear is the judge.
+
+## Pipeline integration
+- Unit tests of each gate passed while the end-to-end path was broken in three places (agent never attached the script; headless permissions lacked `set-script`; visual-director told to edit approved scripts). Run the whole flow (`add-video → set-script → approve → produce --video-id → quality --video-id → timing --schedule → publish` dry run) on a backed-up DB after changing any stage.
+- Anything uploaded must be derived from the database record, never from caller-supplied paths or script text (channel token, files checked by quality).
+- YouTube custom thumbnails via the API need a verified channel and only matter for long-form; Shorts thumbnails are picked in the app.
+
 ## Research / YouTube API
+- Any time-series measurement (velocity snapshots) must bypass the response cache: a 24 h cache makes a 12 h re-run silently record old view counts under a new timestamp.
 - `search.list` `pageInfo.totalResults` is a coarse estimate that saturates (~1e6); never use it linearly as "supply".
 - Shorts views routinely exceed channel subscribers, so a views/subs outlier rule is far noisier for Shorts; report formats separately.
 - A full 20-niche pass (2 queries each) costs ≈ 4,000 units, almost all from `search.list` (100 units each); stats/comments are ~1 unit per call. Caching makes follow-up modules free.

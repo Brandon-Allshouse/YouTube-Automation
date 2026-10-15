@@ -44,6 +44,7 @@ from src.common.paths import (
     validate_id,
 )
 from src.production.script import Script, load_script
+from src.production.thumbnail import build_for_script
 from src.quality.frames import contact_sheet, frame_at
 
 log = get_logger("src.production")
@@ -217,6 +218,11 @@ def produce(
         mp4 = safe_join(out_dir, f"{stem}.mp4")
         info = render_video(build_from_spec, (spec_json, scale), mp4, audio_path=wav, workers=workers)
         result["render"] = info
+        # thumbnails come from the approved script's concepts, so they're rendered with the video
+        thumbs = build_for_script(script, channel.theme, out_dir / "thumbnails")
+        result["thumbnails"] = {k: bool(v["passed"]) for k, v in thumbs.items()}
+        if thumbs:
+            result["outputs"]["thumbnails"] = "thumbnails/"
         result["outputs"]["video"] = mp4.name
         result["ffmpeg_loudness"] = ffmpeg_loudness(mp4)
         if review_assets:
@@ -258,6 +264,10 @@ def produce_gated(video_id: str, *, scale: float = 1.0, backend: Backend | None 
         script_file = ensure_within(REPO_ROOT / str(video["script_path"]), DATA_DIR / "scripts")
         if dbm.file_sha256(script_file) != video["script_sha256"]:
             raise GateError("script changed since approval; it must be re-approved")
+        try:
+            dbm.check_script_matches(video, script_file)
+        except ValueError as exc:
+            raise GateError(str(exc)) from None
         script = load_script(script_file)
         out_dir = OUTPUT_DIR / "videos" / validate_id(video_id, kind="video id")
         result = produce(script, out_dir, scale=scale, backend=backend, _gated=True)
@@ -271,7 +281,9 @@ def produce_gated(video_id: str, *, scale: float = 1.0, backend: Backend | None 
             if cur != state:
                 dbm.transition(conn, video_id, state, actor="pipeline", note=result["job_id"])
             cur = state
-        dbm.set_path(conn, video_id, "output_path", str(out_dir / result["outputs"].get("video", "")))
+        # repo-relative, like script_path, so the record is valid inside and outside containers
+        mp4 = out_dir / result["outputs"].get("video", "")
+        dbm.set_path(conn, video_id, "output_path", mp4.relative_to(REPO_ROOT).as_posix())
         with dbm.transaction(conn):
             conn.execute(
                 "UPDATE videos SET output_sha256 = NULL WHERE id = ?", (video_id,)

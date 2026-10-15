@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import sqlite3
+from pathlib import Path
 
 import pytest
 
@@ -105,3 +106,13 @@ def test_cli(tmp_path) -> None:  # type: ignore[no-untyped-def]
         == 0
     )
     assert dbm.main(["--db", str(path), "list"]) == 0
+
+
+def test_explicit_db_path_is_confined(tmp_path: Path) -> None:
+    from src.common.paths import REPO_ROOT
+
+    dbm.connect(tmp_path / "ok.sqlite").close()  # temp dir is allowed (tests)
+    with pytest.raises(ValueError, match="under data/"):
+        dbm.connect(REPO_ROOT / "src" / "evil.sqlite")
+    with pytest.raises(ValueError, match="under data/"):
+        dbm.connect(Path("/etc/evil.sqlite"))

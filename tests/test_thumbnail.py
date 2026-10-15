@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import numpy as np
@@ -94,3 +95,14 @@ def test_picture_resize_roundtrip() -> None:
     s.canvas.clear((1, 0, 0, 1))
     small = s.snapshot().resized(16, 8)
     assert small.width == 16 and small.to_array()[4, 8, 0] > 240
+
+
+def test_script_thumbnails_render_with_report() -> None:
+    from src.production.script import load_script
+    from src.production.thumbnail import DEMO_SCRIPT, build_for_script
+
+    out = Path(__file__).resolve().parents[1] / "output" / "test-thumbs" / "script"
+    res = build_for_script(load_script(DEMO_SCRIPT), "atlas", out)
+    assert list(res) == ["thumb-a", "thumb-b", "thumb-c"]
+    assert all(r["passed"] for r in res.values())
+    assert json.loads((out / "thumbnails.json").read_text(encoding="utf-8")) == res

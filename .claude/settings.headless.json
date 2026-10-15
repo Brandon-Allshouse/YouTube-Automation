@@ -24,6 +24,7 @@
       "Bash(bash scripts/task.sh db list:*)",
       "Bash(bash scripts/task.sh db get:*)",
       "Bash(bash scripts/task.sh db add-video:*)",
+      "Bash(bash scripts/task.sh db set-script:*)",
       "Bash(bash scripts/task.sh db transition:*)",
       "Bash(bash scripts/task.sh db quota:*)",
       "Bash(bash scripts/task.sh review list:*)",

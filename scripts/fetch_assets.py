@@ -30,10 +30,16 @@ ALLOWED_HOSTS = {
     "raw.githubusercontent.com",
     "objects.githubusercontent.com",
     "release-assets.githubusercontent.com",
+    "huggingface.co",
 }
+# Hugging Face redirects LFS downloads to regional CDN hosts; those files are checksum-pinned.
+ALLOWED_HOST_SUFFIXES = (".hf.co",)
 GOOGLE_FONTS_COMMIT = "b7c8331cf620346575487ef8db0e2c729f014675"  # pragma: allowlist secret (git commit SHA)
 NATURAL_EARTH_COMMIT = "ca96624a56bd078437bca8184e78163e5039ad19"  # pragma: allowlist secret (git commit SHA)
 KOKORO_RELEASE = "model-files-v1.0"
+# Same Kokoro-82M v1.0 weights, exported with a per-token `durations` output (word timing).
+KOKORO_TS_REPO = "onnx-community/Kokoro-82M-v1.0-ONNX-timestamped"
+KOKORO_TS_COMMIT = "dd4401a9add81ac692d20e240d22ec9dda82cc29"  # pragma: allowlist secret (git commit SHA)
 MB = 1024 * 1024
 
 
@@ -81,6 +87,12 @@ MANIFEST: tuple[Asset, ...] = (
     _ne("ne_110m_populated_places_simple.geojson"),
     _kokoro("kokoro-v1.0.onnx", 400),
     _kokoro("voices-v1.0.bin", 60),
+    Asset(
+        "models",
+        f"https://huggingface.co/{KOKORO_TS_REPO}/resolve/{KOKORO_TS_COMMIT}/onnx/model.onnx",
+        MODELS_DIR / "kokoro" / "kokoro-v1.0-timestamped.onnx",
+        400 * MB,
+    ),
 )
 
 
@@ -114,7 +126,8 @@ def sha256_file(path: Path) -> str:
 
 def _check_host(url: str) -> None:
     parsed = urllib.parse.urlparse(url)
-    if parsed.scheme != "https" or parsed.hostname not in ALLOWED_HOSTS:
+    host = parsed.hostname or ""
+    if parsed.scheme != "https" or (host not in ALLOWED_HOSTS and not host.endswith(ALLOWED_HOST_SUFFIXES)):
         raise ValueError(f"host not allowlisted: {parsed.hostname}")
 
 

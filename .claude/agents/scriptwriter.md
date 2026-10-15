@@ -16,11 +16,15 @@ topic: tighter, more specific, more visual.
 ## Output
 `data/scripts/<id>.yaml` that validates against `Script`:
 - `titles`: exactly 3, honest (no claim the video does not deliver), ≤ 70 chars preferred.
-- `thumbnails`: 3 concepts, ≤ 4 words of text each + one focal visual.
+- `thumbnails`: 3 concepts, ≤ 4 words of `text` each, a `visual` description for the reviewer, a `highlight` word, and a renderable `focal` (`kind`: silhouettes | map_ghost | stat | icon; see the demo script). Production renders them, so they are part of what the owner approves.
 - `segments`: each with `id`, `tag` (visual type: kinetic-title, comparison, stat, list, map, chart, timeline, diagram, icon, quote), `text`, and a placeholder `visual` that the visual-director will refine.
 - `sources`: one entry per factual claim (https URLs). Leave verification to the fact-checker but never write a claim you can't source.
 - Markup: `*word*` for emphasis; `{display|spoken}` when captions should show digits/symbols (e.g. `{1569|fifteen sixty-nine}`, `{60°|sixty degrees}`).
-Register it: `bash scripts/task.sh db add-video --channel <ch> --format short --title "<title 1>"` then `bash scripts/task.sh db transition <video_id> scripted` (`idea`→`scripted` only; approval is human-only).
+Register it, in this order:
+1. `bash scripts/task.sh db add-video --channel <ch> --format <short|long> --title "<title 1>"` → note the `video_id`.
+2. Save the script as `data/scripts/<video_id>.yaml` with `id: <video_id>`, the same `channel` and `format`.
+3. `bash scripts/task.sh db set-script <video_id> data/scripts/<video_id>.yaml` (validates the script and refuses a channel/format mismatch).
+4. `bash scripts/task.sh db transition <video_id> scripted` (`idea`→`scripted` only; approval is human-only).
 
 ## Writing bar
 - First sentence is the hook (question, surprising claim, or stakes); promise a payoff and deliver it.

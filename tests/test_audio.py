@@ -18,10 +18,14 @@ from src.audio.mixer import layout_narration, master
 from src.audio.music import allpass, feedback_comb, generate, plan
 from src.audio.tts import (
     KOKORO_MODEL,
+    KOKORO_TIMED_MODEL,
     TTS,
     TTS_SR,
+    KokoroBackend,
     SyntheticBackend,
     VoiceSpec,
+    align_phoneme_words,
+    cut_sentences,
     pause_after,
     split_sentences,
 )
@@ -162,10 +166,69 @@ def test_narrate_with_synthetic_backend_and_cache(tmp_path: Path) -> None:
     tts = TTS(SyntheticBackend(), cache_dir=tmp_path)
     out = tts.narrate([["One sentence here.", "Two?"], ["Three!"]], VOICE, seed=1)
     assert [s.text for s in out] == ["One sentence here.", "Two?", "Three!"]
-    assert len(list(tmp_path.glob("*.wav"))) == 3
+    # one passage per segment: audio + word spans
+    assert len(list(tmp_path.glob("*.wav"))) == 2
+    assert len(list(tmp_path.glob("*.json"))) == 2
     again = tts.narrate([["One sentence here.", "Two?"], ["Three!"]], VOICE, seed=1)
     assert np.array_equal(out[0].samples, again[0].samples)
     assert [s.pause_after for s in out] == [s.pause_after for s in again]
+    assert [s.words for s in out] == [s.words for s in again]
+
+
+class _UntimedBackend:
+    """Wraps the synthetic backend without word timings (like the plain Kokoro export)."""
+
+    name = "untimed"
+
+    def synth(self, text: str, voice: VoiceSpec) -> np.ndarray:  # type: ignore[type-arg]
+        return SyntheticBackend().synth(text, voice)
+
+
+def test_narrate_falls_back_to_per_sentence_without_timings(tmp_path: Path) -> None:
+    out = TTS(_UntimedBackend(), cache_dir=tmp_path).narrate([["One here.", "Two?"]], VOICE, seed=1)
+    assert len(list(tmp_path.glob("*.wav"))) == 2
+    assert all(s.words is None for s in out)
+    nar = layout_narration(out)
+    assert [w.text for w in nar.words] == ["One", "here.", "Two?"]
+
+
+def test_passage_words_are_model_timed_and_markup_aware(tmp_path: Path) -> None:
+    seg = ["Blame a map from *{1569|fifteen sixty-nine}*.", "Sailors loved it, mostly."]
+    out = TTS(SyntheticBackend(), cache_dir=tmp_path).narrate([seg], VOICE, seed=3)
+    words = out[0].words
+    assert words is not None
+    assert [w.text for w in words] == ["Blame", "a", "map", "from", "1569."]
+    assert words[-1].emph
+    assert all(0 <= w.start < w.end <= out[0].duration + 1e-6 for w in words)
+    assert all(a.end <= b.start for a, b in itertools.pairwise(words))
+    # the clip starts just before its first word (short lead-in, no model gap)
+    assert words[0].start <= 0.07
+    nar = layout_narration(out)
+    assert [w.text for w in nar.words][4:] == ["1569.", "Sailors", "loved", "it,", "mostly."]
+    assert nar.words[5].start - nar.words[4].end >= out[0].pause_after - 0.01
+
+
+def test_cut_sentences_drops_model_gap_and_keeps_tail() -> None:
+    sr = TTS_SR
+    tone = np.sin(2 * np.pi * 150 * np.arange(int(0.5 * sr)) / sr).astype(np.float32) * 0.4
+    gap = np.zeros(int(0.8 * sr), np.float32)
+    samples = np.concatenate([tone, gap, tone])
+    spans = [(0.0, 0.5), (1.3, 1.8)]
+    clips = cut_sentences(["Hi.", "There."], samples, spans, [0.3, 0.0])
+    assert clips[0].duration == pytest.approx(0.5, abs=0.03)  # tail ends where sound decays
+    assert clips[1].duration == pytest.approx(0.56, abs=0.03)  # 60 ms lead-in + word
+    assert clips[1].words is not None
+    assert clips[1].words[0].start == pytest.approx(0.06, abs=0.01)
+
+
+def test_room_tone_fills_pauses_quietly() -> None:
+    voice = np.concatenate([sine(200, 0.3, 1.0), np.zeros(SR), sine(200, 0.3, 1.0)])
+    mix, _ = master(voice, None)
+    pause = mix[int(1.3 * SR) : int(1.7 * SR), 0]
+    level = 20 * np.log10(np.sqrt(np.mean(pause**2)))
+    assert -80 < level < -55  # present, but far below speech
+    dry, _ = master(voice, None, room_db=None)
+    assert np.max(np.abs(dry[int(1.3 * SR) : int(1.7 * SR), 0])) < 1e-3
 
 
 def test_voice_spec_rejects_bad_names() -> None:
@@ -180,6 +243,23 @@ def test_kokoro_sentence(tmp_path: Path) -> None:
     s = tts.sentence("Maps are flat; the Earth is not.", VOICE)
     assert 1.0 < len(s) / TTS_SR < 5.0
     assert np.max(np.abs(s)) > 0.05
+
+
+@pytest.mark.needs_models
+@pytest.mark.skipif(not KOKORO_TIMED_MODEL.is_file(), reason="timestamped Kokoro export not downloaded")
+def test_kokoro_passage_word_spans_land_on_speech(tmp_path: Path) -> None:
+    words = "Slide Greenland down to Africa at its true size. Africa is fourteen times bigger.".split()
+    res = KokoroBackend().synth_words(words, VOICE)
+    assert res is not None
+    audio, spans = res
+    assert len(spans) == len(words)
+    assert all(a[1] <= b[0] + 1e-3 for a, b in itertools.pairwise(spans))
+    peak = float(np.max(np.abs(audio)))
+    for s, e in spans:  # every word span carries sound
+        seg = audio[int(s * TTS_SR) : int(e * TTS_SR)]
+        assert float(np.max(np.abs(seg))) > 0.1 * peak
+    # the sentence break falls between "size." and "Africa"
+    assert spans[9][0] - spans[8][1] > 0.05
 
 
 # --- music + mix ----------------------------------------------------------------------------
@@ -214,3 +294,23 @@ def test_master_hits_loudness_and_peak_targets() -> None:
     assert rep.voice_lufs - rep.music_lufs > 8  # voice clearly on top
     assert nar.words[0].start == pytest.approx(0.25, abs=0.05)
     assert math.isclose(nar.duration, len(nar.track) / SR, abs_tol=0.01)
+
+
+def _timed(group: str, t0: float, step: float = 0.05) -> list[tuple[str, float, float]]:
+    return [(p, t0 + k * step, t0 + (k + 1) * step) for k, p in enumerate(group)]
+
+
+def test_align_handles_fused_and_split_words() -> None:
+    # espeak fuses "from the" in context and splits "sixty-nine" into two groups
+    words = ["fɹʌm", "ðə", "ɪkwˈeɪɾɚ".replace("ˈ", ""), "sɪksti-naɪn".replace("-", "")]
+    groups = [_timed("fɹʌmðɪ", 0.0), _timed("ɪkweɪɾɚ", 0.5), _timed("sɪksti", 1.0), _timed("naɪn", 1.4)]
+    spans = align_phoneme_words(words, groups)
+    assert spans is not None
+    assert spans[0] == pytest.approx((0.0, 0.2))  # "from" = first 4 of 6 phonemes
+    assert spans[1] == pytest.approx((0.2, 0.3))
+    assert spans[2] == pytest.approx((0.5, 0.85))
+    assert spans[3] == pytest.approx((1.0, 1.6))  # both groups
+
+
+def test_align_rejects_unrelated_phonemes() -> None:
+    assert align_phoneme_words(["kæt", "dɔɡ"], [_timed("ʃɪp", 0.0), _timed("tɹiː", 0.3)]) is None

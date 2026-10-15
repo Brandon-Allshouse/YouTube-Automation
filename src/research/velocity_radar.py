@@ -36,6 +36,9 @@ from src.research.common import (
 
 log = get_logger("src.research.velocity")
 
+# View counts older than this are refetched for a snapshot (1 unit per 50 videos).
+SNAPSHOT_MAX_AGE_H = 1.0
+
 SNAPSHOT_SQL = """
 CREATE TABLE IF NOT EXISTS market_snapshots (
     video_id TEXT NOT NULL,
@@ -79,7 +82,9 @@ def run(ctx: Context) -> dict[str, Any]:
     niches_out: list[dict[str, Any]] = []
     baseline_only = False
     for n in ctx.niches:
-        nd = niche_videos(ctx, n)
+        # A snapshot must record views as of now; a cached response would store old counts under
+        # a new timestamp and read as zero acceleration (and poison later comparisons).
+        nd = niche_videos(ctx, n, stats_max_age_hours=SNAPSHOT_MAX_AGE_H)
         ids = [v.id for v in nd.videos]
         if ctx.live:
             prev, prev_at = _prev_snapshot_db(conn, ids, ctx.now)

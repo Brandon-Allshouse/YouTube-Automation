@@ -49,7 +49,7 @@ all MIT / BSD / Apache-2.0 / ISC / PSF / MPL-2.0 (certifi, pathspec, fqdn, hypot
 ## Models
 | Model | License | Source |
 |---|---|---|
-| Kokoro-82M v1.0 (ONNX export) + voices | Apache-2.0 | huggingface.co/hexgrad/Kokoro-82M; ONNX files from github.com/thewh1teagle/kokoro-onnx releases (`model-files-v1.0`) |
+| Kokoro-82M v1.0 (ONNX export) + voices | Apache-2.0 | huggingface.co/hexgrad/Kokoro-82M; ONNX files from github.com/thewh1teagle/kokoro-onnx releases (`model-files-v1.0`); timestamped export (same weights) from huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX-timestamped @ `dd4401a9` |
 
 ## Fonts (SIL Open Font License 1.1)
 Downloaded by `scripts/fetch_assets.py` from github.com/google/fonts at commit `b7c8331c` (license

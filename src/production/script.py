@@ -38,11 +38,29 @@ class Segment(_M):
     tag: Annotated[str, Field(max_length=40)] = ""  # visual type tag from the segment plan
 
 
+class Focal(_M):
+    """The single focal visual of a thumbnail (rendered by ``src.production.thumbnail``)."""
+
+    kind: Literal["silhouettes", "map_ghost", "stat", "icon"]
+    countries: list[Annotated[str, Field(pattern=r"^[A-Z]{3}$")]] = Field(default_factory=list, max_length=3)
+    labels: list[Annotated[str, Field(max_length=16)]] = Field(default_factory=list, max_length=3)
+    continent: str | None = None  # draw a whole continent as one silhouette (first slot)
+    value: Annotated[str, Field(max_length=8)] = ""
+    icon: str = "globe"
+    strike: bool = False
+
+
 class ThumbnailConcept(_M):
-    """A thumbnail idea (≤ 4 words of text)."""
+    """A thumbnail idea (≤ 4 words of text).
+
+    ``visual`` describes it for the human reviewer; ``focal`` (+ ``highlight``) makes it renderable,
+    so the thumbnails are part of the approved script and are rendered during production.
+    """
 
     text: Annotated[str, Field(min_length=1, max_length=32)]
     visual: Annotated[str, Field(max_length=200)]
+    highlight: Annotated[str, Field(max_length=16)] = ""
+    focal: Focal | None = None
 
     @field_validator("text")
     @classmethod

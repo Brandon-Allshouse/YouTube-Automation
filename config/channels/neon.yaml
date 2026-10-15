@@ -4,8 +4,8 @@ name: "Neon Lab (working title)"
 niche: science-tech
 theme: neon
 voice:
-  blend: [[af_nova, 0.6], [af_bella, 0.4]]      # synthetic blend, not modelled on any real person
-  speed: 1.08
+  blend: [[af_heart, 1.0]]   # Kokoro top-rated stock voice, not modelled on any real person
+  speed: 1.0
   lang: en-us
 music:
   style: synthwave

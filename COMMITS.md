@@ -1,12 +1,24 @@
 # Suggested commits (for the owner)
 
-The build agent never commits. Commit these groups **in order**. Each group only depends on earlier
-ones, so the repo stays importable and its tests pass after every commit. Every file appears in
-exactly one group. Before writing this list the agent verified that no listed file is gitignored
-(`git check-ignore`) and that detect-secrets finds nothing (`security/REPORT.md`). **`.env` is in no group.**
+The build agent never commits. The overnight build's 10 groups are **already committed** by the
+owner (`40cc330 commit every file`); they're kept below for reference. Pending groups come first.
+Before listing a group the agent checks that no file in it is gitignored (`git check-ignore`) and
+that detect-secrets finds nothing. **`.env` is in no group.**
 
 How to apply one group (Git Bash): copy its file list into `git add -- <files>`, then `git commit` with the message.
-Optionally run `bash scripts/task.sh test` between groups.
+
+## Pending
+
+The owner is committing session 2 as **one commit** (`git add -A`; 45 modified files, no new or
+ignored files; `.env` and raw scan outputs are gitignored):
+
+```
+feat: natural narration, end-to-end pipeline fixes and security hardening
+```
+(full message in the session; after pulling, run `bash scripts/task.sh fetch-assets` once for the
+new Kokoro timing model).
+
+## Committed (reference)
 
 ---
 
@@ -178,7 +190,7 @@ Mercator demo script, thumbnail engine with phone-size legibility checks.
 ---
 
 ## 5. `feat(agents): add subagents, slash commands and least-privilege permissions`
-Files (16):
+Files (19):
 ```
 .claude/agents/analyst.md
 .claude/agents/audience-panel.md
@@ -351,7 +363,7 @@ loudness/peak/silence checks, hook/readability/variety/banned-phrase checks.
 ---
 
 ## 10. `docs: add project memory, ADRs, security report and operations runbook`
-Files (16):
+Files (19):
 ```
 CHANGELOG.md
 CLAUDE.md

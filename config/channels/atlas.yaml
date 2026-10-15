@@ -4,9 +4,9 @@ name: "Atlas Unfolded (working title)"
 niche: history-geography
 theme: atlas
 voice:
-  blend: [[bm_george, 0.65], [bm_fable, 0.35]]   # synthetic blend, not modelled on any real person
-  speed: 1.1
-  lang: en-gb
+  blend: [[am_fenrir, 1.0]]   # Kokoro stock voice (owner pick 2026-10-15), not modelled on any real person
+  speed: 1.0                  # Kokoro speed >1 squeezes audio and sounds rushed
+  lang: en-us
 music:
   style: cinematic
   seed: 1717

@@ -24,7 +24,7 @@ Top 10 for LLM Applications. Latest scan results: [`security/REPORT.md`](securit
 2. `produce --video-id` renders only that recorded script; refuses if its hash changed.
 3. Only a passing `quality.run --video-id` sets `checked` and stores **sha256 of the render**.
 4. Scheduling is interactive-only; upload re-verifies both hashes, accepts files only from `output/videos/`, defaults to private, and requires `--live`.
-An independent review (read-only subagent, 2026-10-15) found 5 high / 4 medium / 4 low issues; all high and medium issues are fixed with regression tests (`tests/test_gate_hardening.py`), with three low-severity items left open (ADR-030).
+An independent review (read-only subagent, 2026-10-15) found 5 high / 4 medium / 4 low issues; all high and medium issues are fixed with regression tests (`tests/test_gate_hardening.py`), and the three low-severity items were closed the same day (ADR-032).
 
 ## Input handling rules (enforced in code)
 - `subprocess` only via `src/common/proc.py`: argument lists, allowlisted executables (`ffmpeg`, `ffprobe`, `git`), no `shell=True`, timeouts.

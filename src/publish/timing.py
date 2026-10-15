@@ -34,10 +34,12 @@ MIN_GAP_PORTFOLIO = timedelta(minutes=45)
 LEARN_MIN_VIDEOS = 20
 
 
-def _scheduled(conn: sqlite3.Connection) -> list[tuple[str, str, datetime]]:
+def _scheduled(conn: sqlite3.Connection, exclude: str = "") -> list[tuple[str, str, datetime]]:
+    """Slots already taken, except ``exclude``'s own (so rescheduling doesn't block itself)."""
     rows = conn.execute(
         "SELECT channel_id, format, scheduled_for FROM videos "
-        "WHERE scheduled_for IS NOT NULL AND state IN ('scheduled', 'published')"
+        "WHERE scheduled_for IS NOT NULL AND state IN ('scheduled', 'published') AND id != ?",
+        (exclude,),
     ).fetchall()
     return [(r[0], r[1], datetime.fromisoformat(r[2])) for r in rows]
 
@@ -74,7 +76,7 @@ def propose_slot(
     now = (now or datetime.now(UTC)).astimezone(UTC)
     hours = learned_hours(conn, channel_id, tz) or list(ch.cadence.preferred_hours_local)
     rng = np.random.default_rng(int(hashlib.sha256(video_id.encode()).hexdigest()[:12], 16))
-    taken = _scheduled(conn)
+    taken = _scheduled(conn, exclude=video_id)
     max_long = min(ch.cadence.long_per_week, cad.max_long_per_week_per_channel)
     for day in range(0, 60):
         local_day = (now.astimezone(tz) + timedelta(days=day)).date()

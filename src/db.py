@@ -174,7 +174,19 @@ def connect(path: Path | None = None) -> sqlite3.Connection:
 
     Args:
         path: Database file; defaults to ``data/pipeline.sqlite``. ``:memory:`` is allowed in tests.
+            An explicit path (the hidden ``--db`` option of every CLI) must sit under ``data/`` or
+            the system temp directory, so a CLI argument can't create or open files elsewhere.
+
+    Raises:
+        ValueError: ``path`` is outside the allowed directories.
     """
+    if path is not None and str(path) != ":memory:":
+        import tempfile
+
+        resolved = Path(path).resolve()
+        allowed = (DATA_DIR.resolve(), Path(tempfile.gettempdir()).resolve())
+        if not any(resolved == a or a in resolved.parents for a in allowed):
+            raise ValueError("database path must be under data/ or the temp directory")
     target = path or DEFAULT_DB
     if str(target) != ":memory:":
         ensure_dir(Path(target).parent)
@@ -360,6 +372,27 @@ def set_path(conn: sqlite3.Connection, video_id: str, column: str, value: str) -
         conn.execute(sql, (value, utcnow(), video_id))
 
 
+def check_script_matches(video: dict[str, Any], script_file: Path) -> None:
+    """Validate a script file and require it to belong to this video's channel and format.
+
+    A script written for another channel would otherwise be rendered in that channel's style and
+    uploaded with the wrong account.
+
+    Raises:
+        ValueError: Invalid script, or channel/format mismatch.
+    """
+    from src.production.script import load_script
+
+    try:
+        script = load_script(script_file)
+    except Exception as exc:
+        raise ValueError(f"invalid script: {str(exc)[:300]}") from None
+    if script.channel != video["channel_id"]:
+        raise ValueError(f"script is for channel '{script.channel}', video is on '{video['channel_id']}'")
+    if script.format != video["format"]:
+        raise ValueError(f"script format '{script.format}' does not match video format '{video['format']}'")
+
+
 def list_videos(
     conn: sqlite3.Connection, *, state: str | None = None, channel_id: str | None = None
 ) -> list[dict[str, Any]]:
@@ -412,10 +445,11 @@ def record_quota(conn: sqlite3.Connection, endpoint: str, units: int) -> None:
         )
 
 
-def cache_get(conn: sqlite3.Connection, key: str) -> Any | None:
-    """Return a cached API response if present and unexpired."""
+def cache_get(conn: sqlite3.Connection, key: str, *, fetched_after: str = "") -> Any | None:
+    """Return a cached API response if present, unexpired and fetched after ``fetched_after`` (ISO UTC)."""
     row = conn.execute(
-        "SELECT response_json FROM api_cache WHERE key = ? AND expires_at > ?", (key, utcnow())
+        "SELECT response_json FROM api_cache WHERE key = ? AND expires_at > ? AND fetched_at > ?",
+        (key, utcnow(), fetched_after),
     ).fetchone()
     return json.loads(row[0]) if row else None
 
@@ -485,6 +519,7 @@ def main(argv: list[str] | None = None) -> int:
                 raise ValueError("unknown video")
             if cur["state"] not in ("idea", "scripted"):
                 raise ValueError("script can only be changed before approval")
+            check_script_matches(cur, script)
             set_path(conn, args.video_id, "script_path", str(script.relative_to(DATA_DIR.parent)))
             _print({"ok": True})
         elif args.cmd == "quota":

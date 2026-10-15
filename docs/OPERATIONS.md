@@ -15,8 +15,8 @@ All commands run from the repo root in Git Bash (Windows) or a normal shell (mac
 |---|---|---|
 | Automatic (cron) | Research + drafting | `/daily-research` then `/write-batch all` (see cron below) |
 | You, ~10 min | Review queued scripts | `bash scripts/task.sh review list`, then `bash scripts/task.sh review show <id>`, then `python -m src.review.queue approve <id> --as <your name>` (run interactively; it asks you to type the id back) or `request-changes <id> --note "..."` / `reject <id> --reason "..."` |
-| Automatic | Produce approved videos | `/produce <id>`: `produce --video-id <id>` renders exactly the approved script; `quality --video-id <id> ...` marks it `checked` only if every check passes |
-| You, ~2 min | Watch the render | Open `output/videos/<id>/*.mp4`; check `<id>_review/quality.md` and the thumbnails' `.phone.png` |
+| Automatic | Produce approved videos | `/produce <id>`: `produce --video-id <id>` renders exactly the approved script plus its thumbnails; `quality --video-id <id>` checks the recorded files and marks it `checked` only if every check passes |
+| You, ~2 min | Watch the render | Open `output/videos/<id>/*.mp4`; check `<stem>_review/quality.md` and `thumbnails/*.phone.png` (the first legible one is uploaded with long-form videos) |
 | You | Upload | `bash scripts/task.sh timing --video-id <id> --schedule`, then `bash scripts/task.sh publish --video-id <id>` (dry run), then `bash scripts/task.sh publish --video-id <id> --live` (uploads **private** with `publishAt`; YouTube publishes at the jittered slot) |
 | You (optional) | TikTok / Reels | `bash scripts/task.sh export --video ... --spec ... --script ...`, then upload the files in `output/exports/<id>/` by hand |
 
@@ -54,5 +54,7 @@ On Windows, use Task Scheduler with the same commands in Git Bash. Production of
 | Paths like `C:/Program Files/Git/app/...` | Git Bash path rewriting; use `scripts/task.sh` (sets `MSYS_NO_PATHCONV=1`) |
 | `QuotaExceededError` | Daily cap reached (`config/rules.yaml: quota.session_cap_units`); wait for the UTC day to roll over |
 | Review `approve` refused | It must run in an interactive terminal, with your name (not an agent name), typing the id back |
+| `publish` refused: slot has passed | Pick a new slot: `bash scripts/task.sh timing --video-id <id> --schedule` (works on a scheduled video), then publish again |
+| Thumbnail upload `failed` after publishing | The channel isn't verified yet (custom thumbnails need it). Verify it in YouTube Studio and set the thumbnail there; the video itself uploaded fine |
 | Quality check fails | Read `<id>_review/quality.md`; fix the script visuals (visual-director) and re-run `/produce` |
 | Render is slow | `RENDER_CPUS=<n>` in the environment; preview with `produce --script ... --scale 0.5` |

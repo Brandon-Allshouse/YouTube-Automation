@@ -4,6 +4,26 @@ All notable changes to this project are documented here. Format: [Keep a Changel
 
 ## [Unreleased]
 
+### Changed
+- More natural narration (owner feedback, ADR-031). Each segment is voiced in one continuous Kokoro pass. Word timings come from the timestamped Kokoro export's phoneme durations, which makes captions more accurate. Sentence gaps still follow our pause model. The voice chain is lighter, with room tone under pauses. Channel voices: atlas `am_fenrir`, neon `af_heart`, both at speed 1.0.
+### Fixed
+- Velocity radar re-run within the 24 h API cache window reused cached view counts and stored them as a new snapshot (zero acceleration, corrupt history). Snapshots now force fresh `videos.list` stats (`max_age_hours`), about 20 units per run; searches still come from the cache.
+- A script could be attached to a video of another channel or format; it would then be rendered in the wrong style and uploaded with the wrong channel's token. `db set-script` now validates the script and requires a matching channel/format; `produce --video-id` re-checks; uploads use the video's channel and refuse a mismatched script.
+- `quality --video-id` judged whatever `--video/--spec/--script` the caller passed; it now takes the recorded render, spec, audio and the **approved** script from the database (extra paths are refused) and refuses a render that changed while it was being checked.
+- Thumbnails were never rendered for real videos (no path from a script's concepts to the engine) and never uploaded. Script thumbnail concepts now carry a renderable `focal` + `highlight`; production renders them into `thumbnails/` with legibility results; long-form uploads set the first legible one.
+- Agents could not finish a script: the scriptwriter never ran `db set-script` (approval then fails with "no script attached") and headless permissions didn't allow it. Fixed in the agent, `/write-batch` and `settings.headless.json`.
+- The visual-director was told to edit *approved* scripts, which invalidates the approval hash; it now works before review (`produce --dry-run`), matching `/write-batch`.
+- Uploading after the scheduled slot passed would fail at YouTube; `publish` now refuses with the reschedule command, and rescheduling no longer counts the video's own old slot as taken.
+- `output_path` is stored repo-relative (it was an absolute in-container path).
+- Tests left scripts and renders in the real `data/scripts/` and `output/videos/`; a session fixture now removes what each test run creates.
+- Demo description said "Sources in the pinned comment" although the sources are in the description.
+
+### Security
+- Closed the ADR-030 low-severity items: research JSON carries an untrusted-data notice (LLM01); the unpinned CI `pip` upgrade is removed (SSDF PW.4); explicit `--db` paths are confined to `data/` or the temp directory. The video ID YouTube returns and the thumbnail report names are validated before use (ADR-032).
+
+### Changed (cont.)
+- `scripts/fetch_assets.py` also downloads `kokoro-v1.0-timestamped.onnx` from Hugging Face (pinned commit; checksum pinned before download).
+
 ### Added
 - Foundation: hardened multi-stage `Dockerfile` (digest-pinned base, hash-locked wheels, non-root), `docker-compose.yml` services (`dev`, `render`, `quality`, `research`, `security`, `fetch`, `lock`), `.dockerignore` allowlist, `scripts/task.sh` + `Makefile`.
 - Hash-locked `requirements.lock` / `requirements-dev.lock` generated with pip-compile.

@@ -96,6 +96,19 @@ def test_live_client_caches_and_counts_quota(monkeypatch: pytest.MonkeyPatch, tm
     assert dbm.quota_used_today(conn) == 1
 
 
+def test_max_age_refetches_stale_cache_for_snapshots(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    monkeypatch.setenv("YOUTUBE_API_KEY", "AIza" + "x" * 35)
+    conn = dbm.connect(tmp_path / "q.sqlite")
+    c = FakeLive(conn, [{"items": []}, {"items": []}])
+    c._get("videos", {"id": "abcdefghijk"})
+    # pretend the cached response is 9 h old (still inside the 24 h cache lifetime)
+    conn.execute("UPDATE api_cache SET fetched_at = '2000-01-01T00:00:00+00:00'")
+    c._get("videos", {"id": "abcdefghijk"})  # normal callers still get the cache
+    assert len(c.urls) == 1
+    c._get("videos", {"id": "abcdefghijk"}, max_age_hours=1.0)  # velocity snapshots don't
+    assert len(c.urls) == 2
+
+
 def test_live_client_enforces_daily_cap(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     monkeypatch.setenv("YOUTUBE_API_KEY", "AIza" + "x" * 35)
     conn = dbm.connect(tmp_path / "q.sqlite")

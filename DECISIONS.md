@@ -164,4 +164,29 @@ significant design choice gets an ADR. Newest at the bottom.
   - The agent DB CLI can only set `scripted`/`rejected`/`failed`. Scheduling (`timing --schedule`) needs an interactive terminal.
   - Headless permissions: reads limited to the repo; token and credential paths denied; edits to `src/`, `engine/`, `scripts/`, `tests/`, `config/`, `.claude/` denied; test targets take only options and `tests/` paths (enforced in `scripts/task.sh`); slash commands write only under `data/`.
   - Log redaction covers JSON-style secrets and `GOCSPX-` client secrets; the OAuth dir is 0700; Unicode tag characters are stripped from untrusted text; thumbnail CLI paths are confined.
-- **Open (lower severity):** untrusted strings inside research JSON are cleaned but not individually `<untrusted_data>`-wrapped (agent definitions treat all API fields as data); CI `pip==25.2` upgrade is not hash-pinned; hidden `--db` test options accept any path.
+- **Open (lower severity):** untrusted strings inside research JSON are cleaned but not individually `<untrusted_data>`-wrapped (agent definitions treat all API fields as data); CI `pip==25.2` upgrade is not hash-pinned; hidden `--db` test options accept any path. *Closed by ADR-032.*
+
+## ADR-031: Natural narration: whole-segment Kokoro with model word timings
+- **Date:** 2026-10-15 (owner feedback: "the voice is too synthetic")
+- **Context:** The demo voice blended `bm_george` + `bm_fable` (two of Kokoro's lowest-graded, little-data voices) at speed 1.1, synthesized one sentence at a time with digital silence between sentences. Each adds to the synthetic feel: a muddy style, squeezed timing, intonation that resets at every full stop, and no room sound.
+- **Decision:**
+  - Channel voices are single stock Kokoro voices at speed 1.0: atlas `am_fenrir` (owner's pick from an A/B of nine samples), neon `af_heart` (Kokoro's top-rated voice; keeps the channels distinct).
+  - Each script segment is voiced in **one continuous pass** (kokoro-onnx `create_timed(continuous=True)`), so prosody runs across its sentences.
+  - Word timings come from the model: the **timestamped ONNX export of the same Kokoro-82M v1.0 weights** (`onnx-community/Kokoro-82M-v1.0-ONNX-timestamped`, pinned commit `dd4401a9`; checksum taken from Hugging Face's LFS record before download, not trust-on-first-use) reports per-phoneme durations. `align_phoneme_words` matches each word's isolated pronunciation to the passage's phoneme groups with a small DP (edit distance, joins and splits), because espeak fuses words in context ("from the" → `fɹʌmðɪ`).
+  - The passage is cut into sentence clips at the gaps; our pause model still sets each gap. Captions use the model's word times instead of energy alignment (more accurate).
+  - Mix: lighter voice chain (presence +1.2 dB instead of +2.5, 2.2:1 with a slower attack) and a band-limited room-tone floor 54 dB under the voice, so pauses aren't digital silence.
+  - Fallbacks: without the timestamped model, or when a passage can't be aligned, sentences are synthesized one at a time with energy alignment (logged as `word timing mismatch`).
+- **Alternatives:** keep per-sentence synthesis (robotic prosody); infer sentence cuts from silence only (fragile); expose durations by editing the ONNX graph (needs the `onnx` package); switch to a heavier expressive TTS such as Chatterbox (MIT, PyTorch, > 1 GB, much slower on CPU), kept in reserve if the owner still finds Kokoro too synthetic.
+- **Consequences:** no new Python dependency; one more 325 MB model file, fetched and verified like the others. TTS for the 55 s demo takes about 6 s. The old `kokoro-v1.0.onnx` stays as the fallback.
+
+## ADR-032: Pipeline integrity fixes from an end-to-end run, and closing the ADR-030 lows
+- **Date:** 2026-10-15
+- **Context:** Gate unit tests passed, but running the real flow (`add-video → set-script → approve → produce --video-id → quality --video-id → timing --schedule → publish` dry run) showed integration gaps.
+- **Decision:**
+  - A script must validate and match its video's channel and format at `set-script` and again at production. Uploads use the token for the video's recorded channel and refuse a mismatched script.
+  - `quality --video-id` takes the render, spec, audio and approved script from the database (caller paths are refused), and refuses a render that changed during the checks.
+  - Thumbnails are part of the approved script (`focal`, `highlight`). Production renders them, and long-form uploads set the first legible one. Names and the returned YouTube ID are validated.
+  - Publish refuses a private `publishAt` slot that has passed, and rescheduling ignores the video's own old slot. `output_path` is repo-relative.
+  - ADR-030 lows: research JSON carries an `untrusted_fields_notice`; the unpinned CI `pip` upgrade is removed (all installs use `--require-hashes`); `db.connect` confines an explicit path to `data/` or the temp directory.
+- **Alternatives:** wrap every JSON string in `<untrusted_data>` tags (rejected: it corrupts values that code consumes; cleaning plus a notice plus the agent definitions cover LLM01); keep caller paths in quality and only compare hashes (rejected: deriving from the database leaves nothing to compare wrongly).
+- **Consequences:** agents need `db set-script` (allowed headless; it validates the script and only works before approval). `quality --video-id` takes no paths. Tests clean up what they create in `data/scripts` and `output/videos`.

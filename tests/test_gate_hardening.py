@@ -97,3 +97,92 @@ def test_mark_checked_requires_rendered_state(tmp_path: Path, monkeypatch: pytes
     monkeypatch.setattr(dbm, "DEFAULT_DB", db_path)
     with pytest.raises(SystemExit, match="refused"):
         run.mark_checked(vid, ROOT / "output" / "x.mp4")
+
+
+# --- operational fixes (end-to-end run, 2026-10-15) --------------------------------------------
+
+
+def _attach(db_path: Path, channel: str, fmt: str, name: str) -> int:
+    conn = dbm.connect(db_path)
+    vid = dbm.add_video(conn, channel, fmt, "t")
+    conn.close()
+    SCRIPTS.mkdir(parents=True, exist_ok=True)
+    path = SCRIPTS / f"{name}-{vid}.yaml"
+    path.write_text(DEMO_SCRIPT.read_text(encoding="utf-8"), encoding="utf-8")
+    return dbm.main(["--db", str(db_path), "set-script", vid, str(path.relative_to(ROOT))])
+
+
+@pytest.mark.parametrize(("channel", "fmt"), [("neon", "short"), ("atlas", "long")])
+def test_set_script_requires_matching_channel_and_format(tmp_path: Path, channel: str, fmt: str) -> None:
+    assert _attach(tmp_path / "m.sqlite", channel, fmt, "mismatch") == 2
+
+
+def test_set_script_rejects_invalid_script(tmp_path: Path) -> None:
+    conn = dbm.connect(tmp_path / "i.sqlite")
+    vid = dbm.add_video(conn, "atlas", "short", "t")
+    conn.close()
+    SCRIPTS.mkdir(parents=True, exist_ok=True)
+    bad = SCRIPTS / f"invalid-{vid}.yaml"
+    bad.write_text("id: x\nchannel: atlas\n", encoding="utf-8")
+    assert dbm.main(["--db", str(tmp_path / "i.sqlite"), "set-script", vid, str(bad.relative_to(ROOT))]) == 2
+
+
+def test_set_script_accepts_matching_script(tmp_path: Path) -> None:
+    assert _attach(tmp_path / "ok.sqlite", "atlas", "short", "match") == 0
+
+
+def test_gated_output_path_is_repo_relative(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    db_path = tmp_path / "rel.sqlite"
+    conn = dbm.connect(db_path)
+    vid, _ = _approved(conn, "relpath")
+    conn.close()
+    monkeypatch.setattr(dbm, "DEFAULT_DB", db_path)
+    monkeypatch.setattr(prod, "produce", lambda *a, **k: {"job_id": "j", "outputs": {"video": "x.mp4"}})
+    prod.produce_gated(vid, backend=SyntheticBackend())
+    conn = dbm.connect(db_path)
+    v = dbm.get_video(conn, vid)
+    conn.close()
+    assert v is not None and v["output_path"] == f"output/videos/{vid}/x.mp4"
+    assert v["state"] == "rendered"
+
+
+def test_quality_video_id_mode_takes_files_from_db(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    from src.quality import run
+
+    with pytest.raises(SystemExit):  # extra paths are a usage error in --video-id mode
+        run.main(["--video-id", "v-1", "--script", "data/scripts/other.yaml"])
+    db_path = tmp_path / "q.sqlite"
+    conn = dbm.connect(db_path)
+    vid, path = _approved(conn, "qual")
+    for st in ("voiced", "specd", "rendered"):
+        dbm.transition(conn, vid, st)
+    dbm.set_path(conn, vid, "output_path", f"output/videos/{vid}/qual.mp4")
+    conn.close()
+    monkeypatch.setattr(dbm, "DEFAULT_DB", db_path)
+    video, spec, script, _ = run.recorded_inputs(vid)
+    assert video == ROOT / "output" / "videos" / vid / "qual.mp4"
+    assert spec.name == "qual.spec.json"
+    assert script == path
+    path.write_text(path.read_text(encoding="utf-8") + "\n# edited\n", encoding="utf-8")
+    with pytest.raises(SystemExit, match="changed since approval"):
+        run.recorded_inputs(vid)
+
+
+def test_mark_checked_refuses_file_changed_during_checks(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    from src.quality import run
+
+    db_path = tmp_path / "mc.sqlite"
+    conn = dbm.connect(db_path)
+    vid, _ = _approved(conn, "markchk")
+    for st in ("voiced", "specd", "rendered"):
+        dbm.transition(conn, vid, st)
+    mp4 = ROOT / "output" / "videos" / vid / "m.mp4"
+    mp4.parent.mkdir(parents=True, exist_ok=True)
+    mp4.write_bytes(b"checked bytes")
+    dbm.set_path(conn, vid, "output_path", mp4.relative_to(ROOT).as_posix())
+    conn.close()
+    monkeypatch.setattr(dbm, "DEFAULT_DB", db_path)
+    digest = dbm.file_sha256(mp4)
+    mp4.write_bytes(b"swapped mid-check")
+    with pytest.raises(SystemExit, match="changed while"):
+        run.mark_checked(vid, mp4, digest)

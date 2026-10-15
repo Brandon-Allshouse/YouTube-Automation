@@ -16,13 +16,13 @@ flowchart TD
   R -->|topics| SW((scriptwriter agent))
   SW -->|script YAML + segment plan| AP((audience-panel))
   AP --> FC((fact-checker))
-  FC --> CG((compliance-guard<br/>veto))
+  FC --> VD((visual-director<br/>visuals + thumbnails))
+  VD --> CG((compliance-guard<br/>veto))
   CG -->|validated Script| DB[(SQLite state machine)]
-  DB --> RQ[review queue CLI<br/>HUMAN APPROVAL]
-  RQ -->|reviewed| VD((visual-director))
-  VD -->|segment visuals| P[produce.py]
+  DB --> RQ[review queue CLI<br/>HUMAN APPROVAL<br/>pins script sha256]
+  RQ -->|reviewed| P[produce.py]
   subgraph Render [render container: no network]
-    P --> TTS[Kokoro TTS per sentence]
+    P --> TTS[Kokoro TTS per segment<br/>model word timings]
     TTS --> CAP[caption alignment]
     P --> SPEC[scene spec + validation]
     P --> MUS[music generator] --> MIX[mixer + mastering]
@@ -83,13 +83,13 @@ Agents never execute generated shell. They call fixed entry points (allowed in `
 |---|---|---|---|
 | researcher | `python -m src.research.*` | JSON summaries | topic briefs (markdown) |
 | scriptwriter | `python -m src.db` | briefs, channel config | `data/scripts/<id>.yaml` (`src/production/script.py`) |
-| visual-director | `python -m engine.schema.spec --validate` | script, `scene_spec.schema.json` | segment `visual` blocks (spec schema) |
+| visual-director | `produce --dry-run --script` | script, `scene_spec.schema.json` | segment `visual` blocks + thumbnail `focal`s (spec schema, `Script`), before review |
 | compliance-guard | `python -m src.compliance.distinctness` | script, history | verdict JSON |
 | analyst | `python -m src.analytics.*` | stats summaries | weekly brief |
 
 ## Production pipeline (`src/production/produce.py`)
 1. Load + validate script and channel.
-2. Narrate per sentence (Kokoro, cached) → lay out with natural pauses → word timings.
+2. Narrate each segment in one pass (Kokoro, cached) → cut into sentences at the model's word timings → lay out with natural pauses.
 3. Scene starts = first spoken word of each segment − 0.12 s (min 1.2 s scenes); resolve `at_word`, `until_word`, `count_at_word`, `reveal_words` anchors.
 4. Validate the scene spec; generate music with risers on cuts; master to -14 LUFS / ≤ -1 dBTP.
 5. Render in parallel → MP4 with audio; write manifest (spec, script, theme, seed, music arrangement, mix + render reports).
