@@ -6,6 +6,9 @@ All notable changes to this project are documented here. Format: [Keep a Changel
 
 ### Changed
 - More natural narration (owner feedback, ADR-031). Each segment is voiced in one continuous Kokoro pass. Word timings come from the timestamped Kokoro export's phoneme durations, which makes captions more accurate. Sentence gaps still follow our pause model. The voice chain is lighter, with room tone under pauses. Channel voices: atlas `am_fenrir`, neon `af_heart`, both at speed 1.0.
+### Added
+- Portfolio dashboard (`bash scripts/task.sh dashboard`, ADR-033). Tracks accounts, every video and its 48 h indicators, the pipeline, schedule, research, quota, cross-post exports, bandit and retention penalties. Success scoring: Video Performance Index per video, channel score with reach growth, portfolio score, and "what works" levers. Static, script-free HTML with a hash-pinned CSP; read-only DB; JSON for agents. Rebuilt by `/analyze` and `/weekly-brief`.
+
 ### Fixed
 - Velocity radar re-run within the 24 h API cache window reused cached view counts and stored them as a new snapshot (zero acceleration, corrupt history). Snapshots now force fresh `videos.list` stats (`max_age_hours`), about 20 units per run; searches still come from the cache.
 - A script could be attached to a video of another channel or format; it would then be rendered in the wrong style and uploaded with the wrong channel's token. `db set-script` now validates the script and requires a matching channel/format; `produce --video-id` re-checks; uploads use the video's channel and refuse a mismatched script.

@@ -34,6 +34,8 @@ flowchart TD
   SCH -->|scheduled| PUB[publish --live<br/>private by default]
   PUB --> AN[analytics pull] --> LRN[bandit / forensics / predictor]
   LRN --> R
+  AN --> DASH[dashboard<br/>VPI + channel/portfolio scores<br/>static HTML, read-only]
+  LRN --> DASH
 ```
 
 ## Video state machine (`src/db.py`)
@@ -75,6 +77,7 @@ no-op, so cron runs and crashes resume safely.
 | Production | `src/production/{script,produce}.py` | script model, orchestrator, word-anchored visuals |
 | Quality | `src/quality/{frames,inspect}.py` (+ checks, step 13) | contact sheets, key frames |
 | Research, compliance, review, publish, analytics, learning | `src/research/*`, `src/compliance/*`, `src/review/*`, `src/publish/*`, `src/analytics/*`, `src/learning/*` | built in steps 9-12 |
+| Dashboard | `src/dashboard/{score,collect,svg,render,build}.py` | success scoring (VPI, channel, portfolio, levers), read-only collection, static script-free HTML (ADR-033) |
 
 ## Agent ↔ script interfaces
 Agents never execute generated shell. They call fixed entry points (allowed in `.claude/settings.json`) and exchange files:

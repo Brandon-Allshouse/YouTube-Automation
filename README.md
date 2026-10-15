@@ -52,6 +52,7 @@ library needs to `dlopen` espeak-ng from a temp dir that allows execution.
 | `thumbnails ...` | Thumbnails + legibility reports |
 | `research <module> [--live]` | outlier_scan, velocity_radar, comment_miner, niche_score |
 | `analytics <module>`, `learn ...` | pull_stats, retention_forensics, weekly_brief; bandit |
+| `dashboard [--fixtures]` | Portfolio dashboard → `output/dashboard/index.html` (read-only; `--fixtures` = synthetic demo) |
 | `distinctness ...`, `review ...` | Near-duplicate guard; human review queue |
 | `timing ...`, `export ...` | Upload-slot optimizer; TikTok/Reels packages |
 | `publish ...`, `oauth ...` | **Owner only**: upload (dry run unless `--live`), one-time OAuth |
@@ -60,7 +61,7 @@ library needs to `dlopen` espeak-ng from a temp dir that allows execution.
 ## Layout
 ```
 engine/      our renderer: core (easing, timeline, canvas, scene graph, geo, text, render), components, schema
-src/         audio, research, production, compliance, review, publish, analytics, learning, quality, common, db.py
+src/         audio, research, production, compliance, review, publish, analytics, learning, dashboard, quality, common, db.py
 config/      channels/, themes/, rules.yaml, seed_niches.yaml, demo/
 .claude/     agents/, commands/, settings.json (baseline), settings.headless.json (cron)
 scripts/     task runner, asset fetcher, fixture generators, security scan

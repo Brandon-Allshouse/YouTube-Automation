@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import functools
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 import yaml
 from pydantic import BaseModel, ConfigDict, Field
@@ -89,6 +89,39 @@ class RenderLimits(_Strict):
     max_output_mb: int = Field(gt=0)
 
 
+class MetricWeights(_Strict):
+    """Weight of each 48 h indicator in the Video Performance Index (renormalized over available ones)."""
+
+    views: float = Field(ge=0)
+    ctr: float = Field(ge=0)
+    avg_view_pct: float = Field(ge=0)
+    retained_30s: float = Field(ge=0)
+    engagement: float = Field(ge=0)
+
+
+class MetricPriors(_Strict):
+    """Baseline used before a channel has enough of its own videos (None = no prior, metric skipped)."""
+
+    views: float | None = Field(default=None, gt=0)
+    ctr: float | None = Field(default=None, gt=0)
+    avg_view_pct: float | None = Field(default=None, gt=0)
+    retained_30s: float | None = Field(default=None, gt=0)
+    engagement: float | None = Field(default=None, gt=0)
+
+
+class ScoringRules(_Strict):
+    snapshot_hours: int = Field(gt=0)
+    min_peers: int = Field(ge=1)
+    confidence_impressions: float = Field(gt=0)
+    steepness: float = Field(gt=0)
+    hit_threshold: float = Field(gt=0, lt=100)
+    breakout_multiple: float = Field(gt=1)
+    form_half_life_days: float = Field(gt=0)
+    form_window: int = Field(ge=1)
+    weights: dict[Literal["short", "long"], MetricWeights]
+    priors: dict[Literal["short", "long"], MetricPriors]
+
+
 class Rules(_Strict):
     """Top-level schema of ``config/rules.yaml``."""
 
@@ -99,6 +132,7 @@ class Rules(_Strict):
     distinctness: DistinctnessRules
     quality: QualityRules
     render: RenderLimits
+    scoring: ScoringRules
 
 
 def load_yaml(path: Path, *, root: Path = CONFIG_DIR) -> Any:

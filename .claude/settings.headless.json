@@ -15,6 +15,7 @@
       "Bash(bash scripts/task.sh research:*)",
       "Bash(bash scripts/task.sh analytics:*)",
       "Bash(bash scripts/task.sh learn:*)",
+      "Bash(bash scripts/task.sh dashboard:*)",
       "Bash(bash scripts/task.sh produce:*)",
       "Bash(bash scripts/task.sh thumbnails:*)",
       "Bash(bash scripts/task.sh validate-spec:*)",

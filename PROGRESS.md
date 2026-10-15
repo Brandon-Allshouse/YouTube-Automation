@@ -8,6 +8,8 @@ Owner feedback after the build: the voice sounded too synthetic. Key rotation is
 - **If the voice is still too synthetic,** the next option is a heavier expressive open model (e.g. Chatterbox, MIT) in its own container. It needs PyTorch and is slower on CPU, so it needs the owner's OK.
 - **Bug hunt: DONE.** Ran the real operational flow end to end on a backed-up DB and fixed what it exposed: script/video channel binding, quality gate reading the approved files from the DB, thumbnails rendered from scripts and uploaded (long-form), the agents' missing `set-script` step (+ headless permission), visual-director timing vs approval, stale publish slots, rescheduling, repo-relative output paths, test-artifact cleanup, velocity snapshot cache. See CHANGELOG "Fixed".
 - Leftover test folders the agent could not delete (`rm -rf` is denied): `output/videos/{test-publish,test-swap,v-41e0c9238e,v-c1406bcd46,v-e191cef29b,v-e2etest01,v-e2etest02}`. Safe to delete.
+- **Dashboard: DONE (ADR-033).** `bash scripts/task.sh dashboard` → `output/dashboard/index.html` (`--fixtures` → `demo.html`, synthetic). VPI per video, channel score with reach growth, portfolio score, levers, bandit, pipeline, schedule, research, quota, exports. Static, script-free, hash-pinned CSP, read-only DB. Rebuilt by `/analyze` and `/weekly-brief`.
+- Owner note (memory): TikTok/Reels expansion planned later; designs stay platform-neutral, nothing built yet.
 - **Next:** second live `velocity_radar` run after 15:54 EDT (first snapshot 07:52-07:54 UTC); pick channels and niches with the owner; first real `/write-batch` into the review queue.
 
 ## Morning summary (2026-10-15): all 16 steps done

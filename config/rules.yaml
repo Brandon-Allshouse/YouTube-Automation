@@ -60,3 +60,19 @@ render:                           # resource limits (OWASP: prevent runaway jobs
   max_fps: 60
   render_timeout_s: 3600
   max_output_mb: 2048
+
+scoring:                          # Video Performance Index + channel/portfolio scores (src/dashboard/score.py, ADR-033)
+  snapshot_hours: 48              # every video is judged at the same age, so old videos don't win by default
+  min_peers: 3                    # channel x format baseline (leave-one-out median) needs this many other videos
+  confidence_impressions: 1500    # scores shrink toward 50 until a video has about this many impressions
+  steepness: 1.4                  # logistic slope: 2x the baseline on every indicator scores about 80
+  hit_threshold: 65               # VPI at or above this counts as a hit
+  breakout_multiple: 3.0          # 48 h views at least 3x the channel median = breakout
+  form_half_life_days: 14         # channel "form" weights recent videos more
+  form_window: 10                 # last N scored videos per channel
+  weights:                        # what the recommender rewards; Shorts have no meaningful impressions CTR
+    short: {views: 0.40, ctr: 0.00, avg_view_pct: 0.30, retained_30s: 0.15, engagement: 0.15}
+    long:  {views: 0.35, ctr: 0.20, avg_view_pct: 0.25, retained_30s: 0.10, engagement: 0.10}
+  priors:                         # baselines until a channel has min_peers videos (typical public benchmarks)
+    short: {avg_view_pct: 0.70, retained_30s: 0.60, engagement: 0.04}
+    long:  {ctr: 0.045, avg_view_pct: 0.40, retained_30s: 0.65, engagement: 0.03}

@@ -35,6 +35,11 @@ Gotchas, failures and why, performance findings, platform quirks. Append as disc
 - Hugging Face LFS downloads redirect to regional CDN hosts (`us.aws.cdn.hf.co`). The fetcher allows `*.hf.co` because those files are checksum-pinned from the LFS record.
 - Pitch statistics (F0 range and SD) did not separate natural-sounding from synthetic-sounding samples; the owner's ear is the judge.
 
+## Scoring
+- A score relative to the channel's own median always averages about 50 per channel. It is good for "which of my videos work" but blind to whether the algorithm is growing the channel. Pair it with an absolute trend (reach growth per upload).
+- Doubling views and likes together leaves engagement per view unchanged: "twice as good on everything" needs likes to grow 4×.
+- Research "median views" comes from the top search results by views, which is survivorship-biased and useless as a 48 h benchmark.
+
 ## Pipeline integration
 - Unit tests of each gate passed while the end-to-end path was broken in three places (agent never attached the script; headless permissions lacked `set-script`; visual-director told to edit approved scripts). Run the whole flow (`add-video → set-script → approve → produce --video-id → quality --video-id → timing --schedule → publish` dry run) on a backed-up DB after changing any stage.
 - Anything uploaded must be derived from the database record, never from caller-supplied paths or script text (channel token, files checked by quality).

@@ -20,6 +20,15 @@ All commands run from the repo root in Git Bash (Windows) or a normal shell (mac
 | You | Upload | `bash scripts/task.sh timing --video-id <id> --schedule`, then `bash scripts/task.sh publish --video-id <id>` (dry run), then `bash scripts/task.sh publish --video-id <id> --live` (uploads **private** with `publishAt`; YouTube publishes at the jittered slot) |
 | You (optional) | TikTok / Reels | `bash scripts/task.sh export --video ... --spec ... --script ...`, then upload the files in `output/exports/<id>/` by hand |
 
+## Dashboard
+`bash scripts/task.sh dashboard`, then open `output/dashboard/index.html` in your browser (it is a local file and
+works offline). Cron rebuilds it after `/analyze`. `--fixtures` builds `demo.html` from synthetic data so you can see
+every panel before real stats exist. It reads the database read-only; agents read the same numbers from `index.json`.
+- **Portfolio score / channel score:** 50 = holding steady; above 50 = the algorithm is giving you more reach.
+- **VPI per video:** 50 = your typical video at 48 h; about 80 = twice as good on every indicator.
+- **What works:** shrunk average VPI per niche, hook, length and visual mix. Use it to pick the next scripts' formula.
+- Weights and thresholds: `config/rules.yaml: scoring`.
+
 ## Weekly routine (about 10 minutes)
 - Read `data/briefs/weekly-<YYYY>-W<WW>.md` (from `/weekly-brief`). Act on its action list.
 - Every 14 days: kill/scale decisions per `config/rules.yaml` (the brief marks candidates; you decide).

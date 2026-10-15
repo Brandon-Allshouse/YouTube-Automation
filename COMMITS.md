@@ -9,14 +9,12 @@ How to apply one group (Git Bash): copy its file list into `git add -- <files>`,
 
 ## Pending
 
-The owner is committing session 2 as **one commit** (`git add -A`; 45 modified files, no new or
-ignored files; `.env` and raw scan outputs are gitignored):
+Session-2 voice + fixes are committed (`da893a4`). Next commit (everything currently modified/untracked;
+`.env`, raw scan outputs and `output/` stay gitignored):
 
 ```
-feat: natural narration, end-to-end pipeline fixes and security hardening
+feat(dashboard): portfolio dashboard with algorithmic success scoring
 ```
-(full message in the session; after pulling, run `bash scripts/task.sh fetch-assets` once for the
-new Kokoro timing model).
 
 ## Committed (reference)
 

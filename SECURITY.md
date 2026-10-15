@@ -26,6 +26,11 @@ Top 10 for LLM Applications. Latest scan results: [`security/REPORT.md`](securit
 4. Scheduling is interactive-only; upload re-verifies both hashes, accepts files only from `output/videos/`, defaults to private, and requires `--live`.
 An independent review (read-only subagent, 2026-10-15) found 5 high / 4 medium / 4 low issues; all high and medium issues are fixed with regression tests (`tests/test_gate_hardening.py`), and the three low-severity items were closed the same day (ADR-032).
 
+## Dashboard (ADR-033)
+- Static HTML generated locally; no server, no network, no JavaScript. A Content-Security-Policy allows only the page's own stylesheet (pinned by SHA-256): `default-src 'none'`, `script-src 'none'`.
+- Every value is HTML-escaped (YouTube titles and research niche names are third-party input). Links only to validated 11-character YouTube ids, with `rel="noopener noreferrer"`. No `style` or event-handler attributes (checked in tests).
+- The pipeline DB is opened with SQLite `mode=ro`, and the path is confined like every `--db`. Research files are size-capped, type-checked and skipped when malformed. Output is confined to `output/` and written atomically. No secrets are collected, so none can leak into the page.
+
 ## Input handling rules (enforced in code)
 - `subprocess` only via `src/common/proc.py`: argument lists, allowlisted executables (`ffmpeg`, `ffprobe`, `git`), no `shell=True`, timeouts.
 - SQLite: parameterized queries only.

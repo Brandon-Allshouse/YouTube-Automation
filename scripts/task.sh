@@ -53,6 +53,7 @@ case "$target" in
                   *) echo "unknown analytics module: $mod" >&2; exit 2 ;;
                 esac ;;
   learn)        dc dev python -m src.learning.bandit "$@" ;;
+  dashboard)    dc dev python -m src.dashboard.build "$@" ;;
   produce)      dc render python -m src.production.produce "$@" ;;
   timing)       dc dev python -m src.publish.timing "$@" ;;
   export)       dc render python -m src.publish.crosspost_export "$@" ;;

@@ -169,6 +169,21 @@ def utcnow() -> str:
     return datetime.now(UTC).isoformat(timespec="seconds")
 
 
+def check_db_path(path: Path) -> Path:
+    """Resolve an explicitly requested database path; it must sit under ``data/`` or the temp directory.
+
+    Raises:
+        ValueError: The path is anywhere else.
+    """
+    import tempfile
+
+    resolved = path.resolve()
+    allowed = (DATA_DIR.resolve(), Path(tempfile.gettempdir()).resolve())
+    if not any(resolved == a or a in resolved.parents for a in allowed):
+        raise ValueError("database path must be under data/ or the temp directory")
+    return resolved
+
+
 def connect(path: Path | None = None) -> sqlite3.Connection:
     """Open (and initialise) the pipeline database.
 
@@ -181,12 +196,7 @@ def connect(path: Path | None = None) -> sqlite3.Connection:
         ValueError: ``path`` is outside the allowed directories.
     """
     if path is not None and str(path) != ":memory:":
-        import tempfile
-
-        resolved = Path(path).resolve()
-        allowed = (DATA_DIR.resolve(), Path(tempfile.gettempdir()).resolve())
-        if not any(resolved == a or a in resolved.parents for a in allowed):
-            raise ValueError("database path must be under data/ or the temp directory")
+        check_db_path(Path(path))
     target = path or DEFAULT_DB
     if str(target) != ":memory:":
         ensure_dir(Path(target).parent)
