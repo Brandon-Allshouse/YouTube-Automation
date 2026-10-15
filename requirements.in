@@ -1,0 +1,8 @@
+# Runtime dependencies (primitives only; each justified in DECISIONS.md, licensed in LICENSES.md).
+# Lock with: bash scripts/task.sh lock   (pip-compile --generate-hashes inside the container)
+numpy
+scipy
+skia-python
+pyyaml
+pydantic
+kokoro-onnx

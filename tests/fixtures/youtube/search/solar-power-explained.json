@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 3295,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "rTV6g--dMld"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-26T00:27:41Z",
+    "channelId": "UCtUAJdTLpWLe-obl_ma4x61",
+    "title": "The Real Reason solar power Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ouhjcwz5iEb"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-27T08:00:46Z",
+    "channelId": "UCinTAFKdDILOPxxTrOd35B5",
+    "title": "The Real Reason solar power Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xz3odIHVb1s"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-09T18:54:48Z",
+    "channelId": "UCTYSBZZJeSZ_2BZtuG_u_Od",
+    "title": "Solar Power: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "qtQEaFEzoaf"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-07T12:57:22Z",
+    "channelId": "UCtUAJdTLpWLe-obl_ma4x61",
+    "title": "Why solar power Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ley9oCkt71R"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-26T05:04:17Z",
+    "channelId": "UCinTAFKdDILOPxxTrOd35B5",
+    "title": "Solar Power Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "a4Z05pmgXqp"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-24T13:58:13Z",
+    "channelId": "UCu9CJDgZuHvsKxGOOeKrAlA",
+    "title": "I Tried to Understand solar power"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "KJIqEPOvSMh"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-12T04:18:27Z",
+    "channelId": "UClT4_ABkiOTmLtyxLYwn_Zz",
+    "title": "The Real Reason solar power Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "cSdb1Tn-8sb"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-10T07:12:51Z",
+    "channelId": "UCtUAJdTLpWLe-obl_ma4x61",
+    "title": "What Nobody Tells You About solar power"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "qCL27bW2cui"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-03T22:40:14Z",
+    "channelId": "UCu9CJDgZuHvsKxGOOeKrAlA",
+    "title": "Solar Power: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "YpCGCZE6fzP"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-03T13:49:12Z",
+    "channelId": "UCVY2KodAF-I6U4DssZG-IbN",
+    "title": "Solar Power in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "qA0uLE2KUXQ"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-10T04:27:27Z",
+    "channelId": "UCVY2KodAF-I6U4DssZG-IbN",
+    "title": "I Tried to Understand solar power"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "uqVf8-HwRle"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-13T19:46:34Z",
+    "channelId": "UC6lnA8uLFiC8N7wdSIPN0sm",
+    "title": "Solar Power in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "6YQFqL-h5dt"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-03T06:06:42Z",
+    "channelId": "UCTYSBZZJeSZ_2BZtuG_u_Od",
+    "title": "What Nobody Tells You About solar power"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "q7Xksn3WYnw"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-03T16:09:02Z",
+    "channelId": "UClT4_ABkiOTmLtyxLYwn_Zz",
+    "title": "What Nobody Tells You About solar power"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "tx2ydVnnA-_"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-24T13:08:12Z",
+    "channelId": "UC8sYfbfyCMbuDegDo3D6rXH",
+    "title": "What Nobody Tells You About solar power"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "t2lwrNFzTSx"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T12:59:14Z",
+    "channelId": "UCIImLDXDi992BO9BmjtJW2q",
+    "title": "Solar Power Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xFpyVwA3-nz"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-04T08:21:15Z",
+    "channelId": "UC8sYfbfyCMbuDegDo3D6rXH",
+    "title": "The Map That Explains solar power"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "mD1X1HUeZf3"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-27T03:14:14Z",
+    "channelId": "UClT4_ABkiOTmLtyxLYwn_Zz",
+    "title": "The Real Reason solar power Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Gslg8pvBWJV"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T19:53:43Z",
+    "channelId": "UCinTAFKdDILOPxxTrOd35B5",
+    "title": "The Map That Explains solar power"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "GAnpYEOVT2j"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-30T03:31:08Z",
+    "channelId": "UCVY2KodAF-I6U4DssZG-IbN",
+    "title": "Why solar power Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "HG4o1oZXeCD"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-26T07:28:21Z",
+    "channelId": "UCTYSBZZJeSZ_2BZtuG_u_Od",
+    "title": "Why solar power Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ac9_5WdmaNP"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-23T00:34:25Z",
+    "channelId": "UCTYSBZZJeSZ_2BZtuG_u_Od",
+    "title": "Solar Power Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "eYLNRP-SH_-"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-29T03:32:50Z",
+    "channelId": "UCu9CJDgZuHvsKxGOOeKrAlA",
+    "title": "What Nobody Tells You About solar power"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "6VSuoVhDkfU"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-22T18:49:22Z",
+    "channelId": "UCinTAFKdDILOPxxTrOd35B5",
+    "title": "How solar power Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "EEmLpRcvkbP"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-05T01:27:55Z",
+    "channelId": "UCinTAFKdDILOPxxTrOd35B5",
+    "title": "Solar Power Finally Makes Sense"
+   }
+  }
+ ]
+}

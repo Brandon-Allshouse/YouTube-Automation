@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 3943,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "-hzvgVmwStB"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-25T03:52:38Z",
+    "channelId": "UCm74bLk2DsupJD3jgZryHSi",
+    "title": "Etymology in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "I9bbppSXCiO"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-12T15:39:20Z",
+    "channelId": "UCLJ8HzE7Q3K-h01fNwi9ckC",
+    "title": "Etymology Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "AdMQBCxlpXC"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-20T11:25:16Z",
+    "channelId": "UCydxz4ZtJH20I3Vcsl3lpqu",
+    "title": "Why etymology Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "W_zu30EXRW-"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-18T04:55:34Z",
+    "channelId": "UCASgPJS-6rIvoNDdutFCERb",
+    "title": "I Tried to Understand etymology"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "vz3yz7QAvnv"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-26T05:56:36Z",
+    "channelId": "UCayekXCbNHeH5rPYUqNkeGw",
+    "title": "How etymology Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "1_Zkl5A1dJm"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-20T20:07:07Z",
+    "channelId": "UCLJ8HzE7Q3K-h01fNwi9ckC",
+    "title": "Etymology Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "HvQra4jeQiI"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-20T13:46:33Z",
+    "channelId": "UCm74bLk2DsupJD3jgZryHSi",
+    "title": "Etymology Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "b5stFiXisjj"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T08:44:12Z",
+    "channelId": "UCviKCGeqkEkEmyiGV04aVm_",
+    "title": "Etymology Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "4XKR7KhuL6w"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-20T02:10:41Z",
+    "channelId": "UCASgPJS-6rIvoNDdutFCERb",
+    "title": "How etymology Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "LnIjXvYZClQ"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-12T02:08:20Z",
+    "channelId": "UCUjtFgBztzSnG3_UbFBlq7P",
+    "title": "The Real Reason etymology Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "VyQEGTta5lW"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-15T16:51:46Z",
+    "channelId": "UCXYkx8GrVBrgA5zyIgan3QX",
+    "title": "How etymology Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "oaluJ6ERdvz"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-20T13:06:20Z",
+    "channelId": "UChy83C6-9-qQ5hkeJsUF0jK",
+    "title": "Etymology Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "R8D4g12yxeS"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-11T21:51:52Z",
+    "channelId": "UCXYkx8GrVBrgA5zyIgan3QX",
+    "title": "How etymology Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "6hCFJLChbnx"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-14T23:29:00Z",
+    "channelId": "UChy83C6-9-qQ5hkeJsUF0jK",
+    "title": "What Nobody Tells You About etymology"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Gu4oxD1MHGx"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-21T22:55:23Z",
+    "channelId": "UC11R-a9HckQzG2GwqcwAoEB",
+    "title": "I Tried to Understand etymology"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0k8Yjr8t2zh"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-31T23:44:48Z",
+    "channelId": "UCm74bLk2DsupJD3jgZryHSi",
+    "title": "The Map That Explains etymology"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "WH_91pmYtIP"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-20T02:06:31Z",
+    "channelId": "UCXYkx8GrVBrgA5zyIgan3QX",
+    "title": "The Real Reason etymology Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "212r1tkW2Fp"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-09T03:15:28Z",
+    "channelId": "UCDLFRff3zCnM7a7OlPwo3Gd",
+    "title": "How etymology Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "uPSK4D3gabj"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-30T21:29:50Z",
+    "channelId": "UCXYkx8GrVBrgA5zyIgan3QX",
+    "title": "Etymology: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zRAJMsdlkdt"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-01T13:42:06Z",
+    "channelId": "UCDLFRff3zCnM7a7OlPwo3Gd",
+    "title": "The Map That Explains etymology"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "v6JRkAgi3HC"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-23T00:59:21Z",
+    "channelId": "UCASgPJS-6rIvoNDdutFCERb",
+    "title": "Etymology: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "5uyeYlVp3eG"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-23T13:30:10Z",
+    "channelId": "UCASgPJS-6rIvoNDdutFCERb",
+    "title": "Etymology Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "N7-4l_Ka7Zy"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-23T00:03:48Z",
+    "channelId": "UC11R-a9HckQzG2GwqcwAoEB",
+    "title": "I Tried to Understand etymology"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "gNcgEQNw_dC"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T11:23:52Z",
+    "channelId": "UCLJ8HzE7Q3K-h01fNwi9ckC",
+    "title": "The Real Reason etymology Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "KHuHO0wEkEu"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-04T14:14:38Z",
+    "channelId": "UCDLFRff3zCnM7a7OlPwo3Gd",
+    "title": "How etymology Actually Works"
+   }
+  }
+ ]
+}

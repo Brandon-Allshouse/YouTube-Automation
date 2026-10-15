@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(**/.env)",
+      "Read(**/client_secret*.json)",
+      "Read(**/token*.json)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/gcloud/**)",
+      "Read(~/.docker/**)",
+      "Edit(./.env)",
+      "Write(./.env)",
+      "Bash(bash scripts/task.sh publish:*)",
+      "Bash(bash scripts/task.sh review approve:*)",
+      "Bash(python -m src.publish.youtube:*)",
+      "Bash(python -m src.review.queue approve:*)",
+      "Bash(wget:*)",
+      "Bash(ssh:*)",
+      "Bash(scp:*)",
+      "Bash(sudo:*)",
+      "Bash(rm -rf:*)",
+      "Bash(git push:*)",
+      "Bash(git reset:*)",
+      "Bash(git rebase:*)",
+      "Bash(git clean:*)",
+      "Bash(bash scripts/task.sh oauth:*)",
+      "Bash(python -m src.publish.oauth:*)",
+      "Read(~/.config/video-portfolio/**)",
+      "Read(**/oauth/**)",
+      "Read(**/*secret*.json)"
+    ],
+    "ask": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

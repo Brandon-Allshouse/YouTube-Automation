@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 2214,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "TtJqfEk1B_b"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-24T11:37:00Z",
+    "channelId": "UCYbUAzcaoQ7Y8pC9RmEFkFX",
+    "title": "Does Physics Work in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "4UdflRJnAhk"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-04T07:44:26Z",
+    "channelId": "UC9Yt9KFZ7Yn-rZt1d2kC46-",
+    "title": "What Nobody Tells You About does physics work"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "BZ1D_7QBNtH"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-09T21:56:42Z",
+    "channelId": "UCYbUAzcaoQ7Y8pC9RmEFkFX",
+    "title": "How does physics work Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "sWh39WHzwR1"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-30T20:09:56Z",
+    "channelId": "UCrjLIsRsioVJYQXZ4i5mgKc",
+    "title": "Why does physics work Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ZuAcEoYvXam"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-20T00:46:10Z",
+    "channelId": "UC9Yt9KFZ7Yn-rZt1d2kC46-",
+    "title": "The Real Reason does physics work Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "4_JWgnBpysW"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-09T06:40:06Z",
+    "channelId": "UCrjLIsRsioVJYQXZ4i5mgKc",
+    "title": "The Map That Explains does physics work"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ziJg3lsrwhS"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-30T13:09:50Z",
+    "channelId": "UCYbUAzcaoQ7Y8pC9RmEFkFX",
+    "title": "Does Physics Work: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xZiyv0eRGCY"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-28T22:58:44Z",
+    "channelId": "UChTaNEUngCaPu9pgwM5wdsB",
+    "title": "How does physics work Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "-zIIf9eeXIH"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-02T00:29:22Z",
+    "channelId": "UCYbUAzcaoQ7Y8pC9RmEFkFX",
+    "title": "I Tried to Understand does physics work"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "H_efC1tb1e9"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-07T01:17:24Z",
+    "channelId": "UC2yKzmMQEzfTht3EUyjIntb",
+    "title": "The Map That Explains does physics work"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "YGaL8yFLlAe"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-27T17:35:01Z",
+    "channelId": "UC9Yt9KFZ7Yn-rZt1d2kC46-",
+    "title": "How does physics work Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "DhpAyJHZXH8"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-30T16:48:49Z",
+    "channelId": "UCrjLIsRsioVJYQXZ4i5mgKc",
+    "title": "How does physics work Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "SeyC9a4D8wP"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T11:01:15Z",
+    "channelId": "UCe_MiamZVGTVe3ObzGzZWc_",
+    "title": "How does physics work Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "PQaIJhRr9K1"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-19T16:55:49Z",
+    "channelId": "UChTaNEUngCaPu9pgwM5wdsB",
+    "title": "The Map That Explains does physics work"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "8JGbtRnmFnK"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-23T22:30:24Z",
+    "channelId": "UCdHauzFV-de6LOLBjgE_vRJ",
+    "title": "Does Physics Work Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "1n0vNn1SNEv"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-05T12:03:22Z",
+    "channelId": "UCYbUAzcaoQ7Y8pC9RmEFkFX",
+    "title": "The Real Reason does physics work Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "7CKONHQqD0t"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-13T15:04:59Z",
+    "channelId": "UCrjLIsRsioVJYQXZ4i5mgKc",
+    "title": "Does Physics Work: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "sINKrtrXcmE"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-03T12:29:11Z",
+    "channelId": "UCrjLIsRsioVJYQXZ4i5mgKc",
+    "title": "Does Physics Work Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "kLoj1exPlol"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T03:27:46Z",
+    "channelId": "UCYbUAzcaoQ7Y8pC9RmEFkFX",
+    "title": "Does Physics Work Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "vfy-rKioDii"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-07T00:04:57Z",
+    "channelId": "UCt_awOU9itXk1lvdr11JRt9",
+    "title": "The Real Reason does physics work Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "GMp9hAud1J9"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-10T11:32:06Z",
+    "channelId": "UCJpcvHBg7Cl0GnQuXcXbbky",
+    "title": "Does Physics Work Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "oh0stv4uFq3"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-03T20:24:01Z",
+    "channelId": "UChTaNEUngCaPu9pgwM5wdsB",
+    "title": "Why does physics work Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "P1fOShny5bU"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-25T13:41:46Z",
+    "channelId": "UC9Yt9KFZ7Yn-rZt1d2kC46-",
+    "title": "Why does physics work Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0oybUPt-7YX"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-22T09:34:15Z",
+    "channelId": "UCHXLj28TPiKwKKoa30Kxax8",
+    "title": "Does Physics Work in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "3OsrCKEKgfT"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-11T00:56:47Z",
+    "channelId": "UC0ciEBl0sK4CSBy_hL5mM9V",
+    "title": "Does Physics Work: The Untold Story"
+   }
+  }
+ ]
+}

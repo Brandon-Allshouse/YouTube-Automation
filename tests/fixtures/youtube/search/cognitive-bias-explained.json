@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 1968,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "nhrFeu2yv5b"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-17T06:25:29Z",
+    "channelId": "UCqo4kgX91BnFwJdmfKEk9GM",
+    "title": "Cognitive Bias in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "BJWLxfIn-YD"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-01T11:14:38Z",
+    "channelId": "UCXTt96Q3xZznVhK5BOnu8w5",
+    "title": "Cognitive Bias: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "fXNloG5pT2w"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T12:44:58Z",
+    "channelId": "UCcn4plb7a79qcQBsf0FVu1V",
+    "title": "What Nobody Tells You About cognitive bias"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "pg46Kg2bc_r"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-04T20:30:32Z",
+    "channelId": "UC2kaXW5Vbn2836Y_6GUq3nu",
+    "title": "The Map That Explains cognitive bias"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "gOUzWTBh_2V"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-17T21:47:02Z",
+    "channelId": "UCo7Y3V4mgWYzs5TAa16RCRs",
+    "title": "I Tried to Understand cognitive bias"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "JBb3vLPqQBM"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-07T09:56:57Z",
+    "channelId": "UC2kaXW5Vbn2836Y_6GUq3nu",
+    "title": "Why cognitive bias Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "59LS7Tppec7"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-17T18:44:54Z",
+    "channelId": "UCeYVgWLATaPE5Ro9feJgN_S",
+    "title": "Why cognitive bias Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "uYSuNyBq2Fj"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-07T17:35:20Z",
+    "channelId": "UCbqCUnywOzq3OxpsWsf6AXe",
+    "title": "Cognitive Bias: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "J4-v4AIMFGp"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-02T13:24:24Z",
+    "channelId": "UCnLjredoFesicgGTyPaQzGY",
+    "title": "The Real Reason cognitive bias Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "pGvHikeEMpy"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-15T15:46:23Z",
+    "channelId": "UC2kaXW5Vbn2836Y_6GUq3nu",
+    "title": "What Nobody Tells You About cognitive bias"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "_ulbTVvsbIj"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-10T14:48:27Z",
+    "channelId": "UC1kXfvD0ZyKcIdJ5IfGWIpr",
+    "title": "Why cognitive bias Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "iVpwyJBKLmc"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-25T16:08:55Z",
+    "channelId": "UCeYVgWLATaPE5Ro9feJgN_S",
+    "title": "What Nobody Tells You About cognitive bias"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "mFMRaJyA8D_"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-25T05:56:49Z",
+    "channelId": "UCwqxtJrDuRYMQu8DBV0t0B2",
+    "title": "The Real Reason cognitive bias Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Hw_H1rcoIEG"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-05T20:47:48Z",
+    "channelId": "UCqo4kgX91BnFwJdmfKEk9GM",
+    "title": "Cognitive Bias in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "7c4KTJo6vHs"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-20T10:17:39Z",
+    "channelId": "UCbqCUnywOzq3OxpsWsf6AXe",
+    "title": "Why cognitive bias Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "wiEN17ool-s"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-25T08:44:27Z",
+    "channelId": "UCmmuQwkCt3cJnm3zujcx22M",
+    "title": "Cognitive Bias: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "57ArpMUfZwC"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-24T14:47:14Z",
+    "channelId": "UCbqCUnywOzq3OxpsWsf6AXe",
+    "title": "Cognitive Bias Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "aU7FS1KBpOF"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-04T13:53:56Z",
+    "channelId": "UCYQyP6Z7cpRgZntnihfRz2a",
+    "title": "The Map That Explains cognitive bias"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ytSJz-0tX6Z"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-28T10:37:50Z",
+    "channelId": "UCo7Y3V4mgWYzs5TAa16RCRs",
+    "title": "How cognitive bias Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "O9Dnsggggtj"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-26T11:18:35Z",
+    "channelId": "UC2kaXW5Vbn2836Y_6GUq3nu",
+    "title": "I Tried to Understand cognitive bias"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "1GSlAiMnwds"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-02T10:36:15Z",
+    "channelId": "UCXTt96Q3xZznVhK5BOnu8w5",
+    "title": "I Tried to Understand cognitive bias"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "2WP48_1jPwx"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-21T00:07:10Z",
+    "channelId": "UCiIW4-pTVGw0P8y_Gfm1bJI",
+    "title": "Why cognitive bias Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "aStWbAB8UZf"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-19T06:11:19Z",
+    "channelId": "UCqo4kgX91BnFwJdmfKEk9GM",
+    "title": "I Tried to Understand cognitive bias"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "P2aNQzPBj6M"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-25T19:38:15Z",
+    "channelId": "UCeYVgWLATaPE5Ro9feJgN_S",
+    "title": "I Tried to Understand cognitive bias"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "uVXQDxYr-ut"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-06T03:36:30Z",
+    "channelId": "UCo7Y3V4mgWYzs5TAa16RCRs",
+    "title": "What Nobody Tells You About cognitive bias"
+   }
+  }
+ ]
+}

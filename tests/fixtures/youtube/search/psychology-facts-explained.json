@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 1819,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "guSLghe69uu"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-27T10:17:35Z",
+    "channelId": "UC1kXfvD0ZyKcIdJ5IfGWIpr",
+    "title": "The Real Reason psychology facts Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "9hF_hTIlR6s"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-17T05:27:32Z",
+    "channelId": "UCXTt96Q3xZznVhK5BOnu8w5",
+    "title": "Why psychology facts Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xNY1ODOIkKY"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-30T13:15:30Z",
+    "channelId": "UCcn4plb7a79qcQBsf0FVu1V",
+    "title": "The Real Reason psychology facts Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "cbT-pKRO9wD"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-15T13:15:36Z",
+    "channelId": "UCqo4kgX91BnFwJdmfKEk9GM",
+    "title": "How psychology facts Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "HN7ibv6Ac6f"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-08T04:14:28Z",
+    "channelId": "UCeYVgWLATaPE5Ro9feJgN_S",
+    "title": "Why psychology facts Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "53MvbcViA6G"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-19T13:31:09Z",
+    "channelId": "UCcn4plb7a79qcQBsf0FVu1V",
+    "title": "Psychology Facts Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "spqjzbGlrTp"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-29T13:20:22Z",
+    "channelId": "UCo7Y3V4mgWYzs5TAa16RCRs",
+    "title": "How psychology facts Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ceQMfYfVVDy"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T00:04:55Z",
+    "channelId": "UCYQyP6Z7cpRgZntnihfRz2a",
+    "title": "Why psychology facts Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "taAq8SQypIS"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-08T16:07:25Z",
+    "channelId": "UCcn4plb7a79qcQBsf0FVu1V",
+    "title": "How psychology facts Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "pGmV8x98Vct"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-30T08:48:50Z",
+    "channelId": "UCXTt96Q3xZznVhK5BOnu8w5",
+    "title": "I Tried to Understand psychology facts"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "tx4HShbOQWS"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T06:45:34Z",
+    "channelId": "UCiIW4-pTVGw0P8y_Gfm1bJI",
+    "title": "What Nobody Tells You About psychology facts"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ueQuRaDIy6O"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-12T08:28:05Z",
+    "channelId": "UCcn4plb7a79qcQBsf0FVu1V",
+    "title": "Why psychology facts Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "CgsN1FyfsVw"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-23T22:46:07Z",
+    "channelId": "UCiIW4-pTVGw0P8y_Gfm1bJI",
+    "title": "What Nobody Tells You About psychology facts"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "lfd_uLoyr6d"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-14T16:03:24Z",
+    "channelId": "UCnLjredoFesicgGTyPaQzGY",
+    "title": "How psychology facts Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ImMwNQMnWCE"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-26T04:09:55Z",
+    "channelId": "UCYQyP6Z7cpRgZntnihfRz2a",
+    "title": "Psychology Facts Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "_b-vWQZyh9F"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-23T08:25:37Z",
+    "channelId": "UCmmuQwkCt3cJnm3zujcx22M",
+    "title": "Why psychology facts Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "YBDZfNwYMUO"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T17:08:38Z",
+    "channelId": "UCmmuQwkCt3cJnm3zujcx22M",
+    "title": "Psychology Facts: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "R9Gp981_ckh"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-07T10:22:32Z",
+    "channelId": "UCbqCUnywOzq3OxpsWsf6AXe",
+    "title": "Psychology Facts Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "-VPnRX86epc"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-12T22:02:05Z",
+    "channelId": "UCo7Y3V4mgWYzs5TAa16RCRs",
+    "title": "How psychology facts Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "SlREK84ySUa"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-12T15:18:41Z",
+    "channelId": "UCiIW4-pTVGw0P8y_Gfm1bJI",
+    "title": "How psychology facts Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "V1rokXwa_oa"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T19:58:20Z",
+    "channelId": "UCnLjredoFesicgGTyPaQzGY",
+    "title": "Psychology Facts in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "hnwUe13zMNM"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T20:10:31Z",
+    "channelId": "UCeYVgWLATaPE5Ro9feJgN_S",
+    "title": "I Tried to Understand psychology facts"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "_lAouwBvZKK"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-07T15:17:30Z",
+    "channelId": "UCiIW4-pTVGw0P8y_Gfm1bJI",
+    "title": "I Tried to Understand psychology facts"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "GkhT1-Bz7Mk"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-30T05:14:33Z",
+    "channelId": "UCo7Y3V4mgWYzs5TAa16RCRs",
+    "title": "Psychology Facts in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "9Ym1Mx4lq03"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-06T04:29:24Z",
+    "channelId": "UCiIW4-pTVGw0P8y_Gfm1bJI",
+    "title": "The Map That Explains psychology facts"
+   }
+  }
+ ]
+}

@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 235,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "210NAO8YdTB"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-22T02:12:10Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "I Tried to Understand american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xSow2BCS9fV"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-27T20:13:36Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "The Real Reason american cities are designed Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "87KEeYXgHnL"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-19T01:11:33Z",
+    "channelId": "UCTxYE-q0XRpHO7YXEKbcCJK",
+    "title": "American Cities Are Designed: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "WPSAYB7mUqT"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-08T18:34:09Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "The Map That Explains american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "x9mOz6oNzju"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T10:48:56Z",
+    "channelId": "UC7RX2WriyUBQOeRq2RI0cJB",
+    "title": "What Nobody Tells You About american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zfgOZgEMTij"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-03T16:19:18Z",
+    "channelId": "UC7RX2WriyUBQOeRq2RI0cJB",
+    "title": "American Cities Are Designed: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "aPFFdtDwEO6"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-12T13:29:04Z",
+    "channelId": "UCnMR4blLrDVuOnyNpwBvT1h",
+    "title": "American Cities Are Designed Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "KvxVRzJrzVL"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-01T04:54:06Z",
+    "channelId": "UCnh5DlrpLow0hi3WyN6rP66",
+    "title": "American Cities Are Designed Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "UKzqCUe9kqH"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-17T19:07:30Z",
+    "channelId": "UCTxYE-q0XRpHO7YXEKbcCJK",
+    "title": "What Nobody Tells You About american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Wwk9NzIlNK5"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-10T02:32:35Z",
+    "channelId": "UCTxYE-q0XRpHO7YXEKbcCJK",
+    "title": "I Tried to Understand american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "P4tj9IOMeKy"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-31T08:37:15Z",
+    "channelId": "UC4PXjrpr9G8LG3q1sMRBAdV",
+    "title": "Why american cities are designed Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "WcnpXBER-7T"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-25T13:16:30Z",
+    "channelId": "UCba6UwShAo-4E_HfpQylg37",
+    "title": "The Map That Explains american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "im54-xr9BSn"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-08T17:36:21Z",
+    "channelId": "UCTxYE-q0XRpHO7YXEKbcCJK",
+    "title": "I Tried to Understand american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "hwh5rgtWeWG"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-10T17:32:49Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "The Real Reason american cities are designed Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "NKpHV52VAsA"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-26T11:07:46Z",
+    "channelId": "UC3myjBpw2eKqH8epHXiZ9fJ",
+    "title": "The Real Reason american cities are designed Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "8RykjulyFjl"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-29T05:52:24Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "The Map That Explains american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "PfcZjXJ0r2r"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-21T18:08:42Z",
+    "channelId": "UC3myjBpw2eKqH8epHXiZ9fJ",
+    "title": "I Tried to Understand american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "qGtl8Qn_pBi"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T04:50:42Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "I Tried to Understand american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "2q1NdCPXDU4"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-10T05:48:24Z",
+    "channelId": "UCTxYE-q0XRpHO7YXEKbcCJK",
+    "title": "Why american cities are designed Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "SvWz4G_FmLf"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-07T16:59:45Z",
+    "channelId": "UCTxYE-q0XRpHO7YXEKbcCJK",
+    "title": "Why american cities are designed Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "v-RD3RkCdFO"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-25T07:14:37Z",
+    "channelId": "UCs05eC7r1k6sDqNHI82eD2g",
+    "title": "Why american cities are designed Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "4mKwlLLuusy"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-30T09:07:43Z",
+    "channelId": "UCnh5DlrpLow0hi3WyN6rP66",
+    "title": "What Nobody Tells You About american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "UCj_wV-lCel"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-25T02:51:52Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "The Map That Explains american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ISZuIWGT9n5"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-23T17:59:31Z",
+    "channelId": "UCs05eC7r1k6sDqNHI82eD2g",
+    "title": "What Nobody Tells You About american cities are designed"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "CDVp5Ego4go"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-31T00:39:26Z",
+    "channelId": "UCs05eC7r1k6sDqNHI82eD2g",
+    "title": "Why american cities are designed Is Weirder Than You Think"
+   }
+  }
+ ]
+}

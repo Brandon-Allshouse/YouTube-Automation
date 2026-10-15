@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 2699,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "w4_8EGGm1Jb"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-28T08:59:32Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "What Nobody Tells You About urban planning"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "BKlcJY94PkN"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-11T09:04:23Z",
+    "channelId": "UCTxYE-q0XRpHO7YXEKbcCJK",
+    "title": "Why urban planning Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "2jl3JC-Mhq-"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-20T07:56:20Z",
+    "channelId": "UC7RX2WriyUBQOeRq2RI0cJB",
+    "title": "Urban Planning in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "MkdSrp-lSov"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-07T16:29:41Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "The Map That Explains urban planning"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "370OVjDbsM0"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-01T20:03:22Z",
+    "channelId": "UC3myjBpw2eKqH8epHXiZ9fJ",
+    "title": "What Nobody Tells You About urban planning"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "620aQcZKhwG"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-11T13:19:39Z",
+    "channelId": "UC7RX2WriyUBQOeRq2RI0cJB",
+    "title": "How urban planning Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "n4ZCC3yLxs5"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-01T09:10:01Z",
+    "channelId": "UCnh5DlrpLow0hi3WyN6rP66",
+    "title": "Urban Planning in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "_Y2-CoT1XSg"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-14T18:33:53Z",
+    "channelId": "UC3myjBpw2eKqH8epHXiZ9fJ",
+    "title": "Why urban planning Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xErJ7lv3y55"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-19T13:13:10Z",
+    "channelId": "UC3myjBpw2eKqH8epHXiZ9fJ",
+    "title": "Why urban planning Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "sIlMl7__LhI"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-22T01:05:22Z",
+    "channelId": "UCs05eC7r1k6sDqNHI82eD2g",
+    "title": "Urban Planning: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "_shF7qdKvWy"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-03T10:37:16Z",
+    "channelId": "UC4PXjrpr9G8LG3q1sMRBAdV",
+    "title": "How urban planning Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "XV-DpSoSeGV"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-13T07:57:46Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "How urban planning Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "JWBol002sZI"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-28T01:38:41Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "Urban Planning Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "S_w2wRCJ6pn"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-17T09:53:09Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "Why urban planning Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "nMfQjZf0ieI"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-04T07:44:49Z",
+    "channelId": "UC7RX2WriyUBQOeRq2RI0cJB",
+    "title": "What Nobody Tells You About urban planning"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ui0A14UrRPP"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-08T02:38:53Z",
+    "channelId": "UCqMOgiLOqzeehLxYpoPRXts",
+    "title": "Urban Planning in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "jPLQq8ej_IG"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-14T05:39:10Z",
+    "channelId": "UCba6UwShAo-4E_HfpQylg37",
+    "title": "Urban Planning Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xcpfMdeZphF"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-29T11:50:55Z",
+    "channelId": "UCs05eC7r1k6sDqNHI82eD2g",
+    "title": "How urban planning Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "4k_ib3PSpnO"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-08T21:31:33Z",
+    "channelId": "UC3myjBpw2eKqH8epHXiZ9fJ",
+    "title": "The Real Reason urban planning Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "LHBkPYOVngn"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-23T01:38:51Z",
+    "channelId": "UC3myjBpw2eKqH8epHXiZ9fJ",
+    "title": "The Map That Explains urban planning"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "7O7vuxtSnZd"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-24T18:20:53Z",
+    "channelId": "UCnMR4blLrDVuOnyNpwBvT1h",
+    "title": "What Nobody Tells You About urban planning"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "lurfHUF1TTo"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-14T22:33:30Z",
+    "channelId": "UCba6UwShAo-4E_HfpQylg37",
+    "title": "What Nobody Tells You About urban planning"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "rFC8JYweHFK"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-25T09:09:42Z",
+    "channelId": "UCnMR4blLrDVuOnyNpwBvT1h",
+    "title": "The Real Reason urban planning Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Zug-8lt4x6s"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-06T12:52:28Z",
+    "channelId": "UC3myjBpw2eKqH8epHXiZ9fJ",
+    "title": "What Nobody Tells You About urban planning"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "KdJYPMJPui2"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-23T07:13:54Z",
+    "channelId": "UCba6UwShAo-4E_HfpQylg37",
+    "title": "Urban Planning in 60 Seconds"
+   }
+  }
+ ]
+}

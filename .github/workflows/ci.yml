@@ -1,0 +1,88 @@
+# Continuous integration: the same checks as `scripts/task.sh lint|typecheck|test|security`.
+# Hardened per OpenSSF Scorecard: SHA-pinned actions, least-privilege permissions, no persisted
+# credentials, no secrets, no pull_request_target, no untrusted ${{ }} interpolation in run steps.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint, types, tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+      - name: System packages (FFmpeg, skia shared libs)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg libgl1 libegl1 libfontconfig1
+      - name: Install hash-locked dependencies
+        run: |
+          python -m pip install --upgrade pip==25.2
+          pip install --require-hashes --only-binary=:all: --no-deps -r requirements.lock
+          pip install --require-hashes --no-deps -r requirements-dev.lock
+      - name: Ruff
+        run: |
+          ruff check .
+          ruff format --check .
+      - name: Mypy (strict)
+        run: mypy
+      - name: Bandit
+        run: bandit -c pyproject.toml -r engine src scripts -lll
+      - name: Tests with coverage
+        env:
+          VIDEO_PIPELINE_CONTAINER: "1"
+        run: python -m pytest -m "not slow and not needs_models" --cov --cov-report=term
+
+  supply-chain:
+    name: Dependency audit + secret scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+      - name: Install audit tooling
+        run: pip install --require-hashes --no-deps -r requirements-dev.lock
+      - name: pip-audit (fail on known vulnerabilities)
+        run: pip-audit --strict --require-hashes --disable-pip -r requirements.lock
+      - name: detect-secrets against baseline
+        run: |
+          git ls-files -z | xargs -0 detect-secrets-hook --baseline .secrets.baseline
+
+  docker:
+    name: Container image builds
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build runtime and dev targets
+        run: |
+          docker build --target runtime -t video-portfolio:runtime .
+          docker build --target dev -t video-portfolio:dev .

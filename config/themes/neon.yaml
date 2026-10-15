@@ -1,0 +1,35 @@
+# "Neon": science / technology explainers. Electric, precise, energetic.
+# Near-black navy, cyan + magenta accents, geometric grotesk, snappy springy motion, grid floor.
+name: neon
+description: Electric science look. Geometric grotesk, cyan/magenta accents, snappy spring motion, glitch transitions.
+palette:
+  bg: "#070a14"
+  bg2: "#111a33"
+  surface: "#121b31"
+  text: "#eef4ff"
+  text_muted: "#8ea0c2"
+  accent: "#29e3ff"
+  accent2: "#ff3fa4"
+  highlight: "#c6ff3d"
+  positive: "#3dffa8"
+  negative: "#ff5470"
+  series: ["#29e3ff", "#ff3fa4", "#c6ff3d", "#ffb13d", "#8b7bff", "#3dffa8"]
+fonts:
+  display: {family: Space Grotesk, weight: 700, tracking: -0.02}
+  body: {family: Space Grotesk, weight: 500}
+  caption: {family: Space Grotesk, weight: 700, uppercase: true, tracking: 0.01}
+  mono: {family: JetBrains Mono, weight: 700}
+  thumb: {family: Space Grotesk, weight: 700, uppercase: true}
+motion:
+  enter: spring_snappy
+  exit: in_expo
+  emphasis: spring_bouncy
+  move: in_out_expo
+  enter_duration: 0.55
+  stagger: 0.04
+  rise: 80
+  camera_drift: 0.02
+transition: {kind: glitch, duration: 0.4, easing: in_out_expo}
+captions: {mode: box, size: 84, y: 0.71, y_long: 0.86, max_words: 2, max_chars: 16, stroke: 0}
+background: {kind: grid, grain: 0.04, vignette: 0.6, glow: 0.5}
+corner_radius: 14

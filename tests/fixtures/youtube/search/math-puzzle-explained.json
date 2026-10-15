@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 1949,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "S5iPklfYWkA"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-27T01:20:51Z",
+    "channelId": "UCVsf1crNZI0BsAics4a8ZDu",
+    "title": "Math Puzzle in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "hX6QymNDirA"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-29T05:28:54Z",
+    "channelId": "UCZX9377ARp8swQeM74r6Vc7",
+    "title": "Why math puzzle Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "lCteK9eC0Y7"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-11T18:42:05Z",
+    "channelId": "UCOLSCMl7gMGJEsVlNJSauDj",
+    "title": "Math Puzzle Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "mrdIUNx1WS-"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-04T23:18:00Z",
+    "channelId": "UCZX9377ARp8swQeM74r6Vc7",
+    "title": "Math Puzzle Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "-_cYw6_tslm"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-05T14:26:10Z",
+    "channelId": "UC5xNtsIKH-iSxZe9kIU1Ywi",
+    "title": "Math Puzzle Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "nyLRXWI01WE"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-14T05:54:55Z",
+    "channelId": "UC5xNtsIKH-iSxZe9kIU1Ywi",
+    "title": "Why math puzzle Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "iD5Bzr9UM31"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-10T22:10:23Z",
+    "channelId": "UCQpFSrl625xBCkRsJ3y6o7N",
+    "title": "Math Puzzle Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "GTsNLva9E5Z"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T16:05:42Z",
+    "channelId": "UCX5XYxi99IB6XPcuixfa38z",
+    "title": "Math Puzzle Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "KAwg26c_GwD"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-16T10:23:04Z",
+    "channelId": "UCiHD4-0mHsHHN_uKmTSDHaf",
+    "title": "Math Puzzle Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "539xwdTr8nl"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-14T17:19:07Z",
+    "channelId": "UCOLSCMl7gMGJEsVlNJSauDj",
+    "title": "I Tried to Understand math puzzle"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "4MfILkV3uz4"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-07T18:10:38Z",
+    "channelId": "UCiHD4-0mHsHHN_uKmTSDHaf",
+    "title": "What Nobody Tells You About math puzzle"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "3fDBt8W6S_s"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-17T15:25:59Z",
+    "channelId": "UCp6BX4Wla7LsdyRGNe9fq-x",
+    "title": "Math Puzzle in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "1XgRlQlWk5x"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-24T12:30:43Z",
+    "channelId": "UCIDJp-yg3bJw9zXgxCr4Te4",
+    "title": "Math Puzzle Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "09rXA85O6Gn"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-27T21:47:41Z",
+    "channelId": "UCOLSCMl7gMGJEsVlNJSauDj",
+    "title": "The Map That Explains math puzzle"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "2nQpcgyf7Ns"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-01T04:47:07Z",
+    "channelId": "UCiHD4-0mHsHHN_uKmTSDHaf",
+    "title": "How math puzzle Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "lJ99VzF-lPP"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-15T12:34:09Z",
+    "channelId": "UCp6BX4Wla7LsdyRGNe9fq-x",
+    "title": "How math puzzle Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "sYWzUqkMPlM"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-09T20:42:54Z",
+    "channelId": "UCVsf1crNZI0BsAics4a8ZDu",
+    "title": "Math Puzzle in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "N1kJHkyIf2r"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-23T12:03:43Z",
+    "channelId": "UCEm0B2DgL7iuNFLEwoYhKOZ",
+    "title": "The Real Reason math puzzle Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "fUkYM19vM6I"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-15T23:32:43Z",
+    "channelId": "UCdQj91jjrPc3fCz5_3BCr34",
+    "title": "What Nobody Tells You About math puzzle"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "rfTfXASTBwI"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-20T09:10:10Z",
+    "channelId": "UCOLSCMl7gMGJEsVlNJSauDj",
+    "title": "I Tried to Understand math puzzle"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "KptHVClgkWr"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-25T08:07:24Z",
+    "channelId": "UC5xNtsIKH-iSxZe9kIU1Ywi",
+    "title": "The Map That Explains math puzzle"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0F2QLvTSiZm"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-16T19:42:52Z",
+    "channelId": "UCIDJp-yg3bJw9zXgxCr4Te4",
+    "title": "Why math puzzle Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "VIs9Mqvy7Oq"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-29T08:13:54Z",
+    "channelId": "UCiHD4-0mHsHHN_uKmTSDHaf",
+    "title": "How math puzzle Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "vlwOPs5Ntpj"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-23T03:20:11Z",
+    "channelId": "UCp6BX4Wla7LsdyRGNe9fq-x",
+    "title": "Math Puzzle in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "TY8BJl_nv4T"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-18T07:17:16Z",
+    "channelId": "UCZX9377ARp8swQeM74r6Vc7",
+    "title": "Why math puzzle Is Weirder Than You Think"
+   }
+  }
+ ]
+}

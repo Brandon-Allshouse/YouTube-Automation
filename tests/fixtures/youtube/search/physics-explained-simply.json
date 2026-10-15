@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 1067,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "swdnd8K-R-I"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-10T13:02:16Z",
+    "channelId": "UCYbUAzcaoQ7Y8pC9RmEFkFX",
+    "title": "Why physics simply Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "TwbeTi87NAl"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-11T02:20:50Z",
+    "channelId": "UCYbUAzcaoQ7Y8pC9RmEFkFX",
+    "title": "How physics simply Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "J3wbp2rrbDM"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-18T05:13:43Z",
+    "channelId": "UC2yKzmMQEzfTht3EUyjIntb",
+    "title": "I Tried to Understand physics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "52c9a-AxRTZ"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-15T13:31:27Z",
+    "channelId": "UCt_awOU9itXk1lvdr11JRt9",
+    "title": "Physics Simply: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "iePi9GpLHj1"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-07T16:13:31Z",
+    "channelId": "UCe_MiamZVGTVe3ObzGzZWc_",
+    "title": "What Nobody Tells You About physics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "nrGlI_rswGb"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-28T15:39:51Z",
+    "channelId": "UCrjLIsRsioVJYQXZ4i5mgKc",
+    "title": "I Tried to Understand physics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "lfOU243UOIy"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-06T12:28:37Z",
+    "channelId": "UCt_awOU9itXk1lvdr11JRt9",
+    "title": "The Map That Explains physics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "wlgTTVbagu8"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-03T23:27:15Z",
+    "channelId": "UC9Yt9KFZ7Yn-rZt1d2kC46-",
+    "title": "The Real Reason physics simply Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Kewagzk4vwW"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-08T18:35:44Z",
+    "channelId": "UCYbUAzcaoQ7Y8pC9RmEFkFX",
+    "title": "Physics Simply: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zXfu23YV6Nz"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-05T08:18:38Z",
+    "channelId": "UCHXLj28TPiKwKKoa30Kxax8",
+    "title": "Physics Simply in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "eqViWYH63_d"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-06T02:27:09Z",
+    "channelId": "UCe_MiamZVGTVe3ObzGzZWc_",
+    "title": "Physics Simply Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ppaH4LLXGA3"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-27T11:30:29Z",
+    "channelId": "UC0ciEBl0sK4CSBy_hL5mM9V",
+    "title": "How physics simply Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zej4z5qoCAf"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-22T22:29:06Z",
+    "channelId": "UCdHauzFV-de6LOLBjgE_vRJ",
+    "title": "Physics Simply: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "rKfMdzAaN4n"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-09T13:29:17Z",
+    "channelId": "UCYbUAzcaoQ7Y8pC9RmEFkFX",
+    "title": "The Map That Explains physics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "QnuBWMpdSe4"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-11T10:41:12Z",
+    "channelId": "UCdHauzFV-de6LOLBjgE_vRJ",
+    "title": "The Map That Explains physics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "iW7BiG99cy5"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-07T18:03:55Z",
+    "channelId": "UCJpcvHBg7Cl0GnQuXcXbbky",
+    "title": "Physics Simply in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "GCSDu4Pg1fs"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-23T10:57:43Z",
+    "channelId": "UCt_awOU9itXk1lvdr11JRt9",
+    "title": "Physics Simply Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "6Q--1sy55sQ"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T07:19:39Z",
+    "channelId": "UChTaNEUngCaPu9pgwM5wdsB",
+    "title": "How physics simply Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0qqDFTFzHbH"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-11T00:40:02Z",
+    "channelId": "UC0ciEBl0sK4CSBy_hL5mM9V",
+    "title": "Physics Simply Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "m1WvRChSbWI"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-30T22:06:38Z",
+    "channelId": "UCHXLj28TPiKwKKoa30Kxax8",
+    "title": "Physics Simply Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "lkKY3Tw3bfR"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-27T05:30:47Z",
+    "channelId": "UC2yKzmMQEzfTht3EUyjIntb",
+    "title": "Why physics simply Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "TV2v83z-5Rs"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-30T16:05:09Z",
+    "channelId": "UC0ciEBl0sK4CSBy_hL5mM9V",
+    "title": "The Real Reason physics simply Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ijYnaTnTOtQ"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-03T10:41:51Z",
+    "channelId": "UC0ciEBl0sK4CSBy_hL5mM9V",
+    "title": "The Map That Explains physics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ZCPJ3qSFgZu"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-27T03:15:56Z",
+    "channelId": "UC2yKzmMQEzfTht3EUyjIntb",
+    "title": "Physics Simply Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "deKVMR6jATg"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-25T16:03:50Z",
+    "channelId": "UCJpcvHBg7Cl0GnQuXcXbbky",
+    "title": "Physics Simply in 60 Seconds"
+   }
+  }
+ ]
+}

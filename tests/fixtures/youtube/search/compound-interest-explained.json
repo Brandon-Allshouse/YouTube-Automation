@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 636,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ZQfIfTatS_l"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-23T07:21:59Z",
+    "channelId": "UC4KNIY18VhVbcXP0SB9XLhB",
+    "title": "Compound Interest: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "6SGBqP4Qzc3"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-04T13:39:56Z",
+    "channelId": "UCGvl49ppi-0xlsM_3n5EYC_",
+    "title": "Why compound interest Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xEE-kZ2m14T"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-19T21:14:19Z",
+    "channelId": "UCGvl49ppi-0xlsM_3n5EYC_",
+    "title": "The Real Reason compound interest Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "5PfxqhpIEIl"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T01:27:33Z",
+    "channelId": "UCmHDR0snD2A81AuQPeKxVDK",
+    "title": "I Tried to Understand compound interest"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "3zAZiykLiUR"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-02T12:24:37Z",
+    "channelId": "UCmHDR0snD2A81AuQPeKxVDK",
+    "title": "Why compound interest Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "7GD73TXdnB5"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-23T06:18:52Z",
+    "channelId": "UC4KNIY18VhVbcXP0SB9XLhB",
+    "title": "Compound Interest Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "B_NcSMUploz"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-28T14:16:00Z",
+    "channelId": "UCmHDR0snD2A81AuQPeKxVDK",
+    "title": "Compound Interest Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "K2insNe95mX"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-03T05:27:08Z",
+    "channelId": "UCR7NchldNQNwheCGU1FJGRJ",
+    "title": "I Tried to Understand compound interest"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "5Gwi9VqUzoE"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-25T22:13:10Z",
+    "channelId": "UCB5NAoUebk4qzV85GlGefg_",
+    "title": "Compound Interest: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "G1wnlwhDuIz"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T19:55:51Z",
+    "channelId": "UC4KNIY18VhVbcXP0SB9XLhB",
+    "title": "The Real Reason compound interest Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zc3MDqJ_g1j"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-19T14:44:08Z",
+    "channelId": "UC4KNIY18VhVbcXP0SB9XLhB",
+    "title": "Compound Interest in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "WazzMu90xMP"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-15T13:54:26Z",
+    "channelId": "UCBt8SF8WBi62oc1qxAZCjAe",
+    "title": "Compound Interest in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "uvJCMVPA1XT"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-13T10:02:30Z",
+    "channelId": "UCGvl49ppi-0xlsM_3n5EYC_",
+    "title": "Why compound interest Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "E2MYgrA5g8Y"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-31T01:19:21Z",
+    "channelId": "UCR7NchldNQNwheCGU1FJGRJ",
+    "title": "How compound interest Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "UUPgiZ8oUzm"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-24T03:22:13Z",
+    "channelId": "UCmHDR0snD2A81AuQPeKxVDK",
+    "title": "Why compound interest Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "e1ysR3UfUDQ"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-02T16:46:08Z",
+    "channelId": "UCQMnO1VWFXuCRAiM8B4EbQ0",
+    "title": "I Tried to Understand compound interest"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "b4UbMqWj5Vr"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-09T14:11:31Z",
+    "channelId": "UCh5OzUR8sYpgbly9r_55Z__",
+    "title": "How compound interest Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "uVjQY5OigUW"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-10T17:11:56Z",
+    "channelId": "UCh5OzUR8sYpgbly9r_55Z__",
+    "title": "Compound Interest: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "mWVExvBaYUI"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-11T05:49:32Z",
+    "channelId": "UCh5OzUR8sYpgbly9r_55Z__",
+    "title": "How compound interest Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "bSBDj1egpqu"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-19T06:01:58Z",
+    "channelId": "UC4KNIY18VhVbcXP0SB9XLhB",
+    "title": "Compound Interest in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "BKSJwAIeSAw"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-08T01:42:01Z",
+    "channelId": "UCmHDR0snD2A81AuQPeKxVDK",
+    "title": "Compound Interest Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "D3_fyFL7rkA"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-25T17:41:26Z",
+    "channelId": "UCR7NchldNQNwheCGU1FJGRJ",
+    "title": "The Map That Explains compound interest"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "VortdhuKvTs"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-14T00:27:37Z",
+    "channelId": "UCGvl49ppi-0xlsM_3n5EYC_",
+    "title": "Compound Interest Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "bBw06mAWcBE"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-12T15:36:49Z",
+    "channelId": "UCGvl49ppi-0xlsM_3n5EYC_",
+    "title": "I Tried to Understand compound interest"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "OQ_Fm3bLdOi"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-21T04:52:05Z",
+    "channelId": "UCnkRiyKg478MX0BebHmMGKk",
+    "title": "Why compound interest Is Weirder Than You Think"
+   }
+  }
+ ]
+}

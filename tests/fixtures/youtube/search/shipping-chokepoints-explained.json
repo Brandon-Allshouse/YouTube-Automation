@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 3120,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "wb00tsbIcfG"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-28T19:18:27Z",
+    "channelId": "UCQP1jMmQBbcAMQ6F6Q1BAGX",
+    "title": "I Tried to Understand shipping chokepoints"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "qlTAXMHsoAx"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-22T11:10:35Z",
+    "channelId": "UChkapmM4SQfFJmfptAj-gly",
+    "title": "How shipping chokepoints Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "mTK1MS_y5TZ"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-31T00:27:41Z",
+    "channelId": "UCX6A1Cuk5aKBjhzXm2RJZ4j",
+    "title": "Shipping Chokepoints in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zZjt9ezQgWe"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-27T08:02:57Z",
+    "channelId": "UCQP1jMmQBbcAMQ6F6Q1BAGX",
+    "title": "The Real Reason shipping chokepoints Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "of_FsgB8yF_"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-10T00:11:30Z",
+    "channelId": "UCQP1jMmQBbcAMQ6F6Q1BAGX",
+    "title": "Shipping Chokepoints Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "QcWzQfpCuO_"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-04T14:29:24Z",
+    "channelId": "UC9y6hHZLxHNf9wPxJLFDrjX",
+    "title": "I Tried to Understand shipping chokepoints"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "jI5MrfJ8sv3"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-02T13:10:41Z",
+    "channelId": "UCX6A1Cuk5aKBjhzXm2RJZ4j",
+    "title": "Why shipping chokepoints Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "O0Qll5H7dtL"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-02T12:25:18Z",
+    "channelId": "UCzc8wiYIkN9nOKYHtHXb2Y1",
+    "title": "How shipping chokepoints Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "2uOfBDIBLVi"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-04T18:16:28Z",
+    "channelId": "UC6005wc7bTTNHW9a4jgGwyu",
+    "title": "Shipping Chokepoints Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "YTQKtC6Bcpv"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-24T18:25:04Z",
+    "channelId": "UC9y6hHZLxHNf9wPxJLFDrjX",
+    "title": "Shipping Chokepoints: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "3XB5nr-WBf8"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T14:47:06Z",
+    "channelId": "UChkapmM4SQfFJmfptAj-gly",
+    "title": "The Real Reason shipping chokepoints Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "sxY6L-6I92_"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-20T19:32:33Z",
+    "channelId": "UCQP1jMmQBbcAMQ6F6Q1BAGX",
+    "title": "Shipping Chokepoints Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "A-PPhVFbgrq"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-30T12:42:30Z",
+    "channelId": "UCzc8wiYIkN9nOKYHtHXb2Y1",
+    "title": "Why shipping chokepoints Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "iMc_a1-2Kna"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-07T05:42:01Z",
+    "channelId": "UC9y6hHZLxHNf9wPxJLFDrjX",
+    "title": "Why shipping chokepoints Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "SHX4B-BhYGe"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-09T06:43:52Z",
+    "channelId": "UC6005wc7bTTNHW9a4jgGwyu",
+    "title": "Shipping Chokepoints: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "t4hXCoxv7Ch"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-02T22:26:00Z",
+    "channelId": "UC9y6hHZLxHNf9wPxJLFDrjX",
+    "title": "Why shipping chokepoints Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xs3miAYACpt"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-22T17:52:31Z",
+    "channelId": "UChkapmM4SQfFJmfptAj-gly",
+    "title": "Shipping Chokepoints Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xLbhLkkMi__"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T18:44:30Z",
+    "channelId": "UCzc8wiYIkN9nOKYHtHXb2Y1",
+    "title": "The Real Reason shipping chokepoints Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "4NtiNFuSSQu"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-17T18:23:19Z",
+    "channelId": "UCX6A1Cuk5aKBjhzXm2RJZ4j",
+    "title": "What Nobody Tells You About shipping chokepoints"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "tJG5DzEv5A6"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-29T07:18:16Z",
+    "channelId": "UCX6A1Cuk5aKBjhzXm2RJZ4j",
+    "title": "What Nobody Tells You About shipping chokepoints"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "dAkqlsHwCQQ"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-29T08:16:14Z",
+    "channelId": "UC9y6hHZLxHNf9wPxJLFDrjX",
+    "title": "The Real Reason shipping chokepoints Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "wrnlG2WB9us"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-09T19:44:55Z",
+    "channelId": "UChkapmM4SQfFJmfptAj-gly",
+    "title": "Shipping Chokepoints Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "FGbQtoxsUsH"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T04:37:29Z",
+    "channelId": "UCX6A1Cuk5aKBjhzXm2RJZ4j",
+    "title": "Why shipping chokepoints Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "pHT8kdJRRiz"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-11T08:07:48Z",
+    "channelId": "UCzc8wiYIkN9nOKYHtHXb2Y1",
+    "title": "The Map That Explains shipping chokepoints"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "pmUEs4NWW8p"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-18T17:40:00Z",
+    "channelId": "UCX6A1Cuk5aKBjhzXm2RJZ4j",
+    "title": "Shipping Chokepoints Finally Makes Sense"
+   }
+  }
+ ]
+}

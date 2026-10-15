@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 1127,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "8Y7Hz4GaCnM"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-29T07:26:05Z",
+    "channelId": "UCy98_jWpglduRLH8EX7fk6w",
+    "title": "What Nobody Tells You About ancient civilization"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "d-9nldkivnf"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-18T14:58:04Z",
+    "channelId": "UCNM930YzFaNz-RxjlNymYXY",
+    "title": "The Map That Explains ancient civilization"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Cbampp4Sc-2"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-14T00:26:32Z",
+    "channelId": "UCNM930YzFaNz-RxjlNymYXY",
+    "title": "I Tried to Understand ancient civilization"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "-ncJSf4dLTN"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-12T02:49:26Z",
+    "channelId": "UCsbQzvrN614tTGJPd98aj3L",
+    "title": "Ancient Civilization Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ChTPHWKDSWN"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-31T02:11:45Z",
+    "channelId": "UCyt4YUVmo55Mgk0uSXcEH1L",
+    "title": "Why ancient civilization Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ke37fiAc7pE"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-23T23:51:12Z",
+    "channelId": "UCNM930YzFaNz-RxjlNymYXY",
+    "title": "Why ancient civilization Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "neaRY5PZc7V"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-13T18:25:04Z",
+    "channelId": "UCy98_jWpglduRLH8EX7fk6w",
+    "title": "I Tried to Understand ancient civilization"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "y5qxn59n-0i"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-22T03:56:24Z",
+    "channelId": "UCy98_jWpglduRLH8EX7fk6w",
+    "title": "Ancient Civilization: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0Hs38-yNdvN"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-15T21:27:11Z",
+    "channelId": "UCvCpW-Mng0qKuyraJTpGRQy",
+    "title": "Ancient Civilization Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "PrjuHa6La9E"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-13T20:47:22Z",
+    "channelId": "UC45gQ_IYPh598278L1D42Ee",
+    "title": "I Tried to Understand ancient civilization"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "GCx1O85k1Xp"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-17T03:22:50Z",
+    "channelId": "UC7Kjj3NiqZe0J0L-rdk9AEn",
+    "title": "Why ancient civilization Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "YBmXeqrzw9R"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-18T02:25:57Z",
+    "channelId": "UCtY9EV2JpPsJuPaPu77NH06",
+    "title": "Ancient Civilization in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "j9LilfSSSgJ"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-29T04:22:58Z",
+    "channelId": "UC45gQ_IYPh598278L1D42Ee",
+    "title": "Ancient Civilization Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "2P7iHBnIkgh"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-24T05:27:19Z",
+    "channelId": "UC7Kjj3NiqZe0J0L-rdk9AEn",
+    "title": "Ancient Civilization in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "pYK8IX8Jho9"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-02T22:43:15Z",
+    "channelId": "UCy98_jWpglduRLH8EX7fk6w",
+    "title": "The Map That Explains ancient civilization"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "lc8cS-lKm7U"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-11T19:49:29Z",
+    "channelId": "UCNM930YzFaNz-RxjlNymYXY",
+    "title": "The Real Reason ancient civilization Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "7ObE8fl5K4B"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T09:57:36Z",
+    "channelId": "UCsbQzvrN614tTGJPd98aj3L",
+    "title": "Why ancient civilization Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "G2Ijh2RKTO5"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-08T18:06:18Z",
+    "channelId": "UCy4aKgY2yd5XGGukkzdm78H",
+    "title": "What Nobody Tells You About ancient civilization"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "yzPiH51uZGc"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-15T00:03:42Z",
+    "channelId": "UC7Kjj3NiqZe0J0L-rdk9AEn",
+    "title": "Ancient Civilization in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "F7v66JLhtI7"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T09:06:16Z",
+    "channelId": "UCy4aKgY2yd5XGGukkzdm78H",
+    "title": "Ancient Civilization Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "EBJttIl8pf0"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T17:14:52Z",
+    "channelId": "UCy4aKgY2yd5XGGukkzdm78H",
+    "title": "How ancient civilization Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "RhwEahHPi7a"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-04T21:40:17Z",
+    "channelId": "UCsbQzvrN614tTGJPd98aj3L",
+    "title": "What Nobody Tells You About ancient civilization"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "R7UBlr8NKfq"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-16T03:37:28Z",
+    "channelId": "UC45gQ_IYPh598278L1D42Ee",
+    "title": "How ancient civilization Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "wge4ftrZHIS"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-07T15:01:18Z",
+    "channelId": "UCy4aKgY2yd5XGGukkzdm78H",
+    "title": "Ancient Civilization Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "qrPS9XZvJ5q"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-09T09:37:26Z",
+    "channelId": "UC07mLERS2G3dK61cm85ymm6",
+    "title": "The Map That Explains ancient civilization"
+   }
+  }
+ ]
+}

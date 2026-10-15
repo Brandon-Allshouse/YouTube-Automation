@@ -1,0 +1,13 @@
+# Build context is only the lockfiles; everything else is excluded (secrets, data, outputs, models).
+*
+!requirements.lock
+!requirements-dev.lock
+# Defence in depth: these must never reach a build context even if the allowlist above changes.
+.git
+.env
+.env.*
+.venv
+data/
+output/
+logs/
+models/

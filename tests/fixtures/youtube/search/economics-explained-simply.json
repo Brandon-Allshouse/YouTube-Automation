@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 1549,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "X3WzDMX1MBZ"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-01T14:20:00Z",
+    "channelId": "UCnkRiyKg478MX0BebHmMGKk",
+    "title": "Economics Simply: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "NAvGtr9KMOR"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-15T16:04:52Z",
+    "channelId": "UCBt8SF8WBi62oc1qxAZCjAe",
+    "title": "Economics Simply Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "fek36UoWQ54"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-30T01:48:38Z",
+    "channelId": "UC4KNIY18VhVbcXP0SB9XLhB",
+    "title": "The Map That Explains economics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "1j2F7D3XBIZ"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-25T07:55:25Z",
+    "channelId": "UCh5OzUR8sYpgbly9r_55Z__",
+    "title": "Why economics simply Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "r9uVTRZubDE"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-05T23:38:39Z",
+    "channelId": "UCB5NAoUebk4qzV85GlGefg_",
+    "title": "The Map That Explains economics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "-_QWDJtRuhZ"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-14T14:22:03Z",
+    "channelId": "UCh5OzUR8sYpgbly9r_55Z__",
+    "title": "The Real Reason economics simply Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "eXTRHqxo1r-"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T16:13:16Z",
+    "channelId": "UCmHDR0snD2A81AuQPeKxVDK",
+    "title": "The Real Reason economics simply Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "b7Rz-e5piPL"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-04T18:54:18Z",
+    "channelId": "UCh5OzUR8sYpgbly9r_55Z__",
+    "title": "Economics Simply Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "hxYdHF99_zK"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-17T17:46:36Z",
+    "channelId": "UCGvl49ppi-0xlsM_3n5EYC_",
+    "title": "Economics Simply: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "1pgzRPaQcfC"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T12:25:20Z",
+    "channelId": "UCR7NchldNQNwheCGU1FJGRJ",
+    "title": "What Nobody Tells You About economics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "twMMh_ICH7E"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-08T15:48:56Z",
+    "channelId": "UCGvl49ppi-0xlsM_3n5EYC_",
+    "title": "Economics Simply in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ENExtyY1RJR"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-30T21:30:25Z",
+    "channelId": "UCB5NAoUebk4qzV85GlGefg_",
+    "title": "The Map That Explains economics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Z7P09TlCQBI"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-14T22:05:48Z",
+    "channelId": "UC4KNIY18VhVbcXP0SB9XLhB",
+    "title": "I Tried to Understand economics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "X9W7EpBa4sV"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-18T13:06:29Z",
+    "channelId": "UC4KNIY18VhVbcXP0SB9XLhB",
+    "title": "The Map That Explains economics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "3XhRRIbqTO4"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T13:30:29Z",
+    "channelId": "UCBt8SF8WBi62oc1qxAZCjAe",
+    "title": "Economics Simply: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "qQICanHyDua"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-10T13:10:43Z",
+    "channelId": "UCh5OzUR8sYpgbly9r_55Z__",
+    "title": "How economics simply Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "WClpMBuQnUe"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-13T08:49:50Z",
+    "channelId": "UC4KNIY18VhVbcXP0SB9XLhB",
+    "title": "Economics Simply: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "bIv9e794F6R"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-26T20:51:18Z",
+    "channelId": "UCBt8SF8WBi62oc1qxAZCjAe",
+    "title": "Economics Simply Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "eSV_aDZfl6p"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-10T11:36:39Z",
+    "channelId": "UCmHDR0snD2A81AuQPeKxVDK",
+    "title": "Economics Simply in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Dy_b3t1uYtC"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-21T22:43:52Z",
+    "channelId": "UCB5NAoUebk4qzV85GlGefg_",
+    "title": "What Nobody Tells You About economics simply"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "41Yp-WNO7gr"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-31T14:32:23Z",
+    "channelId": "UCGvl49ppi-0xlsM_3n5EYC_",
+    "title": "Economics Simply in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "J6B7uQQj1Cs"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-29T20:55:00Z",
+    "channelId": "UCnkRiyKg478MX0BebHmMGKk",
+    "title": "Why economics simply Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Jror7AiRtHF"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-19T03:26:46Z",
+    "channelId": "UCh5OzUR8sYpgbly9r_55Z__",
+    "title": "How economics simply Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "bRwc7QZviZJ"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T18:14:36Z",
+    "channelId": "UC4KNIY18VhVbcXP0SB9XLhB",
+    "title": "Economics Simply: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "WQ1bgV2u4ja"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-10T18:30:10Z",
+    "channelId": "UCnkRiyKg478MX0BebHmMGKk",
+    "title": "The Map That Explains economics simply"
+   }
+  }
+ ]
+}

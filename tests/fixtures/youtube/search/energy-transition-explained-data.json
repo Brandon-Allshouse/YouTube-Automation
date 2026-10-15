@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 3193,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0oOdwlcz-c-"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-07T04:56:09Z",
+    "channelId": "UCu9CJDgZuHvsKxGOOeKrAlA",
+    "title": "The Real Reason energy transition data Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "WecbZRNhvu5"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-21T08:07:34Z",
+    "channelId": "UCIImLDXDi992BO9BmjtJW2q",
+    "title": "Energy Transition Data: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "lZ7VOW3-h9t"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-29T14:22:55Z",
+    "channelId": "UCu9CJDgZuHvsKxGOOeKrAlA",
+    "title": "The Map That Explains energy transition data"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0U-hO0QubSh"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-31T03:13:35Z",
+    "channelId": "UClT4_ABkiOTmLtyxLYwn_Zz",
+    "title": "How energy transition data Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Saq4l9PGOk1"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-29T18:11:01Z",
+    "channelId": "UCVY2KodAF-I6U4DssZG-IbN",
+    "title": "How energy transition data Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "UkDTXmej0TM"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-25T16:55:44Z",
+    "channelId": "UCu9CJDgZuHvsKxGOOeKrAlA",
+    "title": "Energy Transition Data: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "-f_BrWRbNRv"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-03T15:42:08Z",
+    "channelId": "UClT4_ABkiOTmLtyxLYwn_Zz",
+    "title": "How energy transition data Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "emjt_rcMeGT"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-12T03:10:14Z",
+    "channelId": "UCTYSBZZJeSZ_2BZtuG_u_Od",
+    "title": "The Real Reason energy transition data Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "JjkJq5PeAxn"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-21T11:56:46Z",
+    "channelId": "UCIImLDXDi992BO9BmjtJW2q",
+    "title": "Why energy transition data Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "heCr4kpxFKj"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-08T12:40:05Z",
+    "channelId": "UC6lnA8uLFiC8N7wdSIPN0sm",
+    "title": "The Real Reason energy transition data Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "9eACdJNH_Gc"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-17T07:35:10Z",
+    "channelId": "UCtUAJdTLpWLe-obl_ma4x61",
+    "title": "Energy Transition Data: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "H7nlGOBCOHI"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T08:08:50Z",
+    "channelId": "UCVY2KodAF-I6U4DssZG-IbN",
+    "title": "Energy Transition Data Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Qm74S_YGFUd"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-13T17:52:04Z",
+    "channelId": "UClT4_ABkiOTmLtyxLYwn_Zz",
+    "title": "The Real Reason energy transition data Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "uo4o7oQ4wa2"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T20:57:56Z",
+    "channelId": "UC6lnA8uLFiC8N7wdSIPN0sm",
+    "title": "The Map That Explains energy transition data"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "06B6u6Ddn0w"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-17T19:52:06Z",
+    "channelId": "UCVY2KodAF-I6U4DssZG-IbN",
+    "title": "Energy Transition Data in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "vwfFqYxbEoc"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-26T08:27:36Z",
+    "channelId": "UClT4_ABkiOTmLtyxLYwn_Zz",
+    "title": "How energy transition data Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "DG9M3xO6mbk"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T00:31:49Z",
+    "channelId": "UCtUAJdTLpWLe-obl_ma4x61",
+    "title": "Energy Transition Data in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "jC_NI-9kAG2"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-10T08:54:31Z",
+    "channelId": "UCu9CJDgZuHvsKxGOOeKrAlA",
+    "title": "Energy Transition Data Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "7He9l2DYz6u"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-11T02:02:18Z",
+    "channelId": "UClT4_ABkiOTmLtyxLYwn_Zz",
+    "title": "The Real Reason energy transition data Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Z723Meaw4nE"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-15T20:25:27Z",
+    "channelId": "UCinTAFKdDILOPxxTrOd35B5",
+    "title": "Energy Transition Data in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "1FXHoGRv84Q"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-23T19:28:02Z",
+    "channelId": "UCu9CJDgZuHvsKxGOOeKrAlA",
+    "title": "Energy Transition Data Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "fARfLmRMNeN"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-19T02:01:49Z",
+    "channelId": "UCu9CJDgZuHvsKxGOOeKrAlA",
+    "title": "Energy Transition Data in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "tCZHMztnWO6"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-11T02:08:42Z",
+    "channelId": "UCinTAFKdDILOPxxTrOd35B5",
+    "title": "Energy Transition Data: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Wlg-wpuUcsl"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-21T12:36:05Z",
+    "channelId": "UC6lnA8uLFiC8N7wdSIPN0sm",
+    "title": "I Tried to Understand energy transition data"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "9Gl9Q5751RI"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-25T10:43:12Z",
+    "channelId": "UClT4_ABkiOTmLtyxLYwn_Zz",
+    "title": "Energy Transition Data: The Untold Story"
+   }
+  }
+ ]
+}

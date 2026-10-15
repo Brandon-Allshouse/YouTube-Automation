@@ -1,0 +1,35 @@
+# "Atlas": history / geography explainers. Warm, cinematic, editorial.
+# Deep ink background, parchment text, brass accent; serif display (Fraunces) over a crisp sans.
+name: atlas
+description: Cinematic editorial look for history & geography. Serif headlines, brass accents, slow confident motion.
+palette:
+  bg: "#0f1218"
+  bg2: "#1b2230"
+  surface: "#1f2735"
+  text: "#f3ead8"
+  text_muted: "#b9ad97"
+  accent: "#e0a64b"
+  accent2: "#5fb3a9"
+  highlight: "#ffcf6b"
+  positive: "#7fc68a"
+  negative: "#e0645b"
+  series: ["#e0a64b", "#5fb3a9", "#d9735b", "#9d8fd6", "#c9c27a", "#6f9fd8"]
+fonts:
+  display: {family: Fraunces, weight: 800, axes: [[opsz, 144], [SOFT, 30], [WONK, 0]]}
+  body: {family: Inter, weight: 500, axes: [[opsz, 28]]}
+  caption: {family: Inter, weight: 850, axes: [[opsz, 32]], uppercase: false}
+  mono: {family: JetBrains Mono, weight: 600}
+  thumb: {family: Anton, weight: 400, uppercase: true}
+motion:
+  enter: out_expo
+  exit: in_cubic
+  emphasis: back_out(1.9)
+  move: in_out_cubic
+  enter_duration: 0.75
+  stagger: 0.06
+  rise: 54
+  camera_drift: 0.035
+transition: {kind: wipe, duration: 0.5, easing: in_out_expo}
+captions: {mode: pop, size: 90, y: 0.70, y_long: 0.86, max_words: 3, max_chars: 18, stroke: 11}
+background: {kind: paper, grain: 0.06, vignette: 0.55, glow: 0.5}
+corner_radius: 22

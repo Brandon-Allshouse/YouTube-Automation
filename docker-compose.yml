@@ -1,0 +1,133 @@
+# Hardened services for the video pipeline (NIST SP 800-190 / OWASP Docker Security).
+# Every service: read-only root FS, all capabilities dropped, no-new-privileges, CPU/memory/PID limits,
+# non-root user, no Docker socket, no privileged mode. Only `research`, `security`, `fetch` and `lock`
+# get network. Only `research` receives `.env`, at runtime via env_file (never baked into the image).
+# Source is mounted read-only per directory so `.env` is never visible inside containers that
+# don't need it; the two whole-repo services mask it with /dev/null.
+
+x-hardening: &hardening
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  privileged: false
+  pids_limit: 512
+  user: "${APP_UID:-1000}:${APP_GID:-1000}"
+  tmpfs:
+    - /tmp:size=2g,mode=1777
+    # Small exec-allowed tmpfs used ONLY while phonemizer copies + dlopens libespeak-ng
+    # (src/audio/tts.py scopes tempfile.tempdir to it). /tmp itself stays noexec.
+    - /var/tmp/dlopen:size=32m,mode=1777,exec
+  init: true
+
+x-runtime-image: &runtime-image
+  image: video-portfolio:runtime
+  build:
+    context: .
+    target: runtime
+
+x-dev-image: &dev-image
+  image: video-portfolio:dev
+  build:
+    context: .
+    target: dev
+
+services:
+  # Interactive shell + unit tests. Offline.
+  dev:
+    <<: [*hardening, *dev-image]
+    network_mode: none
+    cpus: ${DEV_CPUS:-8}
+    mem_limit: 6g
+    volumes: &code-and-data
+      - ./engine:/app/engine:ro
+      - ./src:/app/src:ro
+      - ./tests:/app/tests:ro
+      - ./config:/app/config:ro
+      - ./scripts:/app/scripts:ro
+      - ./pyproject.toml:/app/pyproject.toml:ro
+      - ./assets:/app/assets:ro
+      - ./models:/app/models:ro
+      - ./data:/app/data
+      - ./output:/app/output
+      - ./logs:/app/logs
+
+  # Renders videos/thumbnails. Offline.
+  render:
+    <<: [*hardening, *runtime-image]
+    network_mode: none
+    cpus: ${RENDER_CPUS:-12}
+    mem_limit: 8g
+    volumes: *code-and-data
+
+  # Automated quality checks, lint, type checks. Offline.
+  quality:
+    <<: [*hardening, *dev-image]
+    network_mode: none
+    cpus: ${DEV_CPUS:-8}
+    mem_limit: 6g
+    volumes: *code-and-data
+
+  # Read-only YouTube Data API research. The only service that receives the API key.
+  research:
+    <<: [*hardening, *runtime-image]
+    cpus: 2
+    mem_limit: 2g
+    env_file: [.env]
+    volumes:
+      - ./src:/app/src:ro
+      - ./config:/app/config:ro
+      - ./tests/fixtures:/app/tests/fixtures:ro
+      - ./data:/app/data
+      - ./logs:/app/logs
+
+  # OWNER ONLY: uploads + OAuth. Network, .env, and the out-of-repo secrets dir (tokens, client secret).
+  # Never used by agents (denied in .claude/settings*.json); never run during the overnight build.
+  publish:
+    <<: [*hardening, *runtime-image]
+    cpus: 2
+    mem_limit: 2g
+    env_file: [.env]
+    environment:
+      VP_SECRETS_DIR: /secrets
+    volumes:
+      - ./src:/app/src:ro
+      - ./engine:/app/engine:ro
+      - ./config:/app/config:ro
+      - ./data:/app/data
+      - ./output:/app/output:ro
+      - ./logs:/app/logs
+      - ${VP_SECRETS_DIR:-${HOME}/.config/video-portfolio}:/secrets
+
+  # Security scan suite (pip-audit needs network for the advisory DB). Repo read-only, .env masked.
+  security:
+    <<: [*hardening, *dev-image]
+    cpus: 4
+    mem_limit: 4g
+    volumes:
+      - .:/app:ro
+      - /dev/null:/app/.env:ro
+      - ./security:/app/security
+      - ./logs:/app/logs
+      - ./output:/app/output
+      - ./data:/app/data
+
+  # Downloads fonts, map data and model weights with checksum verification.
+  fetch:
+    <<: [*hardening, *dev-image]
+    cpus: 2
+    mem_limit: 2g
+    volumes:
+      - ./scripts:/app/scripts:ro
+      - ./src:/app/src:ro
+      - ./assets:/app/assets
+      - ./models:/app/models
+      - ./security:/app/security
+
+  # Regenerates hashed lockfiles. Writes requirements*.lock at repo root; .env masked.
+  lock:
+    <<: [*hardening, *dev-image]
+    cpus: 4
+    mem_limit: 2g
+    volumes:
+      - .:/app
+      - /dev/null:/app/.env:ro

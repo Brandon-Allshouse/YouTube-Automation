@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 1929,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "L-IVRbwABV4"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-02T14:55:23Z",
+    "channelId": "UCX5XYxi99IB6XPcuixfa38z",
+    "title": "I Tried to Understand math visually"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Y9VOhUM7lr1"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-09T16:23:37Z",
+    "channelId": "UCp6BX4Wla7LsdyRGNe9fq-x",
+    "title": "I Tried to Understand math visually"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ndtLjetVWNd"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-04T09:26:47Z",
+    "channelId": "UCrCo4YqYCMSt5qQYxrKXmBZ",
+    "title": "Math Visually in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "agBkrUx71hz"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-26T02:23:14Z",
+    "channelId": "UCVsf1crNZI0BsAics4a8ZDu",
+    "title": "The Real Reason math visually Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0fZRUd33EKB"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-01T06:33:15Z",
+    "channelId": "UCdQj91jjrPc3fCz5_3BCr34",
+    "title": "Math Visually Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "kzEDWFzQ57q"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-26T07:02:29Z",
+    "channelId": "UCX5XYxi99IB6XPcuixfa38z",
+    "title": "Math Visually Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "vXuiz6ckK0S"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-22T01:08:03Z",
+    "channelId": "UCOLSCMl7gMGJEsVlNJSauDj",
+    "title": "Math Visually Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "-7oGRRFc7oy"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-09T22:55:27Z",
+    "channelId": "UCZX9377ARp8swQeM74r6Vc7",
+    "title": "How math visually Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "42gDesfepwA"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T02:31:39Z",
+    "channelId": "UCp6BX4Wla7LsdyRGNe9fq-x",
+    "title": "I Tried to Understand math visually"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "IuENAv8A1Mf"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-29T22:53:01Z",
+    "channelId": "UC5xNtsIKH-iSxZe9kIU1Ywi",
+    "title": "The Real Reason math visually Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "C0YEDlqJNe_"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-26T21:28:03Z",
+    "channelId": "UCOLSCMl7gMGJEsVlNJSauDj",
+    "title": "The Map That Explains math visually"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "JedUURIVX-K"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-10T01:28:24Z",
+    "channelId": "UCEm0B2DgL7iuNFLEwoYhKOZ",
+    "title": "How math visually Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "gj0TnYzcwCf"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-26T20:19:56Z",
+    "channelId": "UCQpFSrl625xBCkRsJ3y6o7N",
+    "title": "Math Visually: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "luq-oSnma9G"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-13T06:31:07Z",
+    "channelId": "UCQpFSrl625xBCkRsJ3y6o7N",
+    "title": "How math visually Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "sP4-FAF7rqO"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-01T20:59:08Z",
+    "channelId": "UCiHD4-0mHsHHN_uKmTSDHaf",
+    "title": "Math Visually: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "1LibLNvBjCF"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-12T20:15:47Z",
+    "channelId": "UC5xNtsIKH-iSxZe9kIU1Ywi",
+    "title": "What Nobody Tells You About math visually"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "c8XYK3bVCfb"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-26T16:12:04Z",
+    "channelId": "UCiHD4-0mHsHHN_uKmTSDHaf",
+    "title": "Math Visually Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "iPLJi86TzV-"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-23T01:39:07Z",
+    "channelId": "UC5xNtsIKH-iSxZe9kIU1Ywi",
+    "title": "The Real Reason math visually Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "T3Ub_e-BDgP"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-12T03:00:40Z",
+    "channelId": "UCEm0B2DgL7iuNFLEwoYhKOZ",
+    "title": "How math visually Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "5UrlJfbnhSB"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-08T09:03:20Z",
+    "channelId": "UCQpFSrl625xBCkRsJ3y6o7N",
+    "title": "Math Visually Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Ftx04BX266V"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-15T01:13:24Z",
+    "channelId": "UCIDJp-yg3bJw9zXgxCr4Te4",
+    "title": "How math visually Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "eeWbY_pz_LD"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-04T01:48:22Z",
+    "channelId": "UCX5XYxi99IB6XPcuixfa38z",
+    "title": "Math Visually in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "plFz8Iewp6A"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-01T06:26:50Z",
+    "channelId": "UCEm0B2DgL7iuNFLEwoYhKOZ",
+    "title": "What Nobody Tells You About math visually"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "h0AjFkj0mUI"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-19T18:02:45Z",
+    "channelId": "UC5xNtsIKH-iSxZe9kIU1Ywi",
+    "title": "Math Visually in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "CASJsvcoqmf"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-11T19:29:35Z",
+    "channelId": "UCrCo4YqYCMSt5qQYxrKXmBZ",
+    "title": "I Tried to Understand math visually"
+   }
+  }
+ ]
+}

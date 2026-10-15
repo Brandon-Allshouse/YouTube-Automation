@@ -1,0 +1,23 @@
+# Channel: science & technology explainers with diagrams and kinetic type.
+id: neon
+name: "Neon Lab (working title)"
+niche: science-tech
+theme: neon
+voice:
+  blend: [[af_nova, 0.6], [af_bella, 0.4]]      # synthetic blend, not modelled on any real person
+  speed: 1.08
+  lang: en-us
+music:
+  style: synthwave
+  seed: 4242
+  music_rel_db: -13
+writing:
+  persona: "Energetic, precise explainer. Concrete numbers, vivid analogies, zero hype words."
+  banned_phrases: ["mind-blowing", "you won't believe", "in today's video", "let's dive in"]
+  shorts_length_s: [35, 50]
+  long_length_min: [7, 12]
+cadence:
+  timezone: America/New_York
+  shorts_per_day: 1
+  long_per_week: 3
+  preferred_hours_local: [9, 13, 18]

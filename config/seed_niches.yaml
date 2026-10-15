@@ -1,0 +1,47 @@
+# Seed niches for discovery. The researcher and niche_score.py rank these; nothing here is final.
+# rpm_usd: rough public estimates for ad RPM by topic category. Placeholders until we have our own
+#   YouTube Analytics data; treat as priors, not facts.
+# visual_fit: 0-1, how well our engine's components (maps, charts, timelines, diagrams, comparisons)
+#   express the niche. Judged by the build agent; the researcher should revise with evidence.
+# evergreen: prior that topics stay relevant > 1 year.
+niches:
+  - {id: map-oddities, name: "Maps & geography oddities", category: education, rpm_usd: [3, 6], visual_fit: 0.98, evergreen: 0.9, channel: atlas,
+     queries: ["map projection explained", "geography facts maps"]}
+  - {id: border-history, name: "How borders were drawn", category: education, rpm_usd: [3, 6], visual_fit: 0.95, evergreen: 0.85, channel: atlas,
+     queries: ["why borders are straight", "history of borders map"]}
+  - {id: empires-timelapse, name: "Empires & history on maps", category: education, rpm_usd: [3, 6], visual_fit: 0.95, evergreen: 0.9, channel: atlas,
+     queries: ["empire history map animation", "rise and fall of empires explained"]}
+  - {id: trade-routes, name: "Shipping, chokepoints & trade routes", category: business, rpm_usd: [6, 12], visual_fit: 0.92, evergreen: 0.75, channel: atlas,
+     queries: ["shipping chokepoints explained", "global trade routes explained"]}
+  - {id: geopolitics-explainers, name: "Geopolitics explained with maps", category: news-politics, rpm_usd: [4, 9], visual_fit: 0.9, evergreen: 0.5, channel: atlas,
+     queries: ["geopolitics explained map", "why this country is so important map"]}
+  - {id: ancient-civs, name: "Ancient civilizations", category: education, rpm_usd: [3, 6], visual_fit: 0.8, evergreen: 0.95, channel: atlas,
+     queries: ["ancient civilization explained", "how ancient people built"]}
+  - {id: language-origins, name: "Where languages & words come from", category: education, rpm_usd: [3, 6], visual_fit: 0.8, evergreen: 0.95, channel: atlas,
+     queries: ["origin of languages map", "etymology explained"]}
+  - {id: urban-transport, name: "Cities, transit & urban planning", category: education, rpm_usd: [4, 8], visual_fit: 0.85, evergreen: 0.8, channel: atlas,
+     queries: ["urban planning explained", "why american cities are designed"]}
+  - {id: space-scale, name: "Space & the scale of the universe", category: science, rpm_usd: [4, 8], visual_fit: 0.9, evergreen: 0.9, channel: neon,
+     queries: ["scale of the universe explained", "how big is space"]}
+  - {id: physics-intuition, name: "Physics, intuitively", category: science, rpm_usd: [4, 8], visual_fit: 0.85, evergreen: 0.95, channel: neon,
+     queries: ["physics explained simply", "why does physics work"]}
+  - {id: megaprojects, name: "Engineering megaprojects", category: science-tech, rpm_usd: [5, 10], visual_fit: 0.85, evergreen: 0.7, channel: neon,
+     queries: ["engineering megaproject explained", "how was it built engineering"]}
+  - {id: how-planes-work, name: "Aviation: how planes & airlines work", category: science-tech, rpm_usd: [5, 10], visual_fit: 0.85, evergreen: 0.85, channel: neon,
+     queries: ["how airplanes work explained", "why planes fly this route"]}
+  - {id: energy-climate-data, name: "Energy & climate by the numbers", category: science, rpm_usd: [5, 10], visual_fit: 0.9, evergreen: 0.6, channel: neon,
+     queries: ["energy transition explained data", "solar power explained"]}
+  - {id: ai-computing, name: "AI & computing explained", category: tech, rpm_usd: [6, 12], visual_fit: 0.85, evergreen: 0.5, channel: neon,
+     queries: ["how ai works explained", "how computers work explained"]}
+  - {id: tech-history, name: "Tech history", category: tech, rpm_usd: [6, 12], visual_fit: 0.8, evergreen: 0.85, channel: neon,
+     queries: ["history of technology explained", "how the internet was invented"]}
+  - {id: visual-math, name: "Visual math & puzzles", category: education, rpm_usd: [3, 7], visual_fit: 0.85, evergreen: 0.95, channel: neon,
+     queries: ["math explained visually", "math puzzle explained"]}
+  - {id: body-biology, name: "Human body & biology", category: science, rpm_usd: [4, 8], visual_fit: 0.7, evergreen: 0.9, channel: neon,
+     queries: ["how the human body works", "biology explained animation"]}
+  - {id: everyday-chemistry, name: "Chemistry of everyday things", category: science, rpm_usd: [4, 8], visual_fit: 0.7, evergreen: 0.9, channel: neon,
+     queries: ["chemistry of everyday life", "why does it happen chemistry"]}
+  - {id: money-math, name: "Money math & economics", category: finance, rpm_usd: [10, 25], visual_fit: 0.9, evergreen: 0.75, channel: neon,
+     queries: ["economics explained simply", "compound interest explained"]}
+  - {id: cognitive-biases, name: "Psychology & cognitive biases", category: education, rpm_usd: [4, 8], visual_fit: 0.65, evergreen: 0.9, channel: neon,
+     queries: ["cognitive bias explained", "psychology facts explained"]}

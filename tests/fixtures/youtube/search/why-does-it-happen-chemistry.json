@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 1959,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "tXsDD2gR8L6"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T08:42:06Z",
+    "channelId": "UCbxf5_xyYYPt2fS5_jDNVgn",
+    "title": "What Nobody Tells You About does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "yElKRod9DEF"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-30T06:04:10Z",
+    "channelId": "UCMHUY7Dn340ge6FC9b92rju",
+    "title": "I Tried to Understand does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "bpeROJzj6iE"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-18T15:29:25Z",
+    "channelId": "UCzWO6uS3cg6wTKZmnZbqWgN",
+    "title": "Why does it happen chemistry Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "LW5sf9pYTyF"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-18T20:25:46Z",
+    "channelId": "UClEIyim-a7OCICgAa-piZKy",
+    "title": "Does It Happen Chemistry: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zXA27Ha2haK"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-24T19:27:54Z",
+    "channelId": "UCUYfHnmi1caFLb4rEF-xH2p",
+    "title": "Does It Happen Chemistry in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "J68qx7PhP5R"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-18T18:24:51Z",
+    "channelId": "UC7BUhmimdgkTmFuJfDcBZR-",
+    "title": "I Tried to Understand does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "oNwKIybAsOa"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-20T12:25:23Z",
+    "channelId": "UCfmodg6f21rkycpJ0JZ8moA",
+    "title": "The Map That Explains does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "54gFXE2e_Gv"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-04T07:06:13Z",
+    "channelId": "UCYYgAyFwbAz1TBYvYvCZizF",
+    "title": "The Real Reason does it happen chemistry Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "EY2O1cCj8xj"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-14T04:43:17Z",
+    "channelId": "UCYYgAyFwbAz1TBYvYvCZizF",
+    "title": "What Nobody Tells You About does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Vx0ARlm8fy-"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-10T12:27:22Z",
+    "channelId": "UCMHUY7Dn340ge6FC9b92rju",
+    "title": "Does It Happen Chemistry in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "enOsTMUzFAO"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-08T23:04:17Z",
+    "channelId": "UCzWO6uS3cg6wTKZmnZbqWgN",
+    "title": "Does It Happen Chemistry: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "o8e4Tnj546H"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-20T03:46:58Z",
+    "channelId": "UC17ZMRPtPVYifxDe7iASOqh",
+    "title": "I Tried to Understand does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "teqz4XgnKYs"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-22T14:14:55Z",
+    "channelId": "UClEIyim-a7OCICgAa-piZKy",
+    "title": "The Map That Explains does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "QJ6T-2IzGEo"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-05T18:25:17Z",
+    "channelId": "UC17ZMRPtPVYifxDe7iASOqh",
+    "title": "Does It Happen Chemistry: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ed613bucBej"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-05T06:28:05Z",
+    "channelId": "UCMHUY7Dn340ge6FC9b92rju",
+    "title": "I Tried to Understand does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "4YA_YOAw8Be"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-02T19:10:00Z",
+    "channelId": "UCzWO6uS3cg6wTKZmnZbqWgN",
+    "title": "The Map That Explains does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "gPuAqYinZCI"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-28T18:26:47Z",
+    "channelId": "UCbxf5_xyYYPt2fS5_jDNVgn",
+    "title": "Does It Happen Chemistry: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "p2e3l1sd8pK"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-18T14:13:35Z",
+    "channelId": "UC8W0Y_-mugHuOF7YYAbkHZk",
+    "title": "Does It Happen Chemistry: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "MOutv7-W6mn"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-02T07:43:30Z",
+    "channelId": "UCfmodg6f21rkycpJ0JZ8moA",
+    "title": "How does it happen chemistry Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "YcqdjU2Vx5p"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-12T04:32:05Z",
+    "channelId": "UCMHUY7Dn340ge6FC9b92rju",
+    "title": "How does it happen chemistry Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "22eIcUHr2AZ"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-04T13:34:41Z",
+    "channelId": "UC7BUhmimdgkTmFuJfDcBZR-",
+    "title": "What Nobody Tells You About does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "wFe45eDCBxK"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-10T03:36:29Z",
+    "channelId": "UClEIyim-a7OCICgAa-piZKy",
+    "title": "Does It Happen Chemistry Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "BmXTX2584Mo"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-19T18:33:57Z",
+    "channelId": "UC7BUhmimdgkTmFuJfDcBZR-",
+    "title": "How does it happen chemistry Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "lJXRftuMscn"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-18T17:39:26Z",
+    "channelId": "UCUYfHnmi1caFLb4rEF-xH2p",
+    "title": "The Map That Explains does it happen chemistry"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "5IdC8PZiO61"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-17T04:50:23Z",
+    "channelId": "UCMHUY7Dn340ge6FC9b92rju",
+    "title": "Does It Happen Chemistry in 60 Seconds"
+   }
+  }
+ ]
+}

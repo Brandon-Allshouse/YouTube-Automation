@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 3043,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "FCrU9KadMt1"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-03T04:10:55Z",
+    "channelId": "UCDLFRff3zCnM7a7OlPwo3Gd",
+    "title": "I Tried to Understand origin of languages map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "tcrYZHJYb4K"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-11T08:25:18Z",
+    "channelId": "UCayekXCbNHeH5rPYUqNkeGw",
+    "title": "The Map That Explains origin of languages map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ViIvfrn9ySY"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-03T21:14:07Z",
+    "channelId": "UCUjtFgBztzSnG3_UbFBlq7P",
+    "title": "How origin of languages map Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zNW2JwEH_Rt"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-09T18:06:03Z",
+    "channelId": "UCydxz4ZtJH20I3Vcsl3lpqu",
+    "title": "Why origin of languages map Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "iTvEVjCD43M"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-13T01:57:30Z",
+    "channelId": "UCUjtFgBztzSnG3_UbFBlq7P",
+    "title": "The Real Reason origin of languages map Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "wkNBVFb9pEq"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T14:33:59Z",
+    "channelId": "UCXYkx8GrVBrgA5zyIgan3QX",
+    "title": "I Tried to Understand origin of languages map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "hUbsiN5yZj4"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-01T19:07:55Z",
+    "channelId": "UCXYkx8GrVBrgA5zyIgan3QX",
+    "title": "Origin Of Languages Map Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "XwAOcYWIOBh"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T17:18:27Z",
+    "channelId": "UCydxz4ZtJH20I3Vcsl3lpqu",
+    "title": "How origin of languages map Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "CchH3gPeruI"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-03T01:08:46Z",
+    "channelId": "UCVTSv8bd4vzSHEGOWc9wM6-",
+    "title": "Origin Of Languages Map Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Is0asvSFWV4"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-27T03:03:21Z",
+    "channelId": "UCLJ8HzE7Q3K-h01fNwi9ckC",
+    "title": "I Tried to Understand origin of languages map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "q3d9unKifLr"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-20T01:44:20Z",
+    "channelId": "UCLJ8HzE7Q3K-h01fNwi9ckC",
+    "title": "Why origin of languages map Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "3nb1q1JV1je"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-07T03:51:36Z",
+    "channelId": "UCm74bLk2DsupJD3jgZryHSi",
+    "title": "The Real Reason origin of languages map Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "cBR1O-ZXw2P"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-08T00:57:44Z",
+    "channelId": "UC11R-a9HckQzG2GwqcwAoEB",
+    "title": "How origin of languages map Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "kkzBda2ymsk"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-29T11:12:08Z",
+    "channelId": "UCXYkx8GrVBrgA5zyIgan3QX",
+    "title": "Origin Of Languages Map Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "TWBI7arEzcb"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-04T01:05:04Z",
+    "channelId": "UCVTSv8bd4vzSHEGOWc9wM6-",
+    "title": "I Tried to Understand origin of languages map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Ulfr_FMS_Py"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-07T19:01:13Z",
+    "channelId": "UCayekXCbNHeH5rPYUqNkeGw",
+    "title": "The Real Reason origin of languages map Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "QKIilVERD0L"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T07:05:02Z",
+    "channelId": "UCviKCGeqkEkEmyiGV04aVm_",
+    "title": "Origin Of Languages Map: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0hAHR7aYdW7"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-05T22:28:46Z",
+    "channelId": "UCayekXCbNHeH5rPYUqNkeGw",
+    "title": "Origin Of Languages Map in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "MYZB3my8Fwg"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-21T15:05:37Z",
+    "channelId": "UCayekXCbNHeH5rPYUqNkeGw",
+    "title": "Origin Of Languages Map Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "mG4IwZqO6yg"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-24T21:32:45Z",
+    "channelId": "UC11R-a9HckQzG2GwqcwAoEB",
+    "title": "The Real Reason origin of languages map Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "dDRP2iB8BHr"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-23T04:17:21Z",
+    "channelId": "UC11R-a9HckQzG2GwqcwAoEB",
+    "title": "The Real Reason origin of languages map Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "noAfVx5RmvH"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-02T06:19:13Z",
+    "channelId": "UCydxz4ZtJH20I3Vcsl3lpqu",
+    "title": "Origin Of Languages Map: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "hx6W-GDoecF"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-01T06:29:33Z",
+    "channelId": "UCXYkx8GrVBrgA5zyIgan3QX",
+    "title": "The Real Reason origin of languages map Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Ofvw83nCF2_"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-26T04:22:32Z",
+    "channelId": "UCydxz4ZtJH20I3Vcsl3lpqu",
+    "title": "What Nobody Tells You About origin of languages map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "uXZFVS4eNkI"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-14T15:35:49Z",
+    "channelId": "UCzciExS6yhJgXWr8ZtLjR9n",
+    "title": "What Nobody Tells You About origin of languages map"
+   }
+  }
+ ]
+}

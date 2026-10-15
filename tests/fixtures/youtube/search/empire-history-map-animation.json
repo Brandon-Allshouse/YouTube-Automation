@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 3373,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Bvtd6psnYnN"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-17T19:02:34Z",
+    "channelId": "UCkzFluKcKx2nZbxIRNOHckH",
+    "title": "Why empire history map animation Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ogQ7skEALMC"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-28T04:55:35Z",
+    "channelId": "UCtRErQBPy-ZjMnHnAnT2J9L",
+    "title": "I Tried to Understand empire history map animation"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "fgpOGZa20uE"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-03T12:39:31Z",
+    "channelId": "UC8lSGCjJKCNB3IxWhBfT8aI",
+    "title": "The Real Reason empire history map animation Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "USyUQmq84XZ"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-16T14:28:32Z",
+    "channelId": "UCo9u4C_vK3KQCSN5eylbjn2",
+    "title": "Why empire history map animation Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "7L2MaqRm_ZJ"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T13:27:05Z",
+    "channelId": "UC2Olux_FNR9p47ppOBKUGny",
+    "title": "Empire History Map Animation: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "4snVm9CTDBu"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-19T05:07:35Z",
+    "channelId": "UCNIx4_7orhMROY-V61yr2LE",
+    "title": "The Real Reason empire history map animation Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Rdv06GpzYJg"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-15T06:44:45Z",
+    "channelId": "UCixWP0wpi9mvqANNiU8e400",
+    "title": "I Tried to Understand empire history map animation"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "qU_AKwSivqh"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-15T06:32:14Z",
+    "channelId": "UCtRErQBPy-ZjMnHnAnT2J9L",
+    "title": "Empire History Map Animation in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Emw9PWOr456"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-19T22:26:53Z",
+    "channelId": "UCkzFluKcKx2nZbxIRNOHckH",
+    "title": "I Tried to Understand empire history map animation"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xNeqRWr6Xe6"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-09T22:56:08Z",
+    "channelId": "UCHE5dfZ0LrVwp5UtMKWNps_",
+    "title": "I Tried to Understand empire history map animation"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "XcvpDeeDb7R"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-14T02:14:01Z",
+    "channelId": "UCo9u4C_vK3KQCSN5eylbjn2",
+    "title": "What Nobody Tells You About empire history map animation"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "SFHzb93KmMS"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-23T06:24:09Z",
+    "channelId": "UCixWP0wpi9mvqANNiU8e400",
+    "title": "Empire History Map Animation: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "GZdIRVfs5_3"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-05T04:25:43Z",
+    "channelId": "UC5Ot1dqW3Gr4X5cm8GIsbyh",
+    "title": "How empire history map animation Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Ci_tQl6iwjI"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-30T08:26:23Z",
+    "channelId": "UC5Ot1dqW3Gr4X5cm8GIsbyh",
+    "title": "I Tried to Understand empire history map animation"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "4OrsSd1SvBh"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-28T01:02:04Z",
+    "channelId": "UC5Ot1dqW3Gr4X5cm8GIsbyh",
+    "title": "I Tried to Understand empire history map animation"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Ds1pl17RTl6"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-01T17:27:03Z",
+    "channelId": "UCCrPstyrES35Q9ltrlyp6y2",
+    "title": "Empire History Map Animation Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "S8xh1tlRkjd"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T14:26:33Z",
+    "channelId": "UCHE5dfZ0LrVwp5UtMKWNps_",
+    "title": "What Nobody Tells You About empire history map animation"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "0R516titm6Q"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-06T04:29:48Z",
+    "channelId": "UCo9u4C_vK3KQCSN5eylbjn2",
+    "title": "I Tried to Understand empire history map animation"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "EVjeIebgobd"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-22T13:45:47Z",
+    "channelId": "UC8lSGCjJKCNB3IxWhBfT8aI",
+    "title": "Why empire history map animation Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "QkI00JzQv8j"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-07T15:49:23Z",
+    "channelId": "UCAPJ2TBHU2nSk6bKBhGHRz8",
+    "title": "Empire History Map Animation in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "dXkFRZhxHdA"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-03T09:19:58Z",
+    "channelId": "UCixWP0wpi9mvqANNiU8e400",
+    "title": "Empire History Map Animation in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "QYPOwn_LGBm"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-02T15:18:52Z",
+    "channelId": "UCNIx4_7orhMROY-V61yr2LE",
+    "title": "The Real Reason empire history map animation Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "7EUccN1gm36"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-04T02:58:45Z",
+    "channelId": "UCtRErQBPy-ZjMnHnAnT2J9L",
+    "title": "Empire History Map Animation Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "oq40azS7dNz"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-11T15:33:53Z",
+    "channelId": "UCo9u4C_vK3KQCSN5eylbjn2",
+    "title": "Empire History Map Animation Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Ak0QuQuEZUX"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-15T06:05:51Z",
+    "channelId": "UCNIx4_7orhMROY-V61yr2LE",
+    "title": "Empire History Map Animation Explained in 10 Minutes"
+   }
+  }
+ ]
+}

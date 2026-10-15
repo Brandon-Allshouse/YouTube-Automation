@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 2294,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "wyBlv75ICon"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-12T00:18:45Z",
+    "channelId": "UCUYfHnmi1caFLb4rEF-xH2p",
+    "title": "The Map That Explains chemistry of everyday life"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "3R7VwwOWKTE"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-09T15:19:58Z",
+    "channelId": "UCfmodg6f21rkycpJ0JZ8moA",
+    "title": "How chemistry of everyday life Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "g31gIN-a5he"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-12T21:51:05Z",
+    "channelId": "UC17ZMRPtPVYifxDe7iASOqh",
+    "title": "What Nobody Tells You About chemistry of everyday life"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "3nG1kuyK-v9"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-04T06:15:09Z",
+    "channelId": "UC8W0Y_-mugHuOF7YYAbkHZk",
+    "title": "How chemistry of everyday life Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "GVGhGeNxWAF"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-18T11:12:02Z",
+    "channelId": "UCMHUY7Dn340ge6FC9b92rju",
+    "title": "Why chemistry of everyday life Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ChguWeAmoCE"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-18T14:14:45Z",
+    "channelId": "UCbxf5_xyYYPt2fS5_jDNVgn",
+    "title": "Chemistry Of Everyday Life Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "B_GVUEhSdKw"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-18T08:47:12Z",
+    "channelId": "UC17ZMRPtPVYifxDe7iASOqh",
+    "title": "What Nobody Tells You About chemistry of everyday life"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "B5l7PJg9Nc0"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-23T11:43:21Z",
+    "channelId": "UCYYgAyFwbAz1TBYvYvCZizF",
+    "title": "Chemistry Of Everyday Life: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "7AHiaVjQrhp"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-04T06:36:01Z",
+    "channelId": "UClEIyim-a7OCICgAa-piZKy",
+    "title": "The Real Reason chemistry of everyday life Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ZKEAvSZDPvR"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-28T22:16:09Z",
+    "channelId": "UC8W0Y_-mugHuOF7YYAbkHZk",
+    "title": "Chemistry Of Everyday Life: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "XdBxr6Kz9yl"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-01T00:23:41Z",
+    "channelId": "UClEIyim-a7OCICgAa-piZKy",
+    "title": "Why chemistry of everyday life Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Qy7aszUnvCr"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-04T15:29:03Z",
+    "channelId": "UC7BUhmimdgkTmFuJfDcBZR-",
+    "title": "Why chemistry of everyday life Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "9ND-ijaaTf_"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-10T08:00:45Z",
+    "channelId": "UCbxf5_xyYYPt2fS5_jDNVgn",
+    "title": "Chemistry Of Everyday Life Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "8fL0wuPgq4M"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-10T13:00:18Z",
+    "channelId": "UCfmodg6f21rkycpJ0JZ8moA",
+    "title": "The Map That Explains chemistry of everyday life"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "5ISh_Q8X0o0"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-11T03:04:13Z",
+    "channelId": "UClEIyim-a7OCICgAa-piZKy",
+    "title": "What Nobody Tells You About chemistry of everyday life"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "aR-gta4eeSe"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-09T18:57:42Z",
+    "channelId": "UC8W0Y_-mugHuOF7YYAbkHZk",
+    "title": "Chemistry Of Everyday Life Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "AvhUBXYUtFY"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-21T04:46:18Z",
+    "channelId": "UC8W0Y_-mugHuOF7YYAbkHZk",
+    "title": "Chemistry Of Everyday Life in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "SI9V_KP-W7J"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-06T01:10:51Z",
+    "channelId": "UCMHUY7Dn340ge6FC9b92rju",
+    "title": "I Tried to Understand chemistry of everyday life"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "UnLBooUmPn7"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-09T07:07:48Z",
+    "channelId": "UC17ZMRPtPVYifxDe7iASOqh",
+    "title": "What Nobody Tells You About chemistry of everyday life"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "1-W8L3L0RX5"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-30T03:40:28Z",
+    "channelId": "UC8W0Y_-mugHuOF7YYAbkHZk",
+    "title": "Why chemistry of everyday life Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "MwgzpF6H_WT"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-17T11:16:08Z",
+    "channelId": "UC7BUhmimdgkTmFuJfDcBZR-",
+    "title": "What Nobody Tells You About chemistry of everyday life"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "_TI9dMQVwZJ"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-06T05:15:31Z",
+    "channelId": "UCYYgAyFwbAz1TBYvYvCZizF",
+    "title": "Chemistry Of Everyday Life: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "yqcmJnMXeoI"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-27T07:13:28Z",
+    "channelId": "UC8W0Y_-mugHuOF7YYAbkHZk",
+    "title": "The Map That Explains chemistry of everyday life"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "LtgRVKUNTye"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-12T22:42:04Z",
+    "channelId": "UCzWO6uS3cg6wTKZmnZbqWgN",
+    "title": "Chemistry Of Everyday Life Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "3Z0Vp3y-k62"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-16T12:36:24Z",
+    "channelId": "UC7BUhmimdgkTmFuJfDcBZR-",
+    "title": "The Map That Explains chemistry of everyday life"
+   }
+  }
+ ]
+}

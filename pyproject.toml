@@ -1,0 +1,64 @@
+[project]
+name = "video-portfolio"
+version = "0.1.0"
+description = "Faceless video portfolio pipeline: own renderer, audio, research, and learning systems."
+requires-python = ">=3.11"
+readme = "README.md"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["output", "data", "models", "logs", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "N", "SIM", "RUF", "PL", "PT", "C4"]
+ignore = [
+    "PLR0913",  # renderer components legitimately take many params
+    "PLR2004",  # magic numbers are normal in DSP/animation math
+    "PLR0912",
+    "PLR0915",
+    "PLR0911",
+    "RUF001",   # typographic quotes/dashes are intentional in scripts
+    "RUF002",
+    "RUF003",
+    "PLC0415",  # deliberate lazy imports (optional deps, heavy modules)
+    "PLR0917",  # positional signatures are part of the transition/encoder contracts
+    "SIM905",   # "a b c".split() is more readable than a 600-char list literal
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S311", "PLR2004", "S603", "S108", "PT018", "E501", "S604"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+plugins = ["pydantic.mypy"]
+files = ["engine", "src"]
+exclude = ["^tests/"]
+
+[[tool.mypy.overrides]]
+module = ["skia", "skia.*", "scipy", "scipy.*", "kokoro_onnx", "kokoro_onnx.*", "onnxruntime"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers -p no:cacheprovider"
+markers = [
+    "slow: renders video or runs TTS; skipped by default in quick runs",
+    "needs_models: requires downloaded model weights in models/",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["engine", "src"]
+
+[tool.coverage.report]
+skip_empty = true
+show_missing = false
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv", "output", "data", "models"]

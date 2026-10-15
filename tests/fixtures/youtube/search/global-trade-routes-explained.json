@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 471,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "leJfIQjVlp5"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T04:04:25Z",
+    "channelId": "UChkapmM4SQfFJmfptAj-gly",
+    "title": "I Tried to Understand global trade routes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "jG4h_A6poTT"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-03T15:08:48Z",
+    "channelId": "UC9y6hHZLxHNf9wPxJLFDrjX",
+    "title": "The Map That Explains global trade routes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "MHyKHfsb-Ry"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-13T09:54:34Z",
+    "channelId": "UC797z7pZhV9TXPi3fcFne4x",
+    "title": "The Real Reason global trade routes Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Xl9tI_qkWFq"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-08T16:35:44Z",
+    "channelId": "UCzc8wiYIkN9nOKYHtHXb2Y1",
+    "title": "What Nobody Tells You About global trade routes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "uG50qf_1ajT"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-15T08:40:38Z",
+    "channelId": "UC6005wc7bTTNHW9a4jgGwyu",
+    "title": "I Tried to Understand global trade routes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "XjGCc10smjB"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-22T02:55:54Z",
+    "channelId": "UCzc8wiYIkN9nOKYHtHXb2Y1",
+    "title": "How global trade routes Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "pmV_MDUYyFo"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-26T08:26:24Z",
+    "channelId": "UCQP1jMmQBbcAMQ6F6Q1BAGX",
+    "title": "What Nobody Tells You About global trade routes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "M-c47ZDf9Bu"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-22T07:41:14Z",
+    "channelId": "UC6005wc7bTTNHW9a4jgGwyu",
+    "title": "The Real Reason global trade routes Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "c6Nog9BU9VK"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-08T20:52:07Z",
+    "channelId": "UC9y6hHZLxHNf9wPxJLFDrjX",
+    "title": "Global Trade Routes in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "a6AAW666een"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-12T10:35:16Z",
+    "channelId": "UC_BcbtSp-zrPayz0M5s6KVl",
+    "title": "Why global trade routes Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zrxgBaQ3vRT"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-31T23:55:59Z",
+    "channelId": "UC9y6hHZLxHNf9wPxJLFDrjX",
+    "title": "How global trade routes Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "myjABqlLG84"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-17T02:11:16Z",
+    "channelId": "UChkapmM4SQfFJmfptAj-gly",
+    "title": "How global trade routes Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "iIQPhMGXkNv"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-28T01:15:30Z",
+    "channelId": "UChkapmM4SQfFJmfptAj-gly",
+    "title": "Global Trade Routes: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "mZ03wh_cTE9"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-25T16:52:36Z",
+    "channelId": "UChkapmM4SQfFJmfptAj-gly",
+    "title": "What Nobody Tells You About global trade routes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "N1K7rZdL4dJ"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-09T13:22:58Z",
+    "channelId": "UC6005wc7bTTNHW9a4jgGwyu",
+    "title": "Global Trade Routes Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "kQLH8W8FCKm"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-07T00:37:08Z",
+    "channelId": "UC797z7pZhV9TXPi3fcFne4x",
+    "title": "Global Trade Routes Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zMm6zoLpVp9"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-14T17:20:38Z",
+    "channelId": "UCX6A1Cuk5aKBjhzXm2RJZ4j",
+    "title": "How global trade routes Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "JegklJxDiwU"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-28T23:13:37Z",
+    "channelId": "UC_BcbtSp-zrPayz0M5s6KVl",
+    "title": "Global Trade Routes: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "NTKGyCK04HZ"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-20T22:02:59Z",
+    "channelId": "UCzc8wiYIkN9nOKYHtHXb2Y1",
+    "title": "The Map That Explains global trade routes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "WaE4aujzFZ_"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-07T16:44:33Z",
+    "channelId": "UCX6A1Cuk5aKBjhzXm2RJZ4j",
+    "title": "Global Trade Routes: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "eTB-NPZaYuB"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-15T19:50:14Z",
+    "channelId": "UC_BcbtSp-zrPayz0M5s6KVl",
+    "title": "Global Trade Routes Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "srqcld9EupQ"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-10T09:46:03Z",
+    "channelId": "UC6005wc7bTTNHW9a4jgGwyu",
+    "title": "Global Trade Routes Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "P2YIyNYd5xF"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-27T16:34:01Z",
+    "channelId": "UC_BcbtSp-zrPayz0M5s6KVl",
+    "title": "What Nobody Tells You About global trade routes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "kmtbQjFNFxH"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-01T07:44:10Z",
+    "channelId": "UC797z7pZhV9TXPi3fcFne4x",
+    "title": "Global Trade Routes: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "CxGjoDIUZHD"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-22T01:44:40Z",
+    "channelId": "UC797z7pZhV9TXPi3fcFne4x",
+    "title": "Why global trade routes Is Weirder Than You Think"
+   }
+  }
+ ]
+}

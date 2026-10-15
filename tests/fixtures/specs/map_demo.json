@@ -1,0 +1,6 @@
+{"version":1,"id":"map-demo","format":"short","theme":"atlas","seed":3,"fps":30,"duration":14.0,
+ "scenes":[
+  {"id":"world","start":0.0,"elements":[{"type":"AnimatedMap","center_from":[-10,40],"zoom_from":2.2,"highlight":["GRL"],"highlight_continents":["Africa"],"highlight_at":0.4,"markers":[{"lon":-42,"lat":73,"label":"Greenland","at":0.8}]}]},
+  {"id":"truesize","start":4.0,"elements":[{"type":"AnimatedMap","center_from":[-10,40],"zoom_from":2.2,"center_to":[5,25],"zoom_to":2.0,"move_start":0.3,"move_duration":2.5,"highlight_continents":["Africa"],"highlight_at":0.0,"moves":[{"country":"GRL","to":[20,2],"start":0.5,"duration":2.8}]}]},
+  {"id":"morph","start":8.0,"elements":[{"type":"AnimatedMap","projection":"mercator","morph_to":"equal_earth","morph_start":0.4,"morph_duration":3.0,"center_from":[0,30],"zoom_from":1.15,"center_to":[0,10],"zoom_to":1.25,"move_start":0.4,"move_duration":3.0,"highlight":["GRL"],"highlight_continents":["Africa"],"highlight_at":0.0,"paths":[{"points":[[-9,38.7],[-74,40.7]],"start":3.2,"duration":1.5}]}]}
+ ]}

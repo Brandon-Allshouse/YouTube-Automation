@@ -1,0 +1,54 @@
+# Secrets: never commit
+.env
+.env.*
+!.env.example
+config/.env
+*.pem
+*.key
+client_secret*.json
+token*.json
+tokens/
+credentials/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.hypothesis/
+.coverage
+coverage.xml
+htmlcov/
+
+# Runtime data and outputs
+data/
+output/*
+!output/demo/
+output/demo/*
+!output/demo/REVIEW.md
+logs/
+*.sqlite
+*.sqlite3
+*.db
+
+# Large downloads (models, datasets). Small checked-in assets are re-included below.
+models/
+assets/maps/*
+!assets/maps/README.md
+assets/fonts/*
+!assets/fonts/README.md
+assets/cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Raw security scan logs are regenerated on every run (REPORT.md, sbom.json, checksums.txt are tracked)
+security/*.txt
+!security/checksums.txt

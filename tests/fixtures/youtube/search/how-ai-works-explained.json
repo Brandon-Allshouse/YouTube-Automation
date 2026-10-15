@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 2915,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "uOlzLfF7AYV"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-11T03:25:14Z",
+    "channelId": "UC8vWvYc5Z8pejKPu7SXzmv0",
+    "title": "How how ai works Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "N5UTHU5p1G5"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-13T14:37:33Z",
+    "channelId": "UCkWwBpI4JYRHJ8vFHidJVm9",
+    "title": "How Ai Works Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "rX-8qtn6H1L"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-01T12:55:12Z",
+    "channelId": "UCVRq0Ivdfz1pL1QlKeFnGdY",
+    "title": "How Ai Works Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "QF2AWTBXgIM"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-24T01:03:18Z",
+    "channelId": "UCdQizqbolqlM8WwjNyZ0Y2M",
+    "title": "The Map That Explains how ai works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "cLMGHW6wFXa"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-09T16:20:35Z",
+    "channelId": "UCliZL8zoFMT_dQky78Tcjan",
+    "title": "The Map That Explains how ai works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "C6K9SXbMZYB"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T13:03:00Z",
+    "channelId": "UCdQizqbolqlM8WwjNyZ0Y2M",
+    "title": "How Ai Works in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "MP_jWcePVOl"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-18T04:34:16Z",
+    "channelId": "UCdQizqbolqlM8WwjNyZ0Y2M",
+    "title": "What Nobody Tells You About how ai works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "StxDB0QXBuG"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-11T20:29:36Z",
+    "channelId": "UCdQizqbolqlM8WwjNyZ0Y2M",
+    "title": "The Map That Explains how ai works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "YcazOjZdUhj"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-29T11:47:50Z",
+    "channelId": "UC6nWL0Irr9sMfSj18OHeV6q",
+    "title": "The Real Reason how ai works Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "wTAjpOo2tjL"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-19T19:10:11Z",
+    "channelId": "UCliZL8zoFMT_dQky78Tcjan",
+    "title": "Why how ai works Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "7-S68euwqJI"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-06T22:38:10Z",
+    "channelId": "UCgaR0CKY9fG2bPj4KDdZqH1",
+    "title": "The Real Reason how ai works Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "xk8msrfceHg"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-22T09:10:58Z",
+    "channelId": "UCgaR0CKY9fG2bPj4KDdZqH1",
+    "title": "How Ai Works Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "KFlCHV8RmSX"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-03T21:14:56Z",
+    "channelId": "UCkWwBpI4JYRHJ8vFHidJVm9",
+    "title": "How Ai Works Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "sFvRUsZvaDq"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-25T04:35:59Z",
+    "channelId": "UC8vWvYc5Z8pejKPu7SXzmv0",
+    "title": "How Ai Works Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "vzHAR9V7yHF"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-14T22:11:33Z",
+    "channelId": "UC6nWL0Irr9sMfSj18OHeV6q",
+    "title": "Why how ai works Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "BD9i8BZ7nTy"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-11T07:20:09Z",
+    "channelId": "UCgpfLTE8cUSsmhYKBt8AG0Q",
+    "title": "How Ai Works Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "jFMOUgkmqgh"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-29T17:25:42Z",
+    "channelId": "UCkWwBpI4JYRHJ8vFHidJVm9",
+    "title": "How Ai Works in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "peUS31OLj37"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-10T06:07:03Z",
+    "channelId": "UCkWwBpI4JYRHJ8vFHidJVm9",
+    "title": "How Ai Works Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "dKTeB3R1pi7"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T12:38:02Z",
+    "channelId": "UCgaR0CKY9fG2bPj4KDdZqH1",
+    "title": "How Ai Works in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "NVOWhDmAUOk"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-03T21:35:09Z",
+    "channelId": "UCdQizqbolqlM8WwjNyZ0Y2M",
+    "title": "How how ai works Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "1IA4ARt6xFu"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-27T04:26:37Z",
+    "channelId": "UCgpfLTE8cUSsmhYKBt8AG0Q",
+    "title": "I Tried to Understand how ai works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "K59i2dR5Lik"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-04T08:29:05Z",
+    "channelId": "UCliZL8zoFMT_dQky78Tcjan",
+    "title": "What Nobody Tells You About how ai works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "126EgerkEn4"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-08T22:30:07Z",
+    "channelId": "UC6nWL0Irr9sMfSj18OHeV6q",
+    "title": "How how ai works Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "8vXZYDDCp4l"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-18T17:50:01Z",
+    "channelId": "UCdQizqbolqlM8WwjNyZ0Y2M",
+    "title": "I Tried to Understand how ai works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "T6sQ9PU3lmv"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-01T00:24:34Z",
+    "channelId": "UCgpfLTE8cUSsmhYKBt8AG0Q",
+    "title": "Why how ai works Is Weirder Than You Think"
+   }
+  }
+ ]
+}

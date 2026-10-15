@@ -1,0 +1,222 @@
+{
+ "version": 1,
+ "id": "components-demo",
+ "format": "short",
+ "theme": "atlas",
+ "seed": 11,
+ "fps": 30,
+ "duration": 16.0,
+ "progress_bar": false,
+ "scenes": [
+  {
+   "id": "s1",
+   "start": 0.0,
+   "elements": [
+    {
+     "type": "KineticTitle",
+     "text": "Every map you know is lying",
+     "kicker": "Geography",
+     "emphasis": [
+      "lying"
+     ],
+     "size": "xl",
+     "underline": true
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "start": 4.0,
+   "elements": [
+    {
+     "type": "StatCounter",
+     "value": 14,
+     "suffix": "\u00d7",
+     "label": "Africa vs. Greenland, real area",
+     "count_duration": 1.4
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "start": 8.0,
+   "elements": [
+    {
+     "type": "ListReveal",
+     "title": "Why it happens",
+     "items": [
+      "Globe is curved",
+      "Paper is flat",
+      "Mercator keeps angles",
+      "Area pays the price"
+     ],
+     "interval": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "start": 12.0,
+   "transition": {
+    "kind": "zoom",
+    "duration": 0.5,
+    "easing": "in_out_expo"
+   },
+   "elements": [
+    {
+     "type": "QuoteCard",
+     "quote": "The map is not the territory.",
+     "attribution": "Alfred Korzybski, 1931",
+     "highlight": [
+      "territory"
+     ]
+    }
+   ]
+  }
+ ],
+ "captions": {
+  "enabled": true,
+  "words": [
+   {
+    "w": "Most",
+    "start": 0.3,
+    "end": 0.6
+   },
+   {
+    "w": "maps",
+    "start": 0.66,
+    "end": 0.96
+   },
+   {
+    "w": "lie",
+    "start": 1.02,
+    "end": 1.275
+   },
+   {
+    "w": "to",
+    "start": 1.335,
+    "end": 1.545
+   },
+   {
+    "w": "you.",
+    "start": 1.605,
+    "end": 1.86
+   },
+   {
+    "w": "Greenland",
+    "start": 2.21,
+    "end": 2.735
+   },
+   {
+    "w": "looks",
+    "start": 2.795,
+    "end": 3.14
+   },
+   {
+    "w": "as",
+    "start": 3.2,
+    "end": 3.41
+   },
+   {
+    "w": "big",
+    "start": 3.47,
+    "end": 3.725
+   },
+   {
+    "w": "as",
+    "start": 3.785,
+    "end": 3.995
+   },
+   {
+    "w": "Africa,",
+    "start": 4.055,
+    "end": 4.445
+   },
+   {
+    "w": "but",
+    "start": 4.505,
+    "end": 4.76
+   },
+   {
+    "w": "Africa",
+    "start": 4.82,
+    "end": 5.21
+   },
+   {
+    "w": "is",
+    "start": 5.27,
+    "end": 5.48
+   },
+   {
+    "w": "fourteen",
+    "start": 5.54,
+    "end": 6.02
+   },
+   {
+    "w": "times",
+    "start": 6.08,
+    "end": 6.425
+   },
+   {
+    "w": "larger.",
+    "start": 6.485,
+    "end": 6.875
+   },
+   {
+    "w": "Here",
+    "start": 7.225,
+    "end": 7.525
+   },
+   {
+    "w": "is",
+    "start": 7.585,
+    "end": 7.795
+   },
+   {
+    "w": "why:",
+    "start": 7.855,
+    "end": 8.11
+   },
+   {
+    "w": "the",
+    "start": 8.46,
+    "end": 8.715
+   },
+   {
+    "w": "Mercator",
+    "start": 8.775,
+    "end": 9.255
+   },
+   {
+    "w": "projection",
+    "start": 9.315,
+    "end": 9.885
+   },
+   {
+    "w": "stretches",
+    "start": 9.945,
+    "end": 10.47
+   },
+   {
+    "w": "everything",
+    "start": 10.53,
+    "end": 11.1
+   },
+   {
+    "w": "near",
+    "start": 11.16,
+    "end": 11.46
+   },
+   {
+    "w": "the",
+    "start": 11.52,
+    "end": 11.775
+   },
+   {
+    "w": "poles.",
+    "start": 11.835,
+    "end": 12.18
+   }
+  ]
+ }
+}

@@ -1,0 +1,62 @@
+# Operating rules. Loaded with yaml.safe_load and validated by src/common/config.py (pydantic).
+# Changing a value here changes pipeline behaviour; record why in DECISIONS.md.
+
+quota:
+  daily_limit_units: 10000        # YouTube Data API v3 default project quota
+  session_cap_units: 8000         # hard stop for any single day of our usage (safety margin)
+  cache_ttl_hours: 24             # API responses reused for this long
+
+cadence:                          # platform-compliance limits (CLAUDE.md constraint 8)
+  max_shorts_per_day_per_channel: 1
+  min_long_per_week_per_channel: 2
+  max_long_per_week_per_channel: 4
+  publish_jitter_minutes: 47      # +/- random offset around the optimal slot
+
+kill_scale:                       # evaluated every 14 days per channel
+  review_period_days: 14
+  min_videos_before_decision: 10
+  leading_indicators_hours: 48
+  kill_if:
+    median_views_vs_niche_median_below: 0.25
+    ctr_below: 0.025
+    avg_view_pct_below: 0.30
+  scale_if:
+    median_views_vs_niche_median_above: 1.5
+    retained_30s_above: 0.65
+
+outliers:
+  min_views_to_subs_ratio: 5.0
+  window_days_min: 30
+  window_days_max: 90
+
+distinctness:
+  max_similarity_same_channel: 0.55
+  max_similarity_cross_channel: 0.45
+  compare_last_n_videos: 50
+
+quality:
+  max_static_seconds: 4.0
+  target_lufs: -14.0
+  lufs_tolerance: 1.0
+  max_true_peak_dbtp: -1.0
+  max_silence_gap_s: 1.5
+  min_contrast_ratio: 4.5
+  max_words_on_screen: 7
+  safe_zone_short:                # fractions of the 1080x1920 frame kept clear of platform UI
+    top: 0.10
+    bottom: 0.20
+    right: 0.12
+    left: 0.05
+  safe_zone_long:
+    top: 0.05
+    bottom: 0.08
+    right: 0.05
+    left: 0.05
+
+render:                           # resource limits (OWASP: prevent runaway jobs)
+  max_duration_s: 1200
+  max_width: 3840
+  max_height: 3840
+  max_fps: 60
+  render_timeout_s: 3600
+  max_output_mb: 2048

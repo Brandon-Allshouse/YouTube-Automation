@@ -1,0 +1,1885 @@
+{
+  "$defs": {
+    "AnimatedMapSpec": {
+      "additionalProperties": false,
+      "description": "Natural Earth map: camera move, projection morph, highlights, true-size moves, routes, markers.",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "full",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "AnimatedMap",
+          "title": "Type",
+          "type": "string"
+        },
+        "projection": {
+          "default": "mercator",
+          "enum": [
+            "mercator",
+            "equal_earth",
+            "equirect"
+          ],
+          "title": "Projection",
+          "type": "string"
+        },
+        "morph_to": {
+          "anyOf": [
+            {
+              "enum": [
+                "mercator",
+                "equal_earth",
+                "equirect"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Morph To"
+        },
+        "morph_start": {
+          "default": 0.5,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Morph Start",
+          "type": "number"
+        },
+        "morph_duration": {
+          "default": 2.5,
+          "exclusiveMinimum": 0,
+          "maximum": 10,
+          "title": "Morph Duration",
+          "type": "number"
+        },
+        "center_from": {
+          "default": [
+            0.0,
+            20.0
+          ],
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "maximum": 180,
+              "minimum": -180,
+              "type": "number"
+            },
+            {
+              "maximum": 85,
+              "minimum": -85,
+              "type": "number"
+            }
+          ],
+          "title": "Center From",
+          "type": "array"
+        },
+        "center_to": {
+          "anyOf": [
+            {
+              "maxItems": 2,
+              "minItems": 2,
+              "prefixItems": [
+                {
+                  "maximum": 180,
+                  "minimum": -180,
+                  "type": "number"
+                },
+                {
+                  "maximum": 85,
+                  "minimum": -85,
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Center To"
+        },
+        "zoom_from": {
+          "default": 1.0,
+          "maximum": 60,
+          "minimum": 0.5,
+          "title": "Zoom From",
+          "type": "number"
+        },
+        "zoom_to": {
+          "anyOf": [
+            {
+              "maximum": 60,
+              "minimum": 0.5,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Zoom To"
+        },
+        "move_start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Move Start",
+          "type": "number"
+        },
+        "move_duration": {
+          "default": 2.5,
+          "exclusiveMinimum": 0,
+          "maximum": 15,
+          "title": "Move Duration",
+          "type": "number"
+        },
+        "highlight": {
+          "items": {
+            "maxLength": 3,
+            "minLength": 3,
+            "pattern": "^[A-Z]{3}$",
+            "type": "string"
+          },
+          "maxItems": 20,
+          "title": "Highlight",
+          "type": "array"
+        },
+        "highlight_continents": {
+          "items": {
+            "enum": [
+              "Africa",
+              "Europe",
+              "Asia",
+              "North America",
+              "South America",
+              "Oceania",
+              "Antarctica"
+            ],
+            "type": "string"
+          },
+          "maxItems": 7,
+          "title": "Highlight Continents",
+          "type": "array"
+        },
+        "highlight_at": {
+          "default": 0.6,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Highlight At",
+          "type": "number"
+        },
+        "moves": {
+          "items": {
+            "$ref": "#/$defs/MapMoveSpec"
+          },
+          "maxItems": 4,
+          "title": "Moves",
+          "type": "array"
+        },
+        "paths": {
+          "items": {
+            "$ref": "#/$defs/MapPathSpec"
+          },
+          "maxItems": 5,
+          "title": "Paths",
+          "type": "array"
+        },
+        "markers": {
+          "items": {
+            "$ref": "#/$defs/MapMarkerSpec"
+          },
+          "maxItems": 10,
+          "title": "Markers",
+          "type": "array"
+        },
+        "graticule": {
+          "default": true,
+          "title": "Graticule",
+          "type": "boolean"
+        },
+        "resolution": {
+          "default": "50m",
+          "enum": [
+            "50m",
+            "110m"
+          ],
+          "title": "Resolution",
+          "type": "string"
+        },
+        "title": {
+          "default": "",
+          "maxLength": 40,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "AnimatedMapSpec",
+      "type": "object"
+    },
+    "BarRaceSpec": {
+      "additionalProperties": false,
+      "description": "Animated ranking bars over time.",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "center",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "BarRace",
+          "title": "Type",
+          "type": "string"
+        },
+        "title": {
+          "default": "",
+          "maxLength": 48,
+          "title": "Title",
+          "type": "string"
+        },
+        "labels": {
+          "items": {
+            "maxLength": 18,
+            "type": "string"
+          },
+          "maxItems": 12,
+          "minItems": 2,
+          "title": "Labels",
+          "type": "array"
+        },
+        "frames": {
+          "items": {
+            "items": {
+              "maximum": 1000000000000000.0,
+              "minimum": 0,
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "maxItems": 40,
+          "minItems": 1,
+          "title": "Frames",
+          "type": "array"
+        },
+        "frame_labels": {
+          "items": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "maxItems": 40,
+          "title": "Frame Labels",
+          "type": "array"
+        },
+        "seconds_per_frame": {
+          "default": 1.2,
+          "exclusiveMinimum": 0.2,
+          "maximum": 10,
+          "title": "Seconds Per Frame",
+          "type": "number"
+        },
+        "top_n": {
+          "default": 6,
+          "maximum": 10,
+          "minimum": 2,
+          "title": "Top N",
+          "type": "integer"
+        },
+        "value_suffix": {
+          "default": "",
+          "maxLength": 6,
+          "title": "Value Suffix",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "labels",
+        "frames"
+      ],
+      "title": "BarRaceSpec",
+      "type": "object"
+    },
+    "CaptionWord": {
+      "additionalProperties": false,
+      "description": "A spoken word with timing (seconds, global).",
+      "properties": {
+        "w": {
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "W",
+          "type": "string"
+        },
+        "start": {
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "End",
+          "type": "number"
+        },
+        "emph": {
+          "default": false,
+          "title": "Emph",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "w",
+        "start",
+        "end"
+      ],
+      "title": "CaptionWord",
+      "type": "object"
+    },
+    "CaptionsSpec": {
+      "additionalProperties": false,
+      "description": "Word-level captions overlay.",
+      "properties": {
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "words": {
+          "items": {
+            "$ref": "#/$defs/CaptionWord"
+          },
+          "maxItems": 6000,
+          "title": "Words",
+          "type": "array"
+        },
+        "mode": {
+          "anyOf": [
+            {
+              "enum": [
+                "pop",
+                "karaoke",
+                "box"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mode"
+        }
+      },
+      "title": "CaptionsSpec",
+      "type": "object"
+    },
+    "ComparisonSide": {
+      "additionalProperties": false,
+      "description": "One side of a comparison.",
+      "properties": {
+        "label": {
+          "maxLength": 24,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "value": {
+          "maximum": 1000000000000000.0,
+          "minimum": 0,
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "label",
+        "value"
+      ],
+      "title": "ComparisonSide",
+      "type": "object"
+    },
+    "ComparisonSplitSpec": {
+      "additionalProperties": false,
+      "description": "Two quantities drawn to honest scale (area-true squares or bars).",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "center",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "ComparisonSplit",
+          "title": "Type",
+          "type": "string"
+        },
+        "left": {
+          "$ref": "#/$defs/ComparisonSide"
+        },
+        "right": {
+          "$ref": "#/$defs/ComparisonSide"
+        },
+        "unit": {
+          "default": "",
+          "maxLength": 8,
+          "title": "Unit",
+          "type": "string"
+        },
+        "mode": {
+          "default": "area",
+          "enum": [
+            "area",
+            "bar"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "decimals": {
+          "default": 1,
+          "maximum": 2,
+          "minimum": 0,
+          "title": "Decimals",
+          "type": "integer"
+        },
+        "compact": {
+          "default": true,
+          "title": "Compact",
+          "type": "boolean"
+        },
+        "show_ratio": {
+          "default": true,
+          "title": "Show Ratio",
+          "type": "boolean"
+        },
+        "stagger": {
+          "default": 0.35,
+          "maximum": 3,
+          "minimum": 0,
+          "title": "Stagger",
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "left",
+        "right"
+      ],
+      "title": "ComparisonSplitSpec",
+      "type": "object"
+    },
+    "DiagramBuildSpec": {
+      "additionalProperties": false,
+      "description": "Nodes and arrows building step by step.",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "center",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "DiagramBuild",
+          "title": "Type",
+          "type": "string"
+        },
+        "nodes": {
+          "items": {
+            "$ref": "#/$defs/DiagramNodeSpec"
+          },
+          "maxItems": 10,
+          "minItems": 1,
+          "title": "Nodes",
+          "type": "array"
+        },
+        "edges": {
+          "items": {
+            "$ref": "#/$defs/DiagramEdgeSpec"
+          },
+          "maxItems": 16,
+          "title": "Edges",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "nodes"
+      ],
+      "title": "DiagramBuildSpec",
+      "type": "object"
+    },
+    "DiagramEdgeSpec": {
+      "additionalProperties": false,
+      "description": "Arrow between two diagram nodes.",
+      "properties": {
+        "src": {
+          "pattern": "^[a-z0-9_]{1,20}$",
+          "title": "Src",
+          "type": "string"
+        },
+        "dst": {
+          "pattern": "^[a-z0-9_]{1,20}$",
+          "title": "Dst",
+          "type": "string"
+        },
+        "label": {
+          "default": "",
+          "maxLength": 20,
+          "title": "Label",
+          "type": "string"
+        },
+        "at": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "At",
+          "type": "number"
+        }
+      },
+      "required": [
+        "src",
+        "dst"
+      ],
+      "title": "DiagramEdgeSpec",
+      "type": "object"
+    },
+    "DiagramNodeSpec": {
+      "additionalProperties": false,
+      "description": "Diagram node in a 0-1 layout grid.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9_]{1,20}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 28,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "x": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Y",
+          "type": "number"
+        },
+        "at": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "At",
+          "type": "number"
+        },
+        "accent": {
+          "default": false,
+          "title": "Accent",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "x",
+        "y"
+      ],
+      "title": "DiagramNodeSpec",
+      "type": "object"
+    },
+    "IconSceneSpec": {
+      "additionalProperties": false,
+      "description": "One of our code-drawn vector icons with an optional label.",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "center",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "IconScene",
+          "title": "Type",
+          "type": "string"
+        },
+        "icon": {
+          "enum": [
+            "globe",
+            "clock",
+            "bolt",
+            "coin",
+            "ship",
+            "mountain",
+            "atom",
+            "chart",
+            "warning",
+            "crown",
+            "book",
+            "flame"
+          ],
+          "title": "Icon",
+          "type": "string"
+        },
+        "label": {
+          "default": "",
+          "maxLength": 32,
+          "title": "Label",
+          "type": "string"
+        },
+        "accent": {
+          "default": true,
+          "title": "Accent",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "icon"
+      ],
+      "title": "IconSceneSpec",
+      "type": "object"
+    },
+    "KineticTitleSpec": {
+      "additionalProperties": false,
+      "description": "Big animated headline (\u2264 7 words on screen).",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "center",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "KineticTitle",
+          "title": "Type",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 70,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "kicker": {
+          "default": "",
+          "maxLength": 32,
+          "title": "Kicker",
+          "type": "string"
+        },
+        "emphasis": {
+          "items": {
+            "maxLength": 30,
+            "type": "string"
+          },
+          "maxItems": 4,
+          "title": "Emphasis",
+          "type": "array"
+        },
+        "size": {
+          "default": "l",
+          "enum": [
+            "xl",
+            "l",
+            "m"
+          ],
+          "title": "Size",
+          "type": "string"
+        },
+        "entrance": {
+          "default": "mask",
+          "enum": [
+            "mask",
+            "rise",
+            "pop",
+            "slide"
+          ],
+          "title": "Entrance",
+          "type": "string"
+        },
+        "align": {
+          "default": "center",
+          "enum": [
+            "center",
+            "left"
+          ],
+          "title": "Align",
+          "type": "string"
+        },
+        "underline": {
+          "default": false,
+          "title": "Underline",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "text"
+      ],
+      "title": "KineticTitleSpec",
+      "type": "object"
+    },
+    "LineChartRevealSpec": {
+      "additionalProperties": false,
+      "description": "Line chart drawing left to right with an end-point label.",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "center",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "LineChartReveal",
+          "title": "Type",
+          "type": "string"
+        },
+        "title": {
+          "default": "",
+          "maxLength": 48,
+          "title": "Title",
+          "type": "string"
+        },
+        "x_labels": {
+          "items": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "maxItems": 60,
+          "minItems": 2,
+          "title": "X Labels",
+          "type": "array"
+        },
+        "series": {
+          "items": {
+            "$ref": "#/$defs/SeriesSpec"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Series",
+          "type": "array"
+        },
+        "y_suffix": {
+          "default": "",
+          "maxLength": 6,
+          "title": "Y Suffix",
+          "type": "string"
+        },
+        "draw_duration": {
+          "default": 2.5,
+          "exclusiveMinimum": 0,
+          "maximum": 10,
+          "title": "Draw Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "x_labels",
+        "series"
+      ],
+      "title": "LineChartRevealSpec",
+      "type": "object"
+    },
+    "ListRevealSpec": {
+      "additionalProperties": false,
+      "description": "Up to 6 items revealed one by one; earlier items dim to keep focus.",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "center",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "ListReveal",
+          "title": "Type",
+          "type": "string"
+        },
+        "title": {
+          "default": "",
+          "maxLength": 40,
+          "title": "Title",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "maxLength": 48,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 6,
+          "minItems": 1,
+          "title": "Items",
+          "type": "array"
+        },
+        "reveal_at": {
+          "anyOf": [
+            {
+              "items": {
+                "maximum": 1200.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reveal At"
+        },
+        "interval": {
+          "default": 0.9,
+          "exclusiveMinimum": 0,
+          "maximum": 10,
+          "title": "Interval",
+          "type": "number"
+        },
+        "numbered": {
+          "default": true,
+          "title": "Numbered",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "items"
+      ],
+      "title": "ListRevealSpec",
+      "type": "object"
+    },
+    "MapMarkerSpec": {
+      "additionalProperties": false,
+      "description": "Labelled, pulsing point on a map.",
+      "properties": {
+        "lon": {
+          "maximum": 180,
+          "minimum": -180,
+          "title": "Lon",
+          "type": "number"
+        },
+        "lat": {
+          "maximum": 90,
+          "minimum": -90,
+          "title": "Lat",
+          "type": "number"
+        },
+        "label": {
+          "default": "",
+          "maxLength": 24,
+          "title": "Label",
+          "type": "string"
+        },
+        "at": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "At",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lon",
+        "lat"
+      ],
+      "title": "MapMarkerSpec",
+      "type": "object"
+    },
+    "MapMoveSpec": {
+      "additionalProperties": false,
+      "description": "Slide a country across the globe by rigid rotation (keeps its true size), re-projected live.",
+      "properties": {
+        "country": {
+          "maxLength": 3,
+          "minLength": 3,
+          "pattern": "^[A-Z]{3}$",
+          "title": "Country",
+          "type": "string"
+        },
+        "to": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "maximum": 180,
+              "minimum": -180,
+              "type": "number"
+            },
+            {
+              "maximum": 90,
+              "minimum": -90,
+              "type": "number"
+            }
+          ],
+          "title": "To",
+          "type": "array"
+        },
+        "start": {
+          "default": 0.5,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "duration": {
+          "default": 2.5,
+          "exclusiveMinimum": 0,
+          "maximum": 10,
+          "title": "Duration",
+          "type": "number"
+        },
+        "label": {
+          "default": "",
+          "maxLength": 24,
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "to"
+      ],
+      "title": "MapMoveSpec",
+      "type": "object"
+    },
+    "MapPathSpec": {
+      "additionalProperties": false,
+      "description": "Route drawn on a map (lon/lat points, great-circle densified).",
+      "properties": {
+        "points": {
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "maximum": 180,
+                "minimum": -180,
+                "type": "number"
+              },
+              {
+                "maximum": 90,
+                "minimum": -90,
+                "type": "number"
+              }
+            ],
+            "type": "array"
+          },
+          "maxItems": 50,
+          "minItems": 2,
+          "title": "Points",
+          "type": "array"
+        },
+        "start": {
+          "default": 0.5,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "duration": {
+          "default": 2.0,
+          "exclusiveMinimum": 0,
+          "maximum": 15,
+          "title": "Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "title": "MapPathSpec",
+      "type": "object"
+    },
+    "ParticleBackgroundSpec": {
+      "additionalProperties": false,
+      "description": "Ambient particle field layered over the theme background.",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "full",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "ParticleBackground",
+          "title": "Type",
+          "type": "string"
+        },
+        "count": {
+          "default": 120,
+          "maximum": 400,
+          "minimum": 10,
+          "title": "Count",
+          "type": "integer"
+        },
+        "style": {
+          "default": "dust",
+          "enum": [
+            "dust",
+            "embers",
+            "stars",
+            "snow"
+          ],
+          "title": "Style",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "ParticleBackgroundSpec",
+      "type": "object"
+    },
+    "QuoteCardSpec": {
+      "additionalProperties": false,
+      "description": "Quotation on a card with attribution.",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "center",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "QuoteCard",
+          "title": "Type",
+          "type": "string"
+        },
+        "quote": {
+          "maxLength": 180,
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "attribution": {
+          "default": "",
+          "maxLength": 60,
+          "title": "Attribution",
+          "type": "string"
+        },
+        "highlight": {
+          "items": {
+            "maxLength": 30,
+            "type": "string"
+          },
+          "maxItems": 4,
+          "title": "Highlight",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "quote"
+      ],
+      "title": "QuoteCardSpec",
+      "type": "object"
+    },
+    "SceneSpec": {
+      "additionalProperties": false,
+      "description": "One shot.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9_-]{1,32}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "start": {
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "transition": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TransitionSpecModel"
+            },
+            {
+              "const": "theme",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "theme",
+          "title": "Transition"
+        },
+        "elements": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "AnimatedMap": "#/$defs/AnimatedMapSpec",
+                "BarRace": "#/$defs/BarRaceSpec",
+                "ComparisonSplit": "#/$defs/ComparisonSplitSpec",
+                "DiagramBuild": "#/$defs/DiagramBuildSpec",
+                "IconScene": "#/$defs/IconSceneSpec",
+                "KineticTitle": "#/$defs/KineticTitleSpec",
+                "LineChartReveal": "#/$defs/LineChartRevealSpec",
+                "ListReveal": "#/$defs/ListRevealSpec",
+                "ParticleBackground": "#/$defs/ParticleBackgroundSpec",
+                "QuoteCard": "#/$defs/QuoteCardSpec",
+                "StatCounter": "#/$defs/StatCounterSpec",
+                "Timeline": "#/$defs/TimelineSpec"
+              },
+              "propertyName": "type"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/KineticTitleSpec"
+              },
+              {
+                "$ref": "#/$defs/StatCounterSpec"
+              },
+              {
+                "$ref": "#/$defs/ListRevealSpec"
+              },
+              {
+                "$ref": "#/$defs/QuoteCardSpec"
+              },
+              {
+                "$ref": "#/$defs/ComparisonSplitSpec"
+              },
+              {
+                "$ref": "#/$defs/LineChartRevealSpec"
+              },
+              {
+                "$ref": "#/$defs/BarRaceSpec"
+              },
+              {
+                "$ref": "#/$defs/TimelineSpec"
+              },
+              {
+                "$ref": "#/$defs/AnimatedMapSpec"
+              },
+              {
+                "$ref": "#/$defs/DiagramBuildSpec"
+              },
+              {
+                "$ref": "#/$defs/IconSceneSpec"
+              },
+              {
+                "$ref": "#/$defs/ParticleBackgroundSpec"
+              }
+            ]
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Elements",
+          "type": "array"
+        },
+        "camera_drift": {
+          "anyOf": [
+            {
+              "maximum": 0.2,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Camera Drift"
+        },
+        "note": {
+          "default": "",
+          "maxLength": 200,
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "start",
+        "elements"
+      ],
+      "title": "SceneSpec",
+      "type": "object"
+    },
+    "SeriesSpec": {
+      "additionalProperties": false,
+      "description": "One data series.",
+      "properties": {
+        "name": {
+          "default": "",
+          "maxLength": 24,
+          "title": "Name",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "maximum": 1000000000000.0,
+            "minimum": -1000000000000.0,
+            "type": "number"
+          },
+          "maxItems": 60,
+          "minItems": 2,
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "title": "SeriesSpec",
+      "type": "object"
+    },
+    "StatCounterSpec": {
+      "additionalProperties": false,
+      "description": "Number that counts up and lands with emphasis.",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "center",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "StatCounter",
+          "title": "Type",
+          "type": "string"
+        },
+        "value": {
+          "maximum": 1000000000000000.0,
+          "minimum": -1000000000000000.0,
+          "title": "Value",
+          "type": "number"
+        },
+        "from_value": {
+          "default": 0.0,
+          "maximum": 1000000000000000.0,
+          "minimum": -1000000000000000.0,
+          "title": "From Value",
+          "type": "number"
+        },
+        "decimals": {
+          "default": 0,
+          "maximum": 3,
+          "minimum": 0,
+          "title": "Decimals",
+          "type": "integer"
+        },
+        "prefix": {
+          "default": "",
+          "maxLength": 4,
+          "title": "Prefix",
+          "type": "string"
+        },
+        "suffix": {
+          "default": "",
+          "maxLength": 12,
+          "title": "Suffix",
+          "type": "string"
+        },
+        "label": {
+          "default": "",
+          "maxLength": 48,
+          "title": "Label",
+          "type": "string"
+        },
+        "count_duration": {
+          "default": 1.6,
+          "exclusiveMinimum": 0,
+          "maximum": 6,
+          "title": "Count Duration",
+          "type": "number"
+        },
+        "count_at": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Count At"
+        },
+        "ring": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ring"
+        },
+        "compact": {
+          "default": false,
+          "title": "Compact",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "StatCounterSpec",
+      "type": "object"
+    },
+    "TimelineEventSpec": {
+      "additionalProperties": false,
+      "description": "A dated event on a timeline.",
+      "properties": {
+        "date": {
+          "maxLength": 14,
+          "minLength": 1,
+          "title": "Date",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "label"
+      ],
+      "title": "TimelineEventSpec",
+      "type": "object"
+    },
+    "TimelineSpec": {
+      "additionalProperties": false,
+      "description": "Horizontal/vertical timeline whose events pop in along a drawing line.",
+      "properties": {
+        "start": {
+          "default": 0.0,
+          "maximum": 1200.0,
+          "minimum": 0.0,
+          "title": "Start",
+          "type": "number"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "maximum": 1200.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "region": {
+          "default": "center",
+          "enum": [
+            "full",
+            "center",
+            "upper",
+            "lower",
+            "top",
+            "left",
+            "right"
+          ],
+          "title": "Region",
+          "type": "string"
+        },
+        "type": {
+          "const": "Timeline",
+          "title": "Type",
+          "type": "string"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/$defs/TimelineEventSpec"
+          },
+          "maxItems": 7,
+          "minItems": 2,
+          "title": "Events",
+          "type": "array"
+        },
+        "interval": {
+          "default": 0.8,
+          "exclusiveMinimum": 0,
+          "maximum": 10,
+          "title": "Interval",
+          "type": "number"
+        },
+        "highlight": {
+          "default": -1,
+          "maximum": 6,
+          "minimum": -1,
+          "title": "Highlight",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "events"
+      ],
+      "title": "TimelineSpec",
+      "type": "object"
+    },
+    "TransitionSpecModel": {
+      "additionalProperties": false,
+      "description": "Transition into a scene (defaults to the theme's).",
+      "properties": {
+        "kind": {
+          "default": "wipe",
+          "enum": [
+            "wipe",
+            "zoom",
+            "slide",
+            "glitch",
+            "fade",
+            "iris",
+            "cut"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "duration": {
+          "default": 0.45,
+          "exclusiveMinimum": 0,
+          "maximum": 2,
+          "title": "Duration",
+          "type": "number"
+        },
+        "easing": {
+          "default": "in_out_expo",
+          "title": "Easing",
+          "type": "string"
+        }
+      },
+      "title": "TransitionSpecModel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "A complete video spec (spec + theme + seed fully determine the frames).",
+  "properties": {
+    "version": {
+      "const": 1,
+      "default": 1,
+      "title": "Version",
+      "type": "integer"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+      "title": "Id",
+      "type": "string"
+    },
+    "format": {
+      "enum": [
+        "short",
+        "long"
+      ],
+      "title": "Format",
+      "type": "string"
+    },
+    "theme": {
+      "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+      "title": "Theme",
+      "type": "string"
+    },
+    "seed": {
+      "default": 0,
+      "maximum": 2147483647,
+      "minimum": 0,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "fps": {
+      "default": 30,
+      "enum": [
+        24,
+        25,
+        30,
+        60
+      ],
+      "title": "Fps",
+      "type": "integer"
+    },
+    "duration": {
+      "exclusiveMinimum": 0,
+      "title": "Duration",
+      "type": "number"
+    },
+    "scenes": {
+      "items": {
+        "$ref": "#/$defs/SceneSpec"
+      },
+      "maxItems": 200,
+      "minItems": 1,
+      "title": "Scenes",
+      "type": "array"
+    },
+    "captions": {
+      "$ref": "#/$defs/CaptionsSpec",
+      "default": {
+        "enabled": true,
+        "words": [],
+        "mode": null
+      }
+    },
+    "progress_bar": {
+      "default": false,
+      "title": "Progress Bar",
+      "type": "boolean"
+    },
+    "motion_blur": {
+      "default": 1,
+      "maximum": 4,
+      "minimum": 1,
+      "title": "Motion Blur",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "format",
+    "theme",
+    "duration",
+    "scenes"
+  ],
+  "title": "Scene spec (video-portfolio renderer)",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

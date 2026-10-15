@@ -1,0 +1,309 @@
+{
+ "kind": "youtube#searchListResponse",
+ "pageInfo": {
+  "totalResults": 534,
+  "resultsPerPage": 25
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "lumzTTP8C4E"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-08T05:28:57Z",
+    "channelId": "UC_MTrxREjjKJewl0ODjFViG",
+    "title": "Geopolitics Map in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "vms0WmCFzeN"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-17T13:36:10Z",
+    "channelId": "UC_MTrxREjjKJewl0ODjFViG",
+    "title": "How geopolitics map Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "SmZJWIa796k"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-24T23:48:07Z",
+    "channelId": "UCPDz-uJC6-_UDlBWxBIk2rb",
+    "title": "Geopolitics Map in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "ul3om3SpPXE"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-23T18:08:12Z",
+    "channelId": "UCfswuPagYIdbpnVIoaKOhxJ",
+    "title": "The Map That Explains geopolitics map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "71ObN3HvmXY"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-10T15:53:14Z",
+    "channelId": "UCwi7bGh8UOJ473OS6YTq05C",
+    "title": "Geopolitics Map Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "678Gxbwk8GG"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-18T00:44:06Z",
+    "channelId": "UCcubJP12tqJaoo8-1WLB2gi",
+    "title": "The Map That Explains geopolitics map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "SvV8Q1fa2nn"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-31T08:19:04Z",
+    "channelId": "UCCFrov_EBQ7IAUOnAkYV7aB",
+    "title": "Geopolitics Map in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "sn2G9Jt56AN"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-26T20:07:16Z",
+    "channelId": "UCfswuPagYIdbpnVIoaKOhxJ",
+    "title": "Geopolitics Map Explained in 10 Minutes"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "UlTb3Af6JmU"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-13T18:09:00Z",
+    "channelId": "UC0t5Tu5ILlcIyOa2at6irpO",
+    "title": "Geopolitics Map Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "LFhlMdI54j7"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-30T16:04:06Z",
+    "channelId": "UCwi7bGh8UOJ473OS6YTq05C",
+    "title": "How geopolitics map Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "bSVBvS2MHjf"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-08T22:41:43Z",
+    "channelId": "UCCFrov_EBQ7IAUOnAkYV7aB",
+    "title": "Geopolitics Map: The Untold Story"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "mhaieLu3gbJ"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-02T17:56:12Z",
+    "channelId": "UCcubJP12tqJaoo8-1WLB2gi",
+    "title": "The Map That Explains geopolitics map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "gDo5SckGIRl"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-14T23:27:22Z",
+    "channelId": "UC3quH9dl6W1aCB5nDmlVefv",
+    "title": "How geopolitics map Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "TB30Vj05aCu"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-09T11:46:27Z",
+    "channelId": "UCPDz-uJC6-_UDlBWxBIk2rb",
+    "title": "The Real Reason geopolitics map Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "nnRIufiENym"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-04T14:41:57Z",
+    "channelId": "UCwi7bGh8UOJ473OS6YTq05C",
+    "title": "How geopolitics map Actually Works"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "BriX7ROSvaA"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-07T21:10:27Z",
+    "channelId": "UC_MTrxREjjKJewl0ODjFViG",
+    "title": "Geopolitics Map in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "mS-rsaV4IZw"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-08T20:22:31Z",
+    "channelId": "UCCFrov_EBQ7IAUOnAkYV7aB",
+    "title": "The Map That Explains geopolitics map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "2ADmbBAlTLh"
+   },
+   "snippet": {
+    "publishedAt": "2026-07-19T17:32:37Z",
+    "channelId": "UC34zwOYJUKPhNsgEUBb7Vcl",
+    "title": "Why geopolitics map Is Weirder Than You Think"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "DKPeTnlROJt"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-27T04:46:49Z",
+    "channelId": "UC34zwOYJUKPhNsgEUBb7Vcl",
+    "title": "I Tried to Understand geopolitics map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "Z2zEP-OhDol"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-02T13:20:35Z",
+    "channelId": "UC_MTrxREjjKJewl0ODjFViG",
+    "title": "Geopolitics Map in 60 Seconds"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "FicMVWPSsWs"
+   },
+   "snippet": {
+    "publishedAt": "2026-10-02T13:34:04Z",
+    "channelId": "UChFLfYkzx2mkS-jiGLAllgg",
+    "title": "I Tried to Understand geopolitics map"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "zWuFeVY7d4a"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-13T16:53:53Z",
+    "channelId": "UC_MTrxREjjKJewl0ODjFViG",
+    "title": "Geopolitics Map Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "TzFT-d-yR3t"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-01T08:31:31Z",
+    "channelId": "UCPDz-uJC6-_UDlBWxBIk2rb",
+    "title": "The Real Reason geopolitics map Exists"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "8nkDh3MMaav"
+   },
+   "snippet": {
+    "publishedAt": "2026-08-05T16:26:46Z",
+    "channelId": "UC34zwOYJUKPhNsgEUBb7Vcl",
+    "title": "Geopolitics Map Finally Makes Sense"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "UeM-GKqWMHD"
+   },
+   "snippet": {
+    "publishedAt": "2026-09-17T07:07:13Z",
+    "channelId": "UCCFrov_EBQ7IAUOnAkYV7aB",
+    "title": "Geopolitics Map: The Untold Story"
+   }
+  }
+ ]
+}

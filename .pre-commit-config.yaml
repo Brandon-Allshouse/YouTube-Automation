@@ -1,0 +1,34 @@
+# Pre-commit hooks. All hooks are `repo: local` and run inside our hardened containers, so the host
+# only needs Docker + git (+ pre-commit if the owner chooses to `pre-commit install`; not done for you).
+repos:
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff (lint + format check)
+        entry: bash scripts/task.sh lint
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: mypy
+        name: mypy --strict
+        entry: bash scripts/task.sh typecheck
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: bandit
+        name: bandit (python security linter)
+        entry: docker compose run --rm quality bandit -c pyproject.toml -r engine src -lll -q
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: detect-secrets
+        name: detect-secrets (against baseline)
+        entry: docker compose run --rm security detect-secrets-hook --baseline .secrets.baseline
+        language: system
+        exclude: ^(requirements.*\.lock|\.secrets\.baseline|security/.*\.(txt|json)|tests/fixtures/(youtube|analytics)/.*)$
+      - id: pytest-fast
+        name: pytest (fast suite)
+        entry: bash scripts/task.sh test
+        language: system
+        pass_filenames: false
+        types: [python]

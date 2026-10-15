@@ -1,0 +1,7 @@
+# Exclude only generated/vendored paths. Everything else is scanned.
+name: video-portfolio CodeQL config
+paths-ignore:
+  - output
+  - data
+  - models
+  - .venv

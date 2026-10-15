@@ -1,0 +1,16 @@
+# Dev / QA / security tooling. Constrained to the runtime lock so versions agree.
+-c requirements.lock
+pytest
+pytest-cov
+hypothesis
+ruff
+mypy
+types-PyYAML
+bandit
+pip-audit
+detect-secrets
+cyclonedx-bom
+check-jsonschema
+actionlint-py
+pip-tools
+pre-commit
