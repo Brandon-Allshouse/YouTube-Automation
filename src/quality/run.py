@@ -56,6 +56,7 @@ def run(video: Path, spec_path: Path, script_path: Path, wav: Path | None) -> di
         "checks": {
             "text_in_safe_zone": not vr.safe_zone_violations,
             "no_offcanvas_text": not vr.offcanvas,
+            "all_glyphs_render": not vr.missing_glyphs,
             "max_words_on_screen": not vr.word_violations,
             "contrast": not vr.contrast_failures,
             "no_static_over_4s": st["longest_static_s"] <= q.max_static_seconds,
@@ -67,6 +68,7 @@ def run(video: Path, spec_path: Path, script_path: Path, wav: Path | None) -> di
         "violations": {
             "safe_zone": vr.safe_zone_violations[:10], "offcanvas": vr.offcanvas[:10],
             "words": vr.word_violations[:10], "contrast": vr.contrast_failures[:10],
+            "missing_glyphs": vr.missing_glyphs[:10],
         },
     }  # fmt: skip
     anim["passed"] = all(bool(v) for v in anim["checks"].values())

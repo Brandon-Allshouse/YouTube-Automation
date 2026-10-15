@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import itertools
 import json
+import re
 import sqlite3
 import sys
 import uuid
@@ -28,9 +29,12 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from src.common.paths import DATA_DIR, ensure_dir, ensure_within, validate_id
+
+if TYPE_CHECKING:
+    from src.production.script import Script
 
 DEFAULT_DB = DATA_DIR / "pipeline.sqlite"
 
@@ -366,6 +370,19 @@ def transition(
 
 
 _PATH_COLUMNS = frozenset({"script_path", "spec_path", "output_path"})
+_ARM_RE = re.compile(r"^[a-z0-9-]{1,64}\|(short|long)\|[a-z]{1,16}\|[sl][0-9]{1,3}\|[a-z-]{1,24}$")
+
+
+def set_arm(conn: sqlite3.Connection, video_id: str, arm_id: str) -> None:
+    """Record a video's bandit arm (``niche|format|hook|length|visual``).
+
+    Raises:
+        ValueError: Malformed arm id.
+    """
+    if not _ARM_RE.match(arm_id):
+        raise ValueError("malformed arm id")
+    with transaction(conn):
+        conn.execute("UPDATE videos SET arm_id = ?, updated_at = ? WHERE id = ?", (arm_id, utcnow(), video_id))
 
 
 def set_path(conn: sqlite3.Connection, video_id: str, column: str, value: str) -> None:
@@ -382,15 +399,19 @@ def set_path(conn: sqlite3.Connection, video_id: str, column: str, value: str) -
         conn.execute(sql, (value, utcnow(), video_id))
 
 
-def check_script_matches(video: dict[str, Any], script_file: Path) -> None:
+def check_script_matches(video: dict[str, Any], script_file: Path) -> Script:
     """Validate a script file and require it to belong to this video's channel and format.
 
     A script written for another channel would otherwise be rendered in that channel's style and
-    uploaded with the wrong account.
+    uploaded with the wrong account. A declared niche must be one of the channel's seed niches.
+
+    Returns:
+        The validated script.
 
     Raises:
-        ValueError: Invalid script, or channel/format mismatch.
+        ValueError: Invalid script, or channel/format/niche mismatch.
     """
+    from src.learning.arms import check_niche
     from src.production.script import load_script
 
     try:
@@ -401,6 +422,8 @@ def check_script_matches(video: dict[str, Any], script_file: Path) -> None:
         raise ValueError(f"script is for channel '{script.channel}', video is on '{video['channel_id']}'")
     if script.format != video["format"]:
         raise ValueError(f"script format '{script.format}' does not match video format '{video['format']}'")
+    check_niche(script)
+    return script
 
 
 def list_videos(
@@ -529,9 +552,25 @@ def main(argv: list[str] | None = None) -> int:
                 raise ValueError("unknown video")
             if cur["state"] not in ("idea", "scripted"):
                 raise ValueError("script can only be changed before approval")
-            check_script_matches(cur, script)
+            from src.compliance import distinctness
+            from src.learning.arms import arm_for
+
+            parsed = check_script_matches(cur, script)
+            verdict = distinctness.check(parsed, conn, exclude_video=args.video_id)
+            if not verdict.passed:
+                raise ValueError("distinctness veto: " + "; ".join(verdict.reasons))
             set_path(conn, args.video_id, "script_path", str(script.relative_to(DATA_DIR.parent)))
-            _print({"ok": True})
+            with transaction(conn):  # the queue and dashboard show the script's first title
+                conn.execute(
+                    "UPDATE videos SET title = ?, updated_at = ? WHERE id = ?",
+                    (parsed.titles[0][:300], utcnow(), args.video_id),
+                )
+            distinctness.register(parsed, args.video_id, conn)
+            arm = None
+            if parsed.niche and parsed.hook:  # labelled scripts join the bandit
+                arm = arm_for(parsed)
+                set_arm(conn, args.video_id, arm)
+            _print({"ok": True, "arm_id": arm, "distinctness_warnings": verdict.warnings})
         elif args.cmd == "quota":
             _print({"used_today": quota_used_today(conn)})
     except (TransitionError, ValueError) as exc:

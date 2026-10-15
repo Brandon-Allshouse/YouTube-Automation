@@ -33,6 +33,8 @@ class WritingConfig(_M):
     banned_phrases: tuple[str, ...] = ()
     shorts_length_s: tuple[int, int] = (35, 55)
     long_length_min: tuple[int, int] = (8, 14)
+    # measured narration rate incl. pauses; sizes scripts and estimates their length bucket
+    words_per_second: float = Field(2.65, gt=1.0, lt=5.0)
 
 
 class CadenceConfig(_M):

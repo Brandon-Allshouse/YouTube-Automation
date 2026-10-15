@@ -10,7 +10,19 @@ Owner feedback after the build: the voice sounded too synthetic. Key rotation is
 - Leftover test folders the agent could not delete (`rm -rf` is denied): `output/videos/{test-publish,test-swap,v-41e0c9238e,v-c1406bcd46,v-e191cef29b,v-e2etest01,v-e2etest02}`. Safe to delete.
 - **Dashboard: DONE (ADR-033).** `bash scripts/task.sh dashboard` → `output/dashboard/index.html` (`--fixtures` → `demo.html`, synthetic). VPI per video, channel score with reach growth, portfolio score, levers, bandit, pipeline, schedule, research, quota, exports. Static, script-free, hash-pinned CSP, read-only DB. Rebuilt by `/analyze` and `/weekly-brief`.
 - Owner note (memory): TikTok/Reels expansion planned later; designs stay platform-neutral, nothing built yet.
-- **Next:** second live `velocity_radar` run after 15:54 EDT (first snapshot 07:52-07:54 UTC); pick channels and niches with the owner; first real `/write-batch` into the review queue.
+- **Go-live prep (15:45-, owner: "get this 100% ready, fully algorithmically optimal"): DONE.**
+  - Second live velocity run at 15:55 EDT (21 units; quota today 4,218 / 8,000). Real acceleration data now exists.
+  - Niche scorer fixed (percentile ranks + demand term, ADR-034). New top niches: neon = megaprojects, how-planes-work, space-scale, body-biology; atlas = empires-timelapse, geopolitics, ancient-civs, map-oddities.
+  - Learning loop closed (ADR-034): scripts declare `niche` + `hook`; code derives the arm; `learn plan` (factored Thompson sampling, research priors) picks each script's formula. Distinctness is enforced in `db set-script`.
+  - **First real batch: 4 Shorts in the review queue (state `scripted`)**, written to `learn plan` formulas, fact-checked (`data/factchecks/`), distinctness-checked, with previews in `output/dev/<id>/<id>.mp4`:
+    - `v-b6063fe4f7` neon: the Channel Tunnel's boring machines that never came back out (megaprojects | statement | s35 | data-heavy)
+    - `v-f23844f404` neon: how a hen builds an egg in ~25 h (body-biology | question | s45 | diagram-heavy)
+    - `v-d55fe7f7f5` atlas: the Mongol Empire, the biggest land empire, in 73 years (empires-timelapse | statement | s35 | maps-heavy)
+    - `v-bfc869dc23` atlas: France has the most time zones (map-oddities | question | s45 | data-heavy)
+  - Engine/quality fixes found by the batch: skia null trim crash, captions centered on the safe area, number-hook check, per-channel narration rate, element-relative part anchors.
+  - Held for the next batch: `data/briefs/2026-10-15-airbus-dual-input.md` (fact-checked).
+- **Next (owner):** review the 4 scripts (watch each preview), approve with `python -m src.review.queue approve <id> --as <name>` in an interactive terminal; then the go-live steps (YouTube Analytics API, OAuth client, channel accounts, `oauth authorize`) in `docs/OPERATIONS.md`. Nothing can upload until OAuth exists.
+- **Next (agent):** `/produce <id>` for approved videos; next `/write-batch` (velocity snapshots keep accruing with each daily research run).
 
 ## Morning summary (2026-10-15): all 16 steps done
 

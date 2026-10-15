@@ -16,7 +16,7 @@ import statistics
 from dataclasses import dataclass, field
 from typing import Any
 
-from src.audio.captions import spoken_text, syllables
+from src.audio.captions import spoken_text, strip_markup, syllables
 from src.audio.tts import split_sentences
 from src.common.channels import load_channel
 from src.production.script import Script
@@ -60,10 +60,12 @@ def flesch(sentences: list[str]) -> float:
 def check_script(script: Script) -> WritingReport:
     """Run all writing checks on a script."""
     rep = WritingReport()
-    sentences = [spoken_text(s) for seg in script.segments for s in split_sentences(seg.text)]
+    raw = [s for seg in script.segments for s in split_sentences(seg.text)]
+    sentences = [spoken_text(s) for s in raw]
     first = sentences[0] if sentences else ""
+    first_shown = strip_markup(raw[0])[0] if raw else ""  # {73|seventy-three}: the number is on screen
     first_words = len(first.split())
-    hook_signal = "?" in first or bool(re.search(r"\d", first)) or bool(HOOK_WORDS.search(first))
+    hook_signal = "?" in first or bool(re.search(r"\d", first_shown)) or bool(HOOK_WORDS.search(first))
     rep.checks["hook_first_sentence"] = first_words <= 16 and hook_signal
     rep.metrics["first_sentence_words"] = first_words
     fre = flesch(sentences)

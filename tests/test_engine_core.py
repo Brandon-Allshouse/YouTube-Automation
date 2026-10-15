@@ -184,6 +184,17 @@ def test_canvas_draws_text_and_shapes() -> None:
     assert arr[90, 50, 1] > 200 and arr[90, 150, 1] < 10  # trimmed path drawn halfway only
 
 
+@pytest.mark.parametrize("t1", [1e-12, 1e-7, 1e-4, 0.999999999, 1.0 - 1e-12])
+def test_canvas_trim_never_crashes_on_degenerate_ranges(t1: float) -> None:
+    # regression (2026-10-15): skia's TrimPathEffect.Make returns None for near-empty/near-full
+    # ranges, which crashed DiagramBuild on the first frame of an edge animation
+    from engine.core.canvas import Fonts, PathBuilder, Surface
+
+    surf = Surface(200, 20, Fonts())
+    p = PathBuilder().move_to(0, 10).quad_to(100, 0, 200, 10)
+    surf.canvas.path(p, stroke=(1, 1, 1, 1), stroke_width=4, trim=(0, t1))
+
+
 def test_frame_render_is_deterministic() -> None:
     from engine.core.scene import FrameRenderer
     from engine.demo_core import build

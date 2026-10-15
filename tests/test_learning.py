@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import sqlite3
+from pathlib import Path
+from typing import TYPE_CHECKING
 
 import numpy as np
 import pytest
@@ -11,6 +13,9 @@ from src import db as dbm
 from src.analytics import pull_stats, retention_forensics, weekly_brief
 from src.learning import bandit, predictor
 from src.learning.topic_graph import TopicGraph
+
+if TYPE_CHECKING:
+    from src.production.script import Script
 
 
 @pytest.fixture
@@ -120,3 +125,137 @@ def test_featurize_has_bias() -> None:
 
 def test_db_helpers_used(db: sqlite3.Connection) -> None:
     assert dbm.quota_used_today(db) == 0
+
+
+# --- arms derived from scripts + factored planner (session 2) ------------------------------------
+
+
+def _script(**over: object) -> Script:
+    from src.production.script import Script, load_script
+    from src.production.thumbnail import DEMO_SCRIPT
+
+    base = load_script(DEMO_SCRIPT).model_dump()
+    base.update(over)
+    return Script.model_validate(base)
+
+
+def test_arm_for_demo_script() -> None:
+    from src.learning import arms
+
+    s = _script()
+    arm = arms.arm_for(s)
+    niche, fmt, hook, length, visual = arm.split("|")
+    assert (niche, fmt, hook) == ("map-oddities", "short", "statement")
+    assert length in ("s45", "s55") and visual in arms.VISUAL_MIXES
+    assert arms.arm_for(s, 36.0).split("|")[3] == "s35"  # the real duration overrides the estimate
+
+
+def test_arm_requires_labels() -> None:
+    from src.learning import arms
+
+    with pytest.raises(ValueError, match="niche"):
+        arms.arm_for(_script(niche=None))
+
+
+@pytest.mark.parametrize(
+    ("fmt", "dur", "want"),
+    [
+        ("short", 30, "s35"),
+        ("short", 49, "s45"),
+        ("short", 70, "s55"),
+        ("long", 300, "l6"),
+        ("long", 600, "l10"),
+        ("long", 2000, "l14"),
+    ],
+)
+def test_length_buckets(fmt: str, dur: float, want: str) -> None:
+    from src.learning.arms import length_bucket
+
+    assert length_bucket(fmt, dur) == want
+
+
+def test_visual_mix_weights_narration() -> None:
+    from src.learning.arms import visual_mix
+
+    seg = {"id": "a", "text": "one two three four five six", "tag": "map"}
+    maps = [dict(seg, id=f"m{i}", visual=[{"type": "AnimatedMap"}]) for i in range(3)]
+    titles = [dict(seg, id="t", visual=[{"type": "KineticTitle", "text": "x"}])]
+    assert visual_mix(_script(segments=maps + titles)) == "maps-heavy"
+    even = [
+        dict(seg, id=f"e{i}", visual=[{"type": t}])
+        for i, t in enumerate(["AnimatedMap", "StatCounter", "DiagramBuild", "KineticTitle"])
+    ]
+    assert visual_mix(_script(segments=even)) == "mixed"
+    bg_only = [dict(seg, id="b", visual=[{"type": "ParticleBackground"}])]
+    assert visual_mix(_script(segments=bg_only)) == "mixed"
+
+
+def test_spoken_words_counts_spoken_side() -> None:
+    from src.learning.arms import spoken_words
+
+    assert spoken_words("Blame a map from *{1569|fifteen sixty-nine}*.") == 7  # sixty-nine = 2 spoken words
+
+
+def test_check_niche_enforces_channel_ownership() -> None:
+    from src.learning.arms import check_niche
+
+    check_niche(_script())
+    with pytest.raises(ValueError, match="belongs to channel"):
+        check_niche(_script(niche="tech-history"))
+    with pytest.raises(ValueError, match="unknown niche"):
+        check_niche(_script(niche="no-such-niche"))
+
+
+def test_script_rejects_unknown_hook() -> None:
+    with pytest.raises(ValueError, match="hook"):
+        _script(hook="clickbait")
+
+
+def test_set_arm_validates(db: sqlite3.Connection) -> None:
+    vid = dbm.add_video(db, "atlas", "short", "t")
+    dbm.set_arm(db, vid, "map-oddities|short|question|s45|maps-heavy")
+    assert dbm.get_video(db, vid)["arm_id"] == "map-oddities|short|question|s45|maps-heavy"  # type: ignore[index]
+    for bad in ("x", "a|b|c|d|e", "map-oddities|short|q'; DROP|s45|mixed"):
+        with pytest.raises(ValueError, match="malformed"):
+            dbm.set_arm(db, vid, bad)
+
+
+def test_plan_is_distinct_deterministic_and_on_channel(db: sqlite3.Connection) -> None:
+    from src.learning.arms import CHANNEL_VISUALS, HOOKS
+
+    a = bandit.plan(db, "atlas", n=4, seed=7)
+    assert a == bandit.plan(db, "atlas", n=4, seed=7)
+    assert len({s.arm for s in a}) == 4
+    from src.research.common import load_niches
+
+    atlas = {n.id for n in load_niches() if n.channel == "atlas"}
+    for s in a:
+        assert s.niche in atlas and s.hook in HOOKS and s.visual in CHANNEL_VISUALS["atlas"] and s.explore
+    with pytest.raises(ValueError, match="no seed niches"):
+        bandit.plan(db, "nobody")
+
+
+def test_plan_follows_research_priors_and_top_niches(db: sqlite3.Connection) -> None:
+    priors = {"empires-timelapse": 0.95, "border-history": 0.9, "map-oddities": 0.05}
+    picks = [
+        s.niche
+        for seed in range(40)
+        for s in bandit.plan(db, "atlas", n=1, seed=seed, niche_priors=priors, top_niches=2)
+    ]
+    assert set(picks) <= {"empires-timelapse", "border-history"}  # only the top-2 researched niches
+
+
+def test_plan_learns_from_outcomes(loaded: sqlite3.Connection) -> None:
+    # fixture: question hooks beat statement hooks; across many seeds the planner should prefer them
+    bandit.update(loaded)
+    hooks = [bandit.plan(loaded, "atlas", n=1, seed=s)[0].hook for s in range(200)]
+    tried = [h for h in hooks if h in ("question", "statement")]
+    assert tried.count("question") > tried.count("statement")
+
+
+def test_plan_cli(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    import json
+
+    assert bandit.main(["--db", str(tmp_path / "p.sqlite"), "plan", "--channel", "neon", "--n", "2"]) == 0
+    out = json.loads(capsys.readouterr().out)
+    assert len(out) == 2 and all(o["arm"].startswith(o["niche"] + "|short|") for o in out)

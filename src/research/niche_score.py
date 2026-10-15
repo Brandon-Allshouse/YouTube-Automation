@@ -1,13 +1,19 @@
 """Niche scorer: rank niches on more than views.
 
-Components (each normalised to 0-1 across the niches being compared, weights below):
-* outlier density (demand that travels beyond existing audiences)            0.22
-* demand/supply gap (attention per competing video)                          0.18
-* RPM estimate (midpoint of the configured prior range)                       0.18
+Components (each 0-1 across the niches being compared, weights below):
+* outlier density (demand that travels beyond existing audiences)            0.20
+* demand (median views of the niche's top videos, log scale)                 0.15
+* demand/supply gap (attention per competing video)                          0.15
+* RPM estimate (midpoint of the configured prior range)                       0.15
 * visual-engine fit (how well our components explain this niche)             0.15
-* evergreen prior                                                             0.10
-* competition (lower median competitor subscribers is better)                0.10
-* unanswered-question clusters                                                0.07
+* evergreen prior                                                             0.08
+* competition (lower median competitor subscribers is better)                0.07
+* unanswered-question clusters                                                0.05
+
+Heavy-tailed evidence (views, gap, subscribers, question counts) is ranked by percentile, so one
+extreme niche can't squash the others to zero. Demand is its own term: weak competition is only
+worth something where people are watching (2026-10-15: "tech history" topped the old ranking with
+2.6k median views, because tiny channels made its competition and gap terms look perfect).
 
 "Can we be genuinely better than the top channels?" is a judgement the researcher agent adds in
 its brief; this script supplies the evidence. Uses the latest outputs of the other modules for
@@ -29,13 +35,14 @@ from src.research.common import Context, add_common_args, latest_output, make_co
 log = get_logger("src.research.niche_score")
 
 WEIGHTS = {
-    "outlier_density": 0.22,
-    "gap": 0.18,
-    "rpm": 0.18,
+    "outlier_density": 0.20,
+    "demand": 0.15,
+    "gap": 0.15,
+    "rpm": 0.15,
     "visual_fit": 0.15,
-    "evergreen": 0.10,
-    "competition": 0.10,
-    "unanswered": 0.07,
+    "evergreen": 0.08,
+    "competition": 0.07,
+    "unanswered": 0.05,
 }
 
 
@@ -45,6 +52,23 @@ def _norm(values: dict[str, float], invert: bool = False) -> dict[str, float]:
     lo, hi = min(values.values()), max(values.values())
     span = hi - lo or 1.0
     return {k: ((hi - v) if invert else (v - lo)) / span for k, v in values.items()}
+
+
+def _pct(values: dict[str, float], invert: bool = False) -> dict[str, float]:
+    """Percentile rank in [0, 1] (ties share their average rank); robust to heavy tails."""
+    if not values:
+        return {}
+    if len(values) == 1:
+        return dict.fromkeys(values, 0.5)
+    ordered = sorted(values.values())
+    n = len(ordered)
+    out = {}
+    for k, v in values.items():
+        lo = ordered.index(v)
+        hi = n - 1 - ordered[::-1].index(v)
+        r = (lo + hi) / 2 / (n - 1)
+        out[k] = 1 - r if invert else r
+    return out
 
 
 def score(
@@ -64,12 +88,13 @@ def score(
                 for i in ids
             }
         ),
-        "gap": _norm({i: v[i]["gap_score"] for i in ids}),
+        "demand": _pct({i: float(o[i].get("median_views", 0)) for i in ids}),
+        "gap": _pct({i: float(v[i]["gap_score"]) for i in ids}),
         "rpm": _norm({n.id: sum(n.rpm_usd) / 2 for n in ctx.niches if n.id in ids}),
         "visual_fit": {n.id: n.visual_fit for n in ctx.niches if n.id in ids},
         "evergreen": {n.id: n.evergreen for n in ctx.niches if n.id in ids},
-        "competition": _norm({i: float(o[i]["median_subscribers"]) for i in ids}, invert=True),
-        "unanswered": _norm(
+        "competition": _pct({i: float(o[i]["median_subscribers"]) for i in ids}, invert=True),
+        "unanswered": _pct(
             {i: float(sum(cl["likely_unanswered"] for cl in c.get(i, {}).get("clusters", []))) for i in ids}
         ),
     }
@@ -90,6 +115,7 @@ def score(
                     "outlier_density": o[n.id]["outlier_density"],
                     "gap_score": v[n.id]["gap_score"],
                     "median_subscribers": o[n.id]["median_subscribers"],
+                    "median_views": o[n.id].get("median_views"),
                     "rpm_prior_usd": list(n.rpm_usd),
                 },
             }

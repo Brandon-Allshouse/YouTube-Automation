@@ -43,6 +43,7 @@ from src.common.paths import (
     safe_join,
     validate_id,
 )
+from src.learning.arms import arm_for
 from src.production.script import Script, load_script
 from src.production.thumbnail import build_for_script
 from src.quality.frames import contact_sheet, frame_at
@@ -92,10 +93,14 @@ def _find_word(words: list[WordTiming], target: str, after: float = -1.0) -> Wor
     return None
 
 
+_PART_TIME_KEYS = (("nodes", "at"), ("edges", "at"), ("markers", "at"), ("moves", "start"), ("paths", "start"))
+
+
 def resolve_elements(
     elements: list[dict[str, Any]], words: list[WordTiming], scene_start: float
 ) -> list[dict[str, Any]]:
-    """Turn word anchors (``at_word``, ``reveal_words``) into scene-relative times."""
+    """Turn word anchors (``at_word``, ``until_word``, ``count_at_word``, ``reveal_words``, and
+    ``at_word`` on diagram nodes/edges and map markers/moves/paths) into scene-relative times."""
     out: list[dict[str, Any]] = []
     for el in elements:
         e = dict(el)
@@ -125,6 +130,24 @@ def resolve_elements(
                 if w:
                     after = w.start
             e["reveal_at"] = times
+        # parts of an element (diagram nodes/edges, map markers/moves/routes) can anchor to words too;
+        # their times are relative to the element's own start
+        el_start = float(e.get("start", 0.0) or 0.0)
+        for key, tkey in _PART_TIME_KEYS:
+            parts = e.get(key)
+            if not isinstance(parts, list):
+                continue
+            resolved = []
+            for part in parts:
+                if isinstance(part, dict) and "at_word" in part:
+                    anchored = dict(part)
+                    pw = _find_word(words, str(anchored.pop("at_word")))
+                    if pw is not None:
+                        anchored[tkey] = round(max(0.0, pw.start - scene_start - el_start - 0.05), 3)
+                    resolved.append(anchored)
+                else:
+                    resolved.append(part)
+            e[key] = resolved
         out.append(e)
     return out
 
@@ -265,10 +288,9 @@ def produce_gated(video_id: str, *, scale: float = 1.0, backend: Backend | None 
         if dbm.file_sha256(script_file) != video["script_sha256"]:
             raise GateError("script changed since approval; it must be re-approved")
         try:
-            dbm.check_script_matches(video, script_file)
+            script = dbm.check_script_matches(video, script_file)
         except ValueError as exc:
             raise GateError(str(exc)) from None
-        script = load_script(script_file)
         out_dir = OUTPUT_DIR / "videos" / validate_id(video_id, kind="video id")
         result = produce(script, out_dir, scale=scale, backend=backend, _gated=True)
         # walk the state machine back to "voiced" (re-runs) and forward to "rendered"
@@ -281,6 +303,9 @@ def produce_gated(video_id: str, *, scale: float = 1.0, backend: Backend | None 
             if cur != state:
                 dbm.transition(conn, video_id, state, actor="pipeline", note=result["job_id"])
             cur = state
+        dur = result.get("duration_s")
+        if script.niche and script.hook and isinstance(dur, int | float):
+            dbm.set_arm(conn, video_id, arm_for(script, float(dur)))  # real length decides the bucket
         # repo-relative, like script_path, so the record is valid inside and outside containers
         mp4 = out_dir / result["outputs"].get("video", "")
         dbm.set_path(conn, video_id, "output_path", mp4.relative_to(REPO_ROOT).as_posix())

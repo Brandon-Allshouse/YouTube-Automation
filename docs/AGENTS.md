@@ -24,7 +24,7 @@ by code (`Script`, scene spec schema) before use (LLM02).
 | Command | What it does |
 |---|---|
 | `/daily-research [live]` | Runs the 4 research modules (fixtures unless `live`), researcher writes briefs, prints top topics |
-| `/write-batch <channel\|all> [count]` | scriptwriter → audience-panel → fact-checker → visual-director → compliance-guard; leaves passing scripts in `scripted` for human review |
+| `/write-batch <channel\|all> [count]` | `learn plan` picks each script's formula (niche, hook, length, visual mix), then scriptwriter → audience-panel → fact-checker → visual-director → compliance-guard; `db set-script` enforces distinctness and records the arm; leaves passing scripts in `scripted` for human review |
 | `/produce <video_id>` | Checks the human approval, produces (video + thumbnails from the approved script), runs `quality --video-id` on the recorded files |
 | `/publish-due` | Lists due videos and proposes jittered slots; prints the **owner's** upload command (agents can't upload) |
 | `/analyze [live]` | Pull stats, update bandit, retention forensics, rebuild the dashboard |

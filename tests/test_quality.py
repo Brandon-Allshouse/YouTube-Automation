@@ -103,3 +103,44 @@ def test_static_detection_on_still_video(tmp_path: Path) -> None:
               "-c:v", "libx264", "-pix_fmt", "yuv420p", str(out)], timeout=120)  # fmt: skip
     res = visual.static_runs(out, 6.0)
     assert res["longest_static_s"] >= 5.5
+
+
+def test_number_hook_counts_when_spoken_as_words() -> None:
+    # regression (2026-10-15): "{73|seventy-three}" put no digit in the spoken text, so number
+    # hooks failed; the number is on screen, so the display side counts
+    rep = writing.check_script(_script_with("In {73|seventy-three} years, the Mongols went from tribes to an empire."))
+    assert rep.checks["hook_first_sentence"]
+
+
+@pytest.mark.parametrize("theme", ["atlas", "neon"])
+def test_long_caption_lines_stay_in_safe_zone(theme: str) -> None:
+    # regression (2026-10-15): captions were centred on the frame, but the Shorts safe zone is offset
+    # left of the right-edge buttons, so a full-width line crossed into them
+    spec = json.loads((SPECS / "components_demo.json").read_text(encoding="utf-8"))
+    spec["theme"] = theme
+    words = "united the Mongolian confederations unexpectedly internationally".split()
+    spec["captions"]["words"] = [{"w": w, "start": 0.3 + 0.5 * i, "end": 0.75 + 0.5 * i} for i, w in enumerate(words)]
+    rep = visual.scan_text(json.dumps(spec), sample_fps=2.0, scale=0.25)
+    assert not [v for v in rep.safe_zone_violations if v["role"] == "caption"], rep.safe_zone_violations[:3]
+
+
+def test_box_caption_active_word_is_not_a_contrast_failure() -> None:
+    # regression (2026-10-15): neon's box captions draw the active word in the bg color on an accent
+    # box; the checker compared it with the dark outline and reported 1.03:1
+    spec = json.loads((SPECS / "components_demo.json").read_text(encoding="utf-8"))
+    spec["theme"] = "neon"
+    rep = visual.scan_text(json.dumps(spec), sample_fps=2.0, scale=0.25)
+    caption_words = {w["w"].strip(".,:").upper() for w in spec["captions"]["words"]}
+    assert not [f for f in rep.contrast_failures if f["text"].strip(".,:").upper() in caption_words]
+
+
+def test_recorder_flags_characters_the_font_cannot_draw() -> None:
+    # regression (2026-10-15): "Tahiti → Wallis" in Fraunces rendered the arrow as an empty box
+    from engine.core.canvas import Fonts, FontSpec, Surface, TextRecord
+
+    s = Surface(400, 100, Fonts())
+    recs: list[TextRecord] = []
+    s.canvas.recorder = recs
+    s.canvas.text("Tahiti → Wallis", 10, 60, FontSpec("Fraunces", 40, 800), (1, 1, 1, 1))
+    s.canvas.text("Tahiti to Wallis", 10, 60, FontSpec("Fraunces", 40, 800), (1, 1, 1, 1))
+    assert recs[0].missing_glyphs == "→" and recs[1].missing_glyphs == ""

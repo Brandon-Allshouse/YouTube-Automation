@@ -51,7 +51,7 @@ library needs to `dlopen` espeak-ng from a temp dir that allows execution.
 | `quality ...`, `inspect ...` | Automated quality checks; contact sheets/key frames |
 | `thumbnails ...` | Thumbnails + legibility reports |
 | `research <module> [--live]` | outlier_scan, velocity_radar, comment_miner, niche_score |
-| `analytics <module>`, `learn ...` | pull_stats, retention_forensics, weekly_brief; bandit |
+| `analytics <module>`, `learn ...` | pull_stats, retention_forensics, weekly_brief; bandit (`learn plan --channel atlas` = next video formulas) |
 | `dashboard [--fixtures]` | Portfolio dashboard → `output/dashboard/index.html` (read-only; `--fixtures` = synthetic demo) |
 | `distinctness ...`, `review ...` | Near-duplicate guard; human review queue |
 | `timing ...`, `export ...` | Upload-slot optimizer; TikTok/Reels packages |

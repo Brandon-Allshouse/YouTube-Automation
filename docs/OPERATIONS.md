@@ -14,7 +14,7 @@ All commands run from the repo root in Git Bash (Windows) or a normal shell (mac
 | When | What | How |
 |---|---|---|
 | Automatic (cron) | Research + drafting | `/daily-research` then `/write-batch all` (see cron below) |
-| You, ~10 min | Review queued scripts | `bash scripts/task.sh review list`, then `bash scripts/task.sh review show <id>`, then `python -m src.review.queue approve <id> --as <your name>` (run interactively; it asks you to type the id back) or `request-changes <id> --note "..."` / `reject <id> --reason "..."` |
+| You, ~10 min | Review queued scripts | `bash scripts/task.sh review list`, then `bash scripts/task.sh review show <id>` (prints the formula, the fact-check report and the **preview video** `output/dev/<id>/<id>.mp4`: watch it), then `python -m src.review.queue approve <id> --as <your name>` (run interactively; it asks you to type the id back) or `request-changes <id> --note "..."` / `reject <id> --reason "..."` |
 | Automatic | Produce approved videos | `/produce <id>`: `produce --video-id <id>` renders exactly the approved script plus its thumbnails; `quality --video-id <id>` checks the recorded files and marks it `checked` only if every check passes |
 | You, ~2 min | Watch the render | Open `output/videos/<id>/*.mp4`; check `<stem>_review/quality.md` and `thumbnails/*.phone.png` (the first legible one is uploaded with long-form videos) |
 | You | Upload | `bash scripts/task.sh timing --video-id <id> --schedule`, then `bash scripts/task.sh publish --video-id <id>` (dry run), then `bash scripts/task.sh publish --video-id <id> --live` (uploads **private** with `publishAt`; YouTube publishes at the jittered slot) |

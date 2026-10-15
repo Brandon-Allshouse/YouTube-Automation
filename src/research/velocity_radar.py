@@ -49,18 +49,15 @@ CREATE TABLE IF NOT EXISTS market_snapshots (
 """
 
 
-def _prev_snapshot_fixture() -> tuple[dict[str, int], datetime]:
+def _prev_snapshot_fixture() -> dict[str, tuple[int, datetime]]:
     data = json.loads((FIXTURES_DIR / "youtube" / "videos_prev.json").read_text(encoding="utf-8"))
-    views = {it["id"]: int(it["statistics"]["viewCount"]) for it in data["items"]}
-    return views, datetime.fromisoformat(data["taken_at"])
+    at = datetime.fromisoformat(data["taken_at"])
+    return {it["id"]: (int(it["statistics"]["viewCount"]), at) for it in data["items"]}
 
 
-def _prev_snapshot_db(
-    conn: sqlite3.Connection, ids: list[str], now: datetime
-) -> tuple[dict[str, int], datetime | None]:
-    """Latest snapshot per video at least 12 h old."""
-    out: dict[str, int] = {}
-    oldest: datetime | None = None
+def _prev_snapshot_db(conn: sqlite3.Connection, ids: list[str], now: datetime) -> dict[str, tuple[int, datetime]]:
+    """Latest snapshot per video at least 12 h old, with its own timestamp (videos differ by minutes)."""
+    out: dict[str, tuple[int, datetime]] = {}
     cutoff = now.timestamp() - 12 * 3600
     for vid in ids:
         row = conn.execute(
@@ -69,10 +66,9 @@ def _prev_snapshot_db(
         for views, at in row:
             t = datetime.fromisoformat(at)
             if t.timestamp() <= cutoff:
-                out[vid] = int(views)
-                oldest = t if oldest is None or t < oldest else oldest
+                out[vid] = (int(views), t)
                 break
-    return out, oldest
+    return out
 
 
 def run(ctx: Context) -> dict[str, Any]:
@@ -87,21 +83,21 @@ def run(ctx: Context) -> dict[str, Any]:
         nd = niche_videos(ctx, n, stats_max_age_hours=SNAPSHOT_MAX_AGE_H)
         ids = [v.id for v in nd.videos]
         if ctx.live:
-            prev, prev_at = _prev_snapshot_db(conn, ids, ctx.now)
+            prev = _prev_snapshot_db(conn, ids, ctx.now)
             with dbm.transaction(conn):
                 conn.executemany(
                     "INSERT OR IGNORE INTO market_snapshots(video_id, at, views) VALUES (?, ?, ?)",
                     [(v.id, ctx.now.isoformat(timespec="seconds"), v.views) for v in nd.videos],
                 )
         else:
-            prev, prev_at = _prev_snapshot_fixture()
-        hours = (ctx.now - prev_at).total_seconds() / 3600 if prev_at else 0.0
+            prev = _prev_snapshot_fixture()
         rows: list[dict[str, Any]] = []
         for v in nd.videos:
             age = age_days(v, ctx.now)
             lifetime_daily = v.views / age
-            if v.id in prev and hours >= 12:
-                recent_daily = max(v.views - prev[v.id], 0) / hours * 24
+            hours = (ctx.now - prev[v.id][1]).total_seconds() / 3600 if v.id in prev else 0.0
+            if hours >= 12:
+                recent_daily = max(v.views - prev[v.id][0], 0) / hours * 24
                 accel = recent_daily / lifetime_daily if lifetime_daily > 0 else 0.0
             else:
                 recent_daily, accel = lifetime_daily, None

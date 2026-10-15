@@ -99,3 +99,5 @@ sources:
   - {claim: "Brazil ≈ 8.52 million km², Alaska ≈ 1.72 million km² (Brazil ≈ 5×)", url: "https://www.sciencefocus.com/science/are-most-maps-of-the-world-wrong"}
   - {claim: "Most tiled web maps (OpenStreetMap, Google Maps) use Web Mercator, cut off near 85°", url: "https://osmdata.openstreetmap.de/info/projections.html"}
 ai_disclosure: false
+niche: map-oddities   # bandit labels (src/learning/arms.py)
+hook: statement

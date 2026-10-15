@@ -40,6 +40,7 @@ class VisualReport:
 
     safe_zone_violations: list[dict[str, Any]] = field(default_factory=list)
     offcanvas: list[dict[str, Any]] = field(default_factory=list)
+    missing_glyphs: list[dict[str, Any]] = field(default_factory=list)  # text drawn as empty boxes
     max_words_on_screen: int = 0  # raw peak over all samples, including transient crossfades
     max_words_persistent: int = 0  # peak that persisted ≥ 2 consecutive samples (used by the check)
     word_violations: list[dict[str, Any]] = field(default_factory=list)
@@ -90,8 +91,12 @@ def scan_text(spec_json: str, *, sample_fps: float = 2.0, scale: float = 0.5) ->
                 rep.offcanvas.append({"t": round(float(t), 2), "text": r.text[:40]})
             elif left < safe.x - tol or top < safe.y - tol or right > safe.right + tol or bottom > safe.bottom + tol:
                 rep.safe_zone_violations.append({"t": round(float(t), 2), "text": r.text[:40], "role": r.role})
+            if r.missing_glyphs and len(rep.missing_glyphs) < 50:
+                rep.missing_glyphs.append({"t": round(float(t), 2), "text": r.text[:40], "chars": r.missing_glyphs})
             if r.role == "caption":
                 ratio = contrast_ratio(r.color, (0.02, 0.02, 0.04, 1.0))  # captions sit on a dark outline
+                if ctx.theme.captions.mode == "box":  # the active word is bg-colored text on an accent box
+                    ratio = max(ratio, contrast_ratio(r.color, ctx.theme.color("accent")))
             else:
                 x0, y0 = max(int(left), 0), max(int(top), 0)
                 x1, y1 = min(int(right), ctx.width), min(int(bottom), ctx.height)

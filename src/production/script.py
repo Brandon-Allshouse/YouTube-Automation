@@ -83,6 +83,9 @@ class Script(_M):
     segments: list[Segment] = Field(min_length=1, max_length=120)
     sources: list[Source] = Field(default_factory=list, max_length=60)
     ai_disclosure: bool = False  # true if realistic synthetic people/places/events appear
+    # Learning-loop labels (src.learning.arms): a seed niche of this channel and the hook type.
+    niche: Annotated[str, Field(pattern=r"^[a-z0-9][a-z0-9-]{0,63}$")] | None = None
+    hook: Literal["question", "statement", "number", "stakes", "story"] | None = None
 
     @property
     def narration(self) -> str:

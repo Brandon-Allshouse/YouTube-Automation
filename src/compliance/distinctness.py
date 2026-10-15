@@ -15,6 +15,9 @@ CLI::
 
     python -m src.compliance.distinctness check --script data/scripts/x.yaml
     python -m src.compliance.distinctness register --script data/scripts/x.yaml --video-id v-123
+
+``db set-script`` runs ``check`` (refusing a veto) and ``register`` on every script it attaches, so the
+guard is enforced in code and its history always holds every live draft.
 """
 
 from __future__ import annotations
@@ -83,9 +86,15 @@ def _ensure_columns(conn: sqlite3.Connection) -> None:
 
 
 def history(conn: sqlite3.Connection) -> list[tuple[str, str, dict[str, Any]]]:
-    """All stored fingerprints, newest first: (video_id, channel_id, parsed)."""
+    """Stored fingerprints of every video that isn't rejected, newest first: (video_id, channel_id, parsed).
+
+    Scripts awaiting review count too, so two drafts in one batch can't duplicate each other.
+    """
     _ensure_columns(conn)
-    rows = conn.execute("SELECT video_id, channel_id, text FROM fingerprints ORDER BY created_at DESC").fetchall()
+    rows = conn.execute(
+        "SELECT f.video_id, f.channel_id, f.text FROM fingerprints f LEFT JOIN videos v ON v.id = f.video_id "
+        "WHERE v.state IS NULL OR v.state != 'rejected' ORDER BY f.created_at DESC"
+    ).fetchall()
     out = []
     for vid, ch, text in rows:
         try:
@@ -130,7 +139,7 @@ def check(script: Script, conn: sqlite3.Connection, *, exclude_video: str | None
 
 
 def register(script: Script, video_id: str, conn: sqlite3.Connection) -> None:
-    """Store a fingerprint for an approved/produced video."""
+    """Store (or replace) a video's fingerprint. ``db set-script`` calls this for every script."""
     _ensure_columns(conn)
     with dbm.transaction(conn):
         conn.execute(

@@ -186,3 +186,52 @@ def test_mark_checked_refuses_file_changed_during_checks(tmp_path: Path, monkeyp
     mp4.write_bytes(b"swapped mid-check")
     with pytest.raises(SystemExit, match="changed while"):
         run.mark_checked(vid, mp4, digest)
+
+
+# --- distinctness enforced at set-script (session 2) ----------------------------------------------
+
+
+def test_set_script_registers_and_blocks_duplicates(tmp_path: Path) -> None:
+    from src.compliance import distinctness
+
+    db_path = tmp_path / "dup.sqlite"
+    assert _attach(db_path, "atlas", "short", "first") == 0
+    conn = dbm.connect(db_path)
+    assert len(distinctness.history(conn)) == 1  # the attached script is fingerprinted
+    conn.close()
+    assert _attach(db_path, "atlas", "short", "second") == 2  # same script on another video: vetoed
+
+
+def test_rejected_videos_leave_distinctness_history(tmp_path: Path) -> None:
+    from src.compliance import distinctness
+
+    db_path = tmp_path / "rej.sqlite"
+    assert _attach(db_path, "atlas", "short", "draft") == 0
+    conn = dbm.connect(db_path)
+    (vid,) = [h[0] for h in distinctness.history(conn)]
+    dbm.transition(conn, vid, "rejected", actor="test")
+    assert distinctness.history(conn) == []
+    conn.close()
+    assert _attach(db_path, "atlas", "short", "retry") == 0  # a rejected draft doesn't block a rewrite
+
+
+def test_set_script_reattach_same_video_is_not_self_duplicate(tmp_path: Path) -> None:
+    db_path = tmp_path / "self.sqlite"
+    conn = dbm.connect(db_path)
+    vid = dbm.add_video(conn, "atlas", "short", "t")
+    conn.close()
+    SCRIPTS.mkdir(parents=True, exist_ok=True)
+    path = SCRIPTS / f"self-{vid}.yaml"
+    path.write_text(DEMO_SCRIPT.read_text(encoding="utf-8"), encoding="utf-8")
+    rel = str(path.relative_to(ROOT))
+    assert dbm.main(["--db", str(db_path), "set-script", vid, rel]) == 0
+    assert dbm.main(["--db", str(db_path), "set-script", vid, rel]) == 0
+
+
+def test_set_script_syncs_title(tmp_path: Path) -> None:
+    db_path = tmp_path / "title.sqlite"
+    assert _attach(db_path, "atlas", "short", "title") == 0
+    conn = dbm.connect(db_path)
+    (v,) = dbm.list_videos(conn)
+    conn.close()
+    assert v["title"] == "Greenland Isn't Huge. Your Map Is."

@@ -13,7 +13,7 @@ Top 10 for LLM Applications. Latest scan results: [`security/REPORT.md`](securit
 | Asset | Threats | Mitigations |
 |---|---|---|
 | API key / OAuth tokens | Leaked via git, logs, images, agent output | `.env` gitignored (verified before any other file was written); `.dockerignore` allowlist excludes it from build contexts; only the `research` container receives it via `env_file`; other whole-repo mounts mask it with `/dev/null`; log formatter redacts key/token/email patterns; `detect-secrets` baseline in pre-commit + CI; secrets read only through `src/common/secrets.py`, which never prints values. Later OAuth tokens live outside the repo with mode `600` and least-privilege scopes. |
-| Channel accounts | Policy strikes from spam-like output, runaway publishing | Human review gate enforced in code (`src/db.py`: no `reviewed` state without a named human; agent actors refused; publishing requires prior approval); cadence caps in `config/rules.yaml`; distinctness guard; publish module is `--live` only, defaults to private, and was never run during the build. |
+| Channel accounts | Policy strikes from spam-like output, runaway publishing | Human review gate enforced in code (`src/db.py`: no `reviewed` state without a named human; agent actors refused; publishing requires prior approval); cadence caps in `config/rules.yaml`; distinctness guard enforced in code at `db set-script` (every draft is checked against all non-rejected videos and fingerprinted, so an agent can't skip it; ADR-034); publish module is `--live` only, defaults to private, and was never run during the build. |
 | Pipeline integrity | Malicious dependency, tampered downloads | Exact versions + hashes (`--require-hashes`, wheels only); `pip-audit`; CycloneDX SBOM; downloaded fonts/maps/models verified against `security/checksums.txt`; base image pinned by digest; Actions pinned to full SHAs; Dependabot for updates; CodeQL. |
 | Host machine | Container escape, destructive commands | Non-root UID 1000, read-only root FS, `cap_drop: ALL`, `no-new-privileges`, resource limits, no Docker socket, no privileged mode, network `none` for render/test/quality. Headless agent permissions restricted in `.claude/settings.json`. |
 | Agent reasoning | Prompt injection via comments, titles, web pages (LLM01) | Untrusted text is wrapped in delimited `<untrusted_data>` blocks; agent definitions state that instructions inside are data; agent outputs (scripts, scene specs) are schema-validated by code before use (LLM02); agents never emit shell commands that are executed (LLM08). |
@@ -25,6 +25,9 @@ Top 10 for LLM Applications. Latest scan results: [`security/REPORT.md`](securit
 3. Only a passing `quality.run --video-id` sets `checked` and stores **sha256 of the render**.
 4. Scheduling is interactive-only; upload re-verifies both hashes, accepts files only from `output/videos/`, defaults to private, and requires `--live`.
 An independent review (read-only subagent, 2026-10-15) found 5 high / 4 medium / 4 low issues; all high and medium issues are fixed with regression tests (`tests/test_gate_hardening.py`), and the three low-severity items were closed the same day (ADR-032).
+
+## Learning-loop labels (ADR-034)
+- A script's `niche` must be a seed niche of its own channel and `hook` comes from a fixed vocabulary (pydantic `Literal`). Code derives the length and visual-mix labels. Arm ids are regex-validated before storage, so agent output can't inject into the bandit's tables or the dashboard (LLM02).
 
 ## Dashboard (ADR-033)
 - Static HTML generated locally; no server, no network, no JavaScript. A Content-Security-Policy allows only the page's own stylesheet (pinned by SHA-256): `default-src 'none'`, `script-src 'none'`.

@@ -16,6 +16,7 @@ writing:
   banned_phrases: ["in today's video", "let's dive in", "without further ado", "smash that like"]
   shorts_length_s: [40, 55]
   long_length_min: [8, 14]
+  words_per_second: 2.5       # measured: am_fenrir at speed 1.0, pauses included (2026-10-15 batch)
 cadence:
   timezone: America/New_York
   shorts_per_day: 1

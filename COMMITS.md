@@ -9,11 +9,24 @@ How to apply one group (Git Bash): copy its file list into `git add -- <files>`,
 
 ## Pending
 
-Session-2 voice + fixes are committed (`da893a4`). Next commit (everything currently modified/untracked;
-`.env`, raw scan outputs and `output/` stay gitignored):
+Committed so far: `da893a4` (voice + fixes), `674d8c7` (dashboard). Next commit: everything currently
+modified/untracked (`git add -A`). `.env`, `data/` (scripts, fact-checks, briefs, DB) and `output/` stay gitignored.
 
 ```
-feat(dashboard): portfolio dashboard with algorithmic success scoring
+feat(learning): close the learning loop and ship the first real batch
+
+- Bandit arms derived from each script in code (niche + hook declared and
+  validated; length bucket and visual mix computed); `learn plan` picks
+  formulas with factored Thompson sampling and research priors (ADR-034)
+- Distinctness guard enforced in `db set-script` against every live draft
+- Niche scoring: percentile ranks + demand term; velocity radar times
+  each video against its own snapshot
+- Engine/quality: skia null-trim crash, captions centred on the safe
+  area, missing-glyph check, box-caption contrast, number hooks,
+  per-channel narration rate, element-relative word anchors on
+  diagram/map parts
+- /write-batch renders and quality-checks a preview; review sheet shows
+  formula + preview
 ```
 
 ## Committed (reference)

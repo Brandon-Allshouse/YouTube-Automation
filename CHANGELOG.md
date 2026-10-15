@@ -7,9 +7,24 @@ All notable changes to this project are documented here. Format: [Keep a Changel
 ### Changed
 - More natural narration (owner feedback, ADR-031). Each segment is voiced in one continuous Kokoro pass. Word timings come from the timestamped Kokoro export's phoneme durations, which makes captions more accurate. Sentence gaps still follow our pause model. The voice chain is lighter, with room tone under pauses. Channel voices: atlas `am_fenrir`, neon `af_heart`, both at speed 1.0.
 ### Added
+- `learn plan --channel <ch>`: next video formulas by factored Thompson sampling over niche × hook × length × visual mix, with research-informed niche priors (ADR-034). Scripts declare `niche` and `hook`; `src/learning/arms.py` derives the arm and `db set-script` stores it. Production refines the length bucket from the real narration.
+- Word anchors (`at_word`) on diagram nodes/edges and on map markers, moves and routes, so diagrams and maps build in sync with the narration.
+- Quality check `all_glyphs_render`: the text recorder notes characters the font can't draw (they render as empty boxes). This caught "→" in the atlas display font on the first batch.
+- `/write-batch` renders a preview (`output/dev/<id>/`) and runs the quality checks before a script reaches the owner; `review show` prints the formula and the preview path, and warns when the preview is older than the script.
+- First real batch: 4 Shorts (2 per channel) in the review queue, previews in `output/dev/<video_id>/`.
 - Portfolio dashboard (`bash scripts/task.sh dashboard`, ADR-033). Tracks accounts, every video and its 48 h indicators, the pipeline, schedule, research, quota, cross-post exports, bandit and retention penalties. Success scoring: Video Performance Index per video, channel score with reach growth, portfolio score, and "what works" levers. Static, script-free HTML with a hash-pinned CSP; read-only DB; JSON for agents. Rebuilt by `/analyze` and `/weekly-brief`.
 
 ### Fixed
+- Engine crash: skia's `TrimPathEffect.Make` returns null for near-empty trims, so a diagram arrow's first animation frame could kill a render (found on the first real batch). Now guarded, with a regression test.
+- Captions were centered on the frame, but the Shorts safe zone is offset left of the right-edge buttons, so long caption lines crossed into the button zone. They now center on the safe area.
+- The contrast check compared box-style captions' active word (dark text on an accent box) with the dark outline and reported 1.03:1; box mode now compares with the box.
+- `db set-script` keeps the video's DB title in sync with the script's first title.
+- The writing check's hook test looked for digits in the *spoken* text, so number hooks written as `{73|seventy-three}` failed. It now checks the on-screen text.
+- Length estimates use each channel's measured narration rate (`writing.words_per_second`: atlas/am_fenrir 2.5, neon/af_heart 2.8); one shared rate put scripts in the wrong length bucket.
+- Real videos never got a bandit arm, so the learning loop could not learn from real uploads (ADR-034).
+- The distinctness guard never had history (nothing called `register`). `db set-script` now checks every script against all non-rejected videos, refuses a veto, and fingerprints it.
+- Niche scoring ranked a niche with 2.6k median views first. It now uses percentile ranks for heavy-tailed evidence and has an explicit demand term.
+- Velocity radar used one elapsed time for every video; each video is now timed against its own previous snapshot.
 - Velocity radar re-run within the 24 h API cache window reused cached view counts and stored them as a new snapshot (zero acceleration, corrupt history). Snapshots now force fresh `videos.list` stats (`max_age_hours`), about 20 units per run; searches still come from the cache.
 - A script could be attached to a video of another channel or format; it would then be rendered in the wrong style and uploaded with the wrong channel's token. `db set-script` now validates the script and requires a matching channel/format; `produce --video-id` re-checks; uploads use the video's channel and refuse a mismatched script.
 - `quality --video-id` judged whatever `--video/--spec/--script` the caller passed; it now takes the recorded render, spec, audio and the **approved** script from the database (extra paths are refused) and refuses a render that changed while it was being checked.

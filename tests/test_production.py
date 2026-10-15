@@ -71,6 +71,40 @@ def test_word_anchors_resolve() -> None:
     assert all("_word" not in k for e in els for k in e)
 
 
+def test_part_word_anchors_resolve() -> None:
+    words = [_w("left", 10.0), _w("right", 11.0), _w("sum", 12.0)]
+    el = {
+        "type": "DiagramBuild",
+        "nodes": [
+            {"id": "l", "label": "L", "x": 0.2, "y": 0.2, "at_word": "left"},
+            {"id": "r", "label": "R", "x": 0.8, "y": 0.2, "at_word": "right"},
+            {"id": "c", "label": "C", "x": 0.5, "y": 0.8, "at": 0.4, "at_word": "missing"},
+        ],
+        "edges": [{"src": "l", "dst": "c", "at_word": "sum"}],
+    }
+    (out,) = prod.resolve_elements([el], words, scene_start=9.0)
+    assert [n.get("at") for n in out["nodes"]] == pytest.approx([0.95, 1.95, 0.4])  # unknown word keeps its time
+    assert out["edges"][0]["at"] == pytest.approx(2.95)
+    assert all("at_word" not in part for part in out["nodes"] + out["edges"])
+    assert "at_word" in el["nodes"][0]  # the script's dict is not mutated
+    from engine.schema.spec import DiagramBuildSpec
+
+    DiagramBuildSpec.model_validate(out)
+
+
+def test_part_anchors_are_relative_to_a_late_element() -> None:
+    # a map that itself enters at a word: its markers' times are element-local
+    words = [_w("Caribbean", 12.0), _w("Guiana", 13.0)]
+    el = {
+        "type": "AnimatedMap",
+        "at_word": "Caribbean",
+        "markers": [{"lon": -53, "lat": 4, "label": "French Guiana", "at_word": "Guiana"}],
+    }
+    (out,) = prod.resolve_elements([el], words, scene_start=10.0)
+    assert out["start"] == pytest.approx(1.95)
+    assert out["markers"][0]["at"] == pytest.approx(13.0 - 10.0 - 1.95 - 0.05)
+
+
 def test_produce_without_render() -> None:
     out = Path(prod.OUTPUT_DIR) / "test-produce"
     res = prod.produce(load_script(DEMO), out, backend=SyntheticBackend(), render=False)

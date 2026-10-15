@@ -24,6 +24,7 @@ from typing import Any, TextIO
 
 from src import db as dbm
 from src.common.paths import DATA_DIR, REPO_ROOT, ensure_within
+from src.learning.arms import estimate_duration, spoken_words
 from src.production.script import Script, load_script
 
 
@@ -56,8 +57,16 @@ def render_review(video: dict[str, Any], script: Script | None) -> str:
     lines.append(f"AI DISCLOSURE: {'yes' if script.ai_disclosure else 'no'}")
     fc = DATA_DIR / "factchecks" / f"{script.id}.md"
     lines.append(f"FACT-CHECK REPORT: {fc.relative_to(REPO_ROOT) if fc.is_file() else 'missing'}")
-    words = len(script.narration.split())
-    lines.append(f"LENGTH: {words} words ≈ {words / 2.4:.0f} s narrated")
+    words = sum(spoken_words(seg.text) for seg in script.segments)
+    lines.append(f"LENGTH: {words} spoken words ≈ {estimate_duration(script):.0f} s narrated")
+    if video.get("arm_id"):
+        lines.append(f"FORMULA (bandit arm): {video['arm_id']}")
+    preview = REPO_ROOT / "output" / "dev" / str(video["id"]) / f"{video['id']}.mp4"
+    if preview.is_file():
+        script_file = REPO_ROOT / str(video["script_path"])
+        stale = script_file.is_file() and script_file.stat().st_mtime > preview.stat().st_mtime
+        note = "  (older than the script: re-render before judging)" if stale else ""
+        lines.append(f"PREVIEW: {preview.relative_to(REPO_ROOT).as_posix()}{note}")
     return "\n".join(lines)
 
 

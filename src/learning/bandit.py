@@ -10,7 +10,7 @@ chase clickbait that viewers abandon). Each arm's posterior is Beta(1 + successe
 Planned upgrade (≥ ~50 videos): hierarchical Thompson sampling sharing strength across arms that
 share a niche or hook.
 
-``python -m src.learning.bandit update | recommend --channel atlas --n 3 | show``
+``python -m src.learning.bandit update | show | recommend --n 3 | plan --channel atlas --n 3``
 """
 
 from __future__ import annotations
@@ -95,6 +95,112 @@ def recommend(states: list[ArmState], n: int, *, seed: int = 0, candidates: list
     return sorted(draws, key=lambda a: -draws[a])[:n]
 
 
+@dataclass(frozen=True)
+class PlanSlot:
+    """One recommended video formula from :func:`plan`."""
+
+    arm: str
+    niche: str
+    hook: str
+    length: str
+    visual: str
+    explore: bool  # True when at least one dimension was picked from an untried value
+
+
+def _dimension_counts(rows: list[tuple[str, bool]], fmt: str) -> dict[int, dict[str, list[int]]]:
+    """Successes/failures per (arm position, value) over arms of one format."""
+    counts: dict[int, dict[str, list[int]]] = defaultdict(lambda: defaultdict(lambda: [0, 0]))
+    for arm, ok in rows:
+        parts = arm.split("|")
+        if len(parts) != 5 or parts[1] != fmt:
+            continue
+        for pos in (0, 2, 3, 4):
+            counts[pos][parts[pos]][0 if ok else 1] += 1
+    return counts
+
+
+def plan(
+    conn: sqlite3.Connection,
+    channel: str,
+    *,
+    fmt: str = "short",
+    n: int = 3,
+    seed: int = 0,
+    niche_priors: dict[str, float] | None = None,
+    top_niches: int = 4,
+    prior_strength: float = 4.0,
+) -> list[PlanSlot]:
+    """Recommend ``n`` distinct video formulas for a channel with factored Thompson sampling.
+
+    A full arm (niche × hook × length × visual) has hundreds of combinations, far too many to learn
+    one by one at a few videos a week. Each dimension is learned on its own instead: every value
+    has a Beta posterior over all outcomes that share it (hooks and lengths learn across channels),
+    and a slot draws one sample per value and takes the best of each dimension.
+
+    Niche priors come from research (``niche_score``, 0-1) as Beta(1 + k·s, 1 + k·(1 - s)), so
+    the research ranking steers exploration until real results outweigh it. Only the channel's
+    ``top_niches`` best-researched niches are probed (CLAUDE.md: 4-8 niches across the portfolio).
+
+    Returns:
+        Up to ``n`` distinct slots (fewer only if the option space is smaller).
+    """
+    from src.learning.arms import CHANNEL_VISUALS, HOOKS, VISUAL_MIXES, lengths_for
+    from src.research.common import load_niches
+
+    rng = np.random.default_rng(seed)
+    priors = niche_priors or {}
+    niches = [x.id for x in load_niches() if x.channel == channel]
+    if not niches:
+        raise ValueError(f"no seed niches for channel '{channel}'")
+    niches = sorted(niches, key=lambda nid: (-priors.get(nid, 0.5), nid))[: max(1, top_niches)]
+    options = {
+        0: niches,
+        2: list(HOOKS),
+        3: list(lengths_for(fmt)),
+        4: list(CHANNEL_VISUALS.get(channel, VISUAL_MIXES)),
+    }
+    counts = _dimension_counts(outcomes(conn), fmt)
+    out: list[PlanSlot] = []
+    seen: set[str] = set()
+    for _ in range(n * 20):
+        if len(out) >= n:
+            break
+        pick: dict[int, str] = {}
+        explore = False
+        for pos, values in options.items():
+            draws = {}
+            for v in values:
+                s, f = counts[pos].get(v, [0, 0])  # .get: never inserts, so "untried" stays untried
+                a0, b0 = 1.0, 1.0
+                if pos == 0 and v in priors:
+                    p = min(max(priors[v], 0.0), 1.0)
+                    a0, b0 = 1.0 + prior_strength * p, 1.0 + prior_strength * (1 - p)
+                draws[v] = float(rng.beta(a0 + s, b0 + f))
+            pick[pos] = max(values, key=lambda v: draws[v])
+            explore |= pick[pos] not in counts[pos]
+        arm = "|".join((pick[0], fmt, pick[2], pick[3], pick[4]))
+        if arm in seen:
+            continue
+        seen.add(arm)
+        out.append(PlanSlot(arm, pick[0], pick[2], pick[3], pick[4], explore))
+    return out
+
+
+def research_niche_priors() -> dict[str, float]:
+    """Niche scores (0-1) from the latest live ``niche_score`` output; empty if none."""
+    from src.research.common import latest_output
+
+    data = latest_output("niche_score", True) or {}
+    ranking = data.get("ranking")
+    if not isinstance(ranking, list):
+        return {}
+    return {
+        str(r["niche"]): float(r["score"])
+        for r in ranking
+        if isinstance(r, dict) and isinstance(r.get("niche"), str) and isinstance(r.get("score"), int | float)
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     """CLI entry point."""
     p = argparse.ArgumentParser(description="Format bandit")
@@ -105,6 +211,12 @@ def main(argv: list[str] | None = None) -> int:
     r = sub.add_parser("recommend")
     r.add_argument("--n", type=int, default=3)
     r.add_argument("--seed", type=int, default=0)
+    pl = sub.add_parser("plan", help="next video formulas for a channel (factored Thompson sampling)")
+    pl.add_argument("--channel", required=True)
+    pl.add_argument("--format", choices=("short", "long"), default="short")
+    pl.add_argument("--n", type=int, default=3)
+    pl.add_argument("--seed", type=int, default=0)
+    pl.add_argument("--top-niches", type=int, default=4)
     a = p.parse_args(argv)
     conn = dbm.connect(a.db)
     if a.cmd == "update":
@@ -113,6 +225,17 @@ def main(argv: list[str] | None = None) -> int:
     elif a.cmd == "show":
         states = sorted(load(conn), key=lambda s: -s.mean)
         print(json.dumps([{"arm": s.arm_id, "mean": round(s.mean, 3), "pulls": s.pulls} for s in states], indent=1))
+    elif a.cmd == "plan":
+        slots = plan(
+            conn,
+            a.channel,
+            fmt=a.format,
+            n=max(1, min(a.n, 20)),
+            seed=a.seed,
+            niche_priors=research_niche_priors(),
+            top_niches=a.top_niches,
+        )
+        print(json.dumps([s.__dict__ for s in slots], indent=1))
     else:
         print(json.dumps({"recommend": recommend(load(conn), max(1, a.n), seed=a.seed)}))
     return 0

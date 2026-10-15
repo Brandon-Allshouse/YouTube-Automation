@@ -319,6 +319,7 @@ class TextRecord:
     color: RGBA
     opacity: float
     size_px: float
+    missing_glyphs: str = ""  # characters the font can't draw (rendered as empty boxes)
 
 
 class Canvas:
@@ -482,7 +483,12 @@ class Canvas:
             if t1 <= t0:
                 return
             if (t0, t1) != (0.0, 1.0):
-                p.setPathEffect(skia.TrimPathEffect.Make(t0, t1))
+                trim_pe = skia.TrimPathEffect.Make(t0, t1)
+                if trim_pe is None:  # skia returns null for a near-empty or full range
+                    if t1 - t0 < 0.5:
+                        return
+                else:
+                    p.setPathEffect(trim_pe)
             if dash is not None:
                 dpe = skia.DashPathEffect.Make(list(dash), 0.0)
                 cur = p.getPathEffect()
@@ -606,9 +612,11 @@ class Canvas:
             _, descent, cap_h = self.fonts.metrics(font)
             m = self._c.getTotalMatrix()
             r = m.mapRect(skia.Rect.MakeLTRB(x, y - cap_h, x + width, y + descent * 0.35))
+            glyphs = f.textToGlyphs(s)
+            missing = "".join(c for c, g in zip(s, glyphs, strict=False) if g == 0 and not c.isspace())
             self.recorder.append(
                 TextRecord(s, self.record_role, (r.left(), r.top(), r.right(), r.bottom()), color,
-                           alpha * self._opacity * color[3], font.size * abs(m.getScaleX()))
+                           alpha * self._opacity * color[3], font.size * abs(m.getScaleX()), missing)
             )  # fmt: skip
         if self.suppress_text:
             return width

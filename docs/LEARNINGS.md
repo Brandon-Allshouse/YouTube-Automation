@@ -35,6 +35,20 @@ Gotchas, failures and why, performance findings, platform quirks. Append as disc
 - Hugging Face LFS downloads redirect to regional CDN hosts (`us.aws.cdn.hf.co`). The fetcher allows `*.hf.co` because those files are checksum-pinned from the LFS record.
 - Pitch statistics (F0 range and SD) did not separate natural-sounding from synthetic-sounding samples; the owner's ear is the judge.
 
+## First real batch (2026-10-15)
+- Narration rate depends on the voice: am_fenrir ≈ 2.5 words/s and af_heart ≈ 2.8 (speed 1.0, pauses included). Size scripts per channel.
+- AnimatedMap `zoom` for a 9:16 frame: equal-earth at zoom ≈ 4-5 frames Eurasia from Kyiv to Korea; ≈ 9-10 frames a single country like Mongolia; mercator zoom 12-30 frames the Strait of Dover. Zoom 1-2 is a thin world band with empty space above and below: avoid it in Shorts.
+- A map highlight filled with the accent color under a title in the accent color fails contrast; drop the highlight or the title.
+- `region: full` on a DiagramBuild puts nodes under the captions and in the platform UI zones; use `center`.
+- A StatCounter that enters long before its count word sits on "0" for seconds. Anchor its entrance (`at_word`) near the count, and cover the gap with a title.
+- Timeline labels count toward the 7-words-on-screen limit; keep them to 1-2 words each.
+
+## Learning loop
+- An independent Beta posterior per full arm (niche × hook × length × visual) can't learn at a few videos a week. Learn each dimension separately (factored Thompson sampling) until about 50 videos justify a hierarchical model.
+- If a label decides what the system learns, compute it in code where possible (length, visual mix). Only the hook type and niche are declared, and both are validated.
+- A guard whose history is filled by a manual step never fires. Enforce it at the point where content enters the pipeline (`db set-script`).
+- Min-max normalization of heavy-tailed evidence is fragile: one niche with 300× the gap of the others makes the rest look identical. Percentile ranks are robust. Low competition is only worth something where there is demand.
+
 ## Scoring
 - A score relative to the channel's own median always averages about 50 per channel. It is good for "which of my videos work" but blind to whether the algorithm is growing the channel. Pair it with an absolute trend (reach growth per upload).
 - Doubling views and likes together leaves engagement per view unchanged: "twice as good on everything" needs likes to grow 4×.

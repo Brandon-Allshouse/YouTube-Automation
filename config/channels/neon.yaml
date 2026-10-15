@@ -16,6 +16,7 @@ writing:
   banned_phrases: ["mind-blowing", "you won't believe", "in today's video", "let's dive in"]
   shorts_length_s: [35, 50]
   long_length_min: [7, 12]
+  words_per_second: 2.8       # measured: af_heart at speed 1.0, pauses included (2026-10-15 batch)
 cadence:
   timezone: America/New_York
   shorts_per_day: 1

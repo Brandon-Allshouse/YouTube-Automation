@@ -173,3 +173,24 @@ def test_tokens_and_cosine() -> None:
 def test_fixture_meta_marks_synthetic() -> None:
     meta = json.loads((Path(__file__).parent / "fixtures" / "youtube" / "meta.json").read_text(encoding="utf-8"))
     assert meta["synthetic"] is True
+
+
+def test_niche_pct_is_rank_based_and_tie_aware() -> None:
+    p = niche_score._pct({"a": 1.0, "b": 10.0, "c": 1e9})
+    assert p == {"a": 0.0, "b": 0.5, "c": 1.0}  # an extreme value can't squash the others
+    assert niche_score._pct({"a": 2.0, "b": 2.0, "c": 5.0}) == {"a": 0.25, "b": 0.25, "c": 1.0}
+    assert niche_score._pct({"a": 1.0, "b": 3.0}, invert=True) == {"a": 1.0, "b": 0.0}
+    assert niche_score._pct({"only": 7.0}) == {"only": 0.5} and niche_score._pct({}) == {}
+
+
+def test_niche_without_demand_cannot_win_on_weak_competition(ctx: Context) -> None:
+    outliers, velocity, comments = outlier_scan.run(ctx), velocity_radar.run(ctx), comment_miner.run(ctx, 2)
+    ids = [n["niche"] for n in outliers["niches"]]
+    ghost = ids[0]
+    for n in outliers["niches"]:  # ghost town: tiny channels (perfect "competition") but no views
+        if n["niche"] == ghost:
+            n["median_subscribers"], n["median_views"] = 1, 10
+    ranking = niche_score.score(ctx, outliers, velocity, comments)
+    row = next(r for r in ranking if r["niche"] == ghost)
+    assert row["components"]["demand"] == 0.0 and row["components"]["competition"] == 1.0
+    assert row["evidence"]["median_views"] == 10

@@ -17,7 +17,7 @@
 | Workflow lint | actionlint 1.7.12 | ✅ OK (shellcheck not installed, so `run:` scripts are not shell-linted) |
 | Action pinning | grep for non-SHA `uses:` | ✅ All actions pinned to full 40-char SHAs |
 | SBOM | cyclonedx-py, CycloneDX 1.6 | ✅ `security/sbom.json`, 21 runtime components |
-| Tests + coverage | pytest 9.1 + coverage (incl. slow render tests) | ✅ 371 passed. Total 83 % (dashboard 95-99 %) |
+| Tests + coverage | pytest 9.1 + coverage (incl. slow render tests) | ✅ 407 passed. Total 83 % (dashboard 95-99 %, learning/arms 84 %) |
 
 ## Coverage against the CLAUDE.md targets (≥ 80 %)
 | Area | Coverage |

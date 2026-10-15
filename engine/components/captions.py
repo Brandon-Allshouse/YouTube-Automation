@@ -94,6 +94,9 @@ class WordCaptions(Node):
         self.font = role.spec(size)
         self.spacing = role.tracking * size
         self.max_w = ctx.safe.w * 0.92
+        # centre on the safe area, not the frame: Shorts' safe zone is offset left of the
+        # right-edge buttons, so a frame-centred full-width line would cross into them
+        self.cx = ctx.safe.x + ctx.safe.w / 2
         self.cy = ctx.height * (cs.y if ctx.layout == "short" else cs.y_long)
         self._layouts: dict[int, TextBlock] = {}
 
@@ -158,7 +161,7 @@ class WordCaptions(Node):
         boxes: list[tuple[float, float, float, CaptionWord]] = []  # (x, baseline, width, word)
         y = top
         for ln in blk.lines:
-            lx = ctx.width / 2 - ln.width / 2
+            lx = self.cx - ln.width / 2
             for lw in ln.words:
                 boxes.append((lx + lw.x, y + blk.line_height * 0.78, lw.width, page.words[lw.index]))
             y += blk.line_height
@@ -171,9 +174,9 @@ class WordCaptions(Node):
         acc = th.color("accent")
         stroke_c: RGBA = (0.02, 0.02, 0.04, 1.0)
         with cv.saved():
-            cv.translate(ctx.width / 2, self.cy)
+            cv.translate(self.cx, self.cy)
             cv.scale(page_scale)
-            cv.translate(-ctx.width / 2, -self.cy)
+            cv.translate(-self.cx, -self.cy)
             with cv.layer(alpha=page_alpha):
                 if self.mode == "box" and active >= 0:
                     self._box(cv, ctx, t, boxes, active, acc)

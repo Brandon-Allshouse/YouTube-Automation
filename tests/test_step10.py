@@ -135,6 +135,33 @@ def test_review_sheet_renders_script() -> None:
     assert "TITLES:" in sheet and "SOURCES (6)" in sheet and "AI DISCLOSURE: no" in sheet
 
 
+def test_review_sheet_shows_formula_and_preview(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    import os
+
+    monkeypatch.setattr(queue, "REPO_ROOT", tmp_path)
+    (tmp_path / "data" / "scripts").mkdir(parents=True)
+    script_file = tmp_path / "data" / "scripts" / "v-p.yaml"
+    script_file.write_text("x", encoding="utf-8")
+    preview = tmp_path / "output" / "dev" / "v-p" / "v-p.mp4"
+    preview.parent.mkdir(parents=True)
+    preview.write_bytes(b"")
+    video = {
+        "id": "v-p",
+        "channel_id": "atlas",
+        "format": "short",
+        "state": "scripted",
+        "arm_id": "map-oddities|short|statement|s45|maps-heavy",
+        "script_path": "data/scripts/v-p.yaml",
+    }
+    os.utime(script_file, (1, 1))
+    sheet = queue.render_review(video, load_script(DEMO_SCRIPT))
+    assert "FORMULA (bandit arm): map-oddities|short|statement|s45|maps-heavy" in sheet
+    assert "PREVIEW: output/dev/v-p/v-p.mp4" in sheet and "re-render" not in sheet
+    os.utime(script_file, None)
+    os.utime(preview, (1, 1))
+    assert "re-render before judging" in queue.render_review(video, load_script(DEMO_SCRIPT))
+
+
 def test_queue_cli_list_and_show(tmp_path: Path) -> None:
     p = tmp_path / "q.sqlite"
     conn = dbm.connect(p)

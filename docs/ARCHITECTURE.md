@@ -77,6 +77,7 @@ no-op, so cron runs and crashes resume safely.
 | Production | `src/production/{script,produce}.py` | script model, orchestrator, word-anchored visuals |
 | Quality | `src/quality/{frames,inspect}.py` (+ checks, step 13) | contact sheets, key frames |
 | Research, compliance, review, publish, analytics, learning | `src/research/*`, `src/compliance/*`, `src/review/*`, `src/publish/*`, `src/analytics/*`, `src/learning/*` | built in steps 9-12 |
+| Learning loop | `src/learning/arms.py`, `src/learning/bandit.py plan` | arm derived from each script in code; factored Thompson sampling picks the next formulas (ADR-034) |
 | Dashboard | `src/dashboard/{score,collect,svg,render,build}.py` | success scoring (VPI, channel, portfolio, levers), read-only collection, static script-free HTML (ADR-033) |
 
 ## Agent ↔ script interfaces
@@ -93,7 +94,7 @@ Agents never execute generated shell. They call fixed entry points (allowed in `
 ## Production pipeline (`src/production/produce.py`)
 1. Load + validate script and channel.
 2. Narrate each segment in one pass (Kokoro, cached) → cut into sentences at the model's word timings → lay out with natural pauses.
-3. Scene starts = first spoken word of each segment − 0.12 s (min 1.2 s scenes); resolve `at_word`, `until_word`, `count_at_word`, `reveal_words` anchors.
+3. Scene starts = first spoken word of each segment − 0.12 s (min 1.2 s scenes); resolve `at_word`, `until_word`, `count_at_word`, `reveal_words` anchors (and `at_word` on diagram nodes/edges and map markers/moves/paths, element-relative).
 4. Validate the scene spec; generate music with risers on cuts; master to -14 LUFS / ≤ -1 dBTP.
 5. Render in parallel → MP4 with audio; write manifest (spec, script, theme, seed, music arrangement, mix + render reports).
 6. Review assets: contact sheet, key frames, audio image, analysis JSON.

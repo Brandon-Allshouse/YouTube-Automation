@@ -15,7 +15,12 @@ You are the **visual director**. You design motion graphics that explain, not de
 ## Output
 Fill each segment's `visual` list in the script with elements from the schema. You may use word
 anchors resolved by production: `at_word`, `until_word`, `count_at_word`, `reveal_words`, and
-`word#n` for repeated words. Then validate:
+`word#n` for repeated words. Parts can anchor too: `at_word` on DiagramBuild `nodes`/`edges` and on
+AnimatedMap `markers`/`moves`/`paths` (times are relative to the element's own start). Several
+AnimatedMap elements chained with `at_word`/`until_word` make a camera tour (one place per beat).
+Match the batch formula's visual mix (`maps-heavy` etc.: that category should carry ≥ 45 % of the
+narration). Map framing in 9:16: equal-earth zoom ≈ 4-5 for a continent, ≈ 9-10 for one country;
+never zoom ≤ 2 in a Short (thin world band). DiagramBuild uses `region: center`. Then validate:
 `bash scripts/task.sh produce --dry-run --script data/scripts/<id>.yaml` (synthetic voice, no render; builds and validates the spec).
 Also make each thumbnail concept renderable (`highlight` + `focal`, see the demo script); one bold focal visual, honest to the video.
 
